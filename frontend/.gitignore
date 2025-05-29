@@ -22,3 +22,24 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+
+# Environnements virtuels
+venv/
+env/
+
+# React / Node
+node_modules/
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store

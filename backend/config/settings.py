@@ -11,36 +11,25 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import sys
 import os
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Ajouter dossier portfolio au path (si besoin)
+import sys
 sys.path.append(os.path.join(BASE_DIR, 'Portfolio'))
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-2_$k2d+2h%j*t*08+$w+5xkda@3xjelzgfn4n)a=um2_5=2(=)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-#CORS_ALLOWED_ORIGINS = [
-#    "http://localhost:5173", # Si votre React tourne sur le port 3000
-#    "http://127.0.0.1:3000",
-    # Ajoutez ici l'URL de votre frontend en production
-#]
-
+DEBUG = True  # Pense à passer False en production
 
 ALLOWED_HOSTS = [
-    "portfolio-backend-6e5m.onrender.com", 
+    "portfolio-backend-6e5m.onrender.com",
     "localhost",
-    "https://portfolio-oberraies-projects.vercel.app/",
-    "https://portfolio-backend-6e5m.onrender.com",
+    "127.0.0.1",
 ]
 
 # Application definition
@@ -56,7 +45,8 @@ INSTALLED_APPS = [
     "corsheaders",
 ]
 
-MIDDLEWARE += [
+MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",  # Doit être en premier
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -64,14 +54,13 @@ MIDDLEWARE += [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
+]
 
-] + MIDDLEWARE
-
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
-    "https://portfolio-oberraies-projects.vercel.app/", 
+    "https://portfolio-oberraies-projects.vercel.app",
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -96,8 +85,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -105,49 +92,29 @@ DATABASES = {
     }
 }
 
-
 # Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# Email configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
