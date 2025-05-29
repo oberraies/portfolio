@@ -37,6 +37,8 @@ DEBUG = True
 
 CORS_ALLOW_ALL_ORIGINS = False
 
+ALLOWED_HOSTS = ["portfolio-backend-6e5m.onrender.com", "localhost"]
+
 # Application definition
 
 INSTALLED_APPS = [
