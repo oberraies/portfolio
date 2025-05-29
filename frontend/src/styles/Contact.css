@@ -1,0 +1,230 @@
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.contact-container{
+    min-height: 100vh;
+    background-image: url('../assets/background.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    padding: 10vh 20px;
+    box-sizing: border-box;
+}
+
+.contact-info {
+    width: 50%;
+    text-align: right;
+    padding-right: 30px;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+
+.left-divider {
+    width: 60%;
+    border: 1px solid white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: 0;
+    opacity : 0.5;
+}
+
+.right-divider {
+    width: 60%;
+    border: 1px solid white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: auto;
+    margin-left: 0;
+    opacity : 0.5;
+}
+
+.contact-info p{
+    color: black;
+    margin-bottom: 50px;
+}
+
+.contact-name-block, .contact-address-block , .contact-tel-block, .contact-mail-block, .contact-linkedin-block{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap : 10px;
+}
+
+.contact-linkedin-block a{
+    text-decoration: none;
+    color: white;
+}
+
+.contact-form-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 30px;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+
+.contact-input{
+    width: 60%;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: white;
+    outline: none;
+}
+
+.contact-form-container .contact-input::placeholder, .contact-form-container .contact-textarea::placeholder {
+    color: #384438;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.contact-form-container .contact-textarea{
+    min-height: 100px;
+    resize: vertical;
+    font-size: 16px;
+    outline: none;
+}
+
+input[type="file"] {
+    color: transparent;
+}
+
+.contact-file-upload{
+    display: flex;
+    align-items: center;
+}
+
+.file-upload-row {
+    display : flex;
+    align-items: center;
+    gap : 8px;
+}
+
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    gap : 8px;
+    cursor: pointer;
+}
+
+.contact-input[type="file"] {
+    display: inline-block;
+    margin: 0;
+    width: auto;
+}
+
+.contact-input[type="file"]::file-selector-button {
+    background-color: transparent;
+    border: 1px solid #384438;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+}
+
+.contact-input[type="file"]::file-selector-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #384438;
+}
+
+.reset-files-icon {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.file-count-text {
+    line-height: 1;
+}
+
+.uploaded-files ul {
+    list-style-type: none;
+}
+
+.uploaded-files li {
+    display: flex;
+    align-items: center;
+}
+
+.uploaded-files li::before {
+    content: "-";
+    margin-right: 5px;
+}
+
+.file-item{
+    display: flex;
+    align-items: center;
+    gap: 10px ;
+}
+
+.file-remove-icon {
+    cursor: pointer;
+    color: rgb(114, 5, 5);
+}
+
+.submit-button-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.submit-button {
+    background-color: transparent;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid #384438;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+.submit-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #384438;
+}
+
+.error-message, .success-message {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    /*color: rgb(114, 5, 5);*/
+    /*background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;*/
+    color: white;
+    padding: 5px 10px;
+    z-index: 1000;
+    text-align: center;
+    animation: fadeOut 2s forwards;
+}

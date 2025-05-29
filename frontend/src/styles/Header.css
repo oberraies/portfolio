@@ -1,0 +1,85 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.5);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*padding: 0.5rem;*/
+    padding: 10px 20px;
+    z-index: 1000;
+    box-sizing: border-box;
+    height: 40px;
+  }
+  
+  .logo-container{
+    margin-left: 40px;
+  }
+  
+  .header a {
+    all: unset;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .header a:hover{
+    color: #667e66;
+  }
+  
+  .nav {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  a:visited, a:active, a:focus {
+      color: white;
+      text-decoration: none;
+  }
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    right: 2rem;
+  }
+  
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 4px 0;
+    border-radius: 2px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* Cache les liens de navigation sur mobile */
+      flex-direction: column; /* Les liens seront empilés verticalement quand visibles */
+      width: 100%; /* Les liens occuperont toute la largeur de l'écran */
+      gap: 1rem; /* Espacement entre les liens */
+      margin-top: 50px; /* Décale les liens un peu plus bas pour ne pas chevaucher le header */
+    }
+  
+    .nav.active .nav-links {
+      display: flex; /* Affiche les liens quand la classe "active" est ajoutée */
+    }
+  
+    .hamburger {
+      display: flex; /* Affiche le hamburger en mode mobile */
+    }
+  }
