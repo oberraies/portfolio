@@ -35,9 +35,13 @@ DEBUG = True
     # Ajoutez ici l'URL de votre frontend en production
 #]
 
-CORS_ALLOW_ALL_ORIGINS = False
 
-ALLOWED_HOSTS = ["portfolio-backend-6e5m.onrender.com", "localhost"]
+ALLOWED_HOSTS = [
+    "portfolio-backend-6e5m.onrender.com", 
+    "localhost",
+    "https://portfolio-oberraies-projects.vercel.app/",
+    "https://portfolio-backend-6e5m.onrender.com",
+]
 
 # Application definition
 
@@ -52,7 +56,7 @@ INSTALLED_APPS = [
     "corsheaders",
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE += [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -62,9 +66,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "corsheaders.middleware.CorsMiddleware",
 
-]
+] + MIDDLEWARE
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://portfolio-oberraies-projects.vercel.app/", 
+]
 
 ROOT_URLCONF = 'config.urls'
 
