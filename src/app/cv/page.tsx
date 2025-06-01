@@ -182,11 +182,11 @@ export default function CVPage() {
                       <skill.icon className="h-6 w-6 mr-2 text-primary" />
                       <span className={cn("text-lg font-medium", "font-body")}>{skill.name}</span>
                     </div>
-                    <span className={cn("text-sm text-accent font-semibold", "font-body")}>{skill.level}%</span>
+                    <span className={cn("text-sm text-buttonCustom font-semibold", "font-body")}>{skill.level}%</span>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2.5">
                     <div 
-                      className="bg-accent h-2.5 rounded-full" 
+                      className="bg-buttonCustom h-2.5 rounded-full" 
                       style={{ width: `${skill.level}%` }}
                     ></div>
                   </div>
