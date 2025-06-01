@@ -1,8 +1,11 @@
 
+'use client';
+
+import { useState } from 'react';
 import { PageHeader } from '@/components/shared/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Download, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter, BookOpen } from 'lucide-react';
+import { Briefcase, Download, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter, BookOpen, ChevronRight, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -15,7 +18,7 @@ const education = [
   },
 ];
 
-const experience = [
+const experienceData = [ // Renamed to avoid conflict with useState variable
   {
     role: 'Chef de service - Développeur Excel VBA Sénior',
     company: "Caisse Nationale d'Assurance Maladie",
@@ -108,6 +111,15 @@ const trainingActivities = [
 ];
 
 export default function CVPage() {
+  const [openExperiences, setOpenExperiences] = useState<Record<number, boolean>>({});
+
+  const toggleExperience = (index: number) => {
+    setOpenExperiences(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
   return (
     <div>
       <PageHeader 
@@ -135,8 +147,8 @@ export default function CVPage() {
               <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardHeader>
                   <CardTitle className={cn("text-xl", "font-headline")}>{edu.degree}</CardTitle>
-                  <CardDescription className={cn("text-md text-primary", "font-body")}>
-                    {edu.institution} {edu.period && `| ${edu.period}`}
+                  <CardDescription className={cn("text-md", "font-body")}>
+                    <span className="text-primary">{edu.institution}</span> {edu.period && `| ${edu.period}`}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -153,21 +165,36 @@ export default function CVPage() {
             <Briefcase className="mr-3 h-8 w-8" /> Expérience Professionnelle
           </h2>
           <div className="space-y-6">
-            {experience.map((exp, index) => (
+            {experienceData.map((exp, index) => (
               <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
-                  <CardTitle className={cn("text-xl", "font-headline")}>{exp.role}</CardTitle>
-                  <CardDescription className={cn("text-md text-primary", "font-body")}>
-                    {exp.company} | {exp.period}
-                  </CardDescription>
+                <CardHeader 
+                  className="cursor-pointer" 
+                  onClick={() => toggleExperience(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleExperience(index)}
+                  aria-expanded={!!openExperiences[index]}
+                  aria-controls={`experience-content-${index}`}
+                >
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <CardTitle className={cn("text-xl", "font-headline")}>{exp.role}</CardTitle>
+                      <CardDescription className={cn("text-md", "font-body")}>
+                        <span className="text-primary">{exp.company}</span> | <span className="text-primary">{exp.period}</span>
+                      </CardDescription>
+                    </div>
+                    {openExperiences[index] ? <ChevronDown className="h-6 w-6 text-primary" /> : <ChevronRight className="h-6 w-6 text-primary" />}
+                  </div>
                 </CardHeader>
-                <CardContent>
-                  <ul className="list-disc list-outside pl-5 space-y-1 text-muted-foreground">
-                    {exp.responsibilities.map((resp, i) => (
-                      <li key={i} className="font-body">{resp}</li>
-                    ))}
-                  </ul>
-                </CardContent>
+                {openExperiences[index] && (
+                  <CardContent id={`experience-content-${index}`}>
+                    <ul className="list-disc list-outside pl-5 space-y-1 text-muted-foreground">
+                      {exp.responsibilities.map((resp, i) => (
+                        <li key={i} className="font-body">{resp}</li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                )}
               </Card>
             ))}
           </div>
@@ -230,4 +257,3 @@ export default function CVPage() {
     </div>
   );
 }
-
