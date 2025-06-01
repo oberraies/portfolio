@@ -104,7 +104,7 @@ export default function CVPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                  <ul className="list-disc list-outside pl-5 space-y-1 text-muted-foreground">
                     {exp.responsibilities.map((resp, i) => (
                       <li key={i} className="font-body">{resp}</li>
                     ))}
