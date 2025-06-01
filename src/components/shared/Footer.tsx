@@ -1,3 +1,4 @@
+
 import { Mail, Linkedin, Github, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from "@/lib/utils";
@@ -20,7 +21,10 @@ export function Footer() {
             <span className="hidden sm:inline">-</span>
             <a
               href="mailto:oberraies@gmail.com"
-              className="flex items-center justify-center md:justify-start space-x-1 hover:text-primary transition-colors mt-1 sm:mt-0"
+              className={cn(
+                "flex items-center justify-center md:justify-start space-x-1 mt-1 sm:mt-0",
+                "text-muted-foreground hover:text-primary transition-colors duration-300 ease-in-out"
+              )}
             >
               <Mail className="h-4 w-4" />
               <span>oberraies@gmail.com</span>
@@ -33,7 +37,7 @@ export function Footer() {
           <Link href="mailto:oberraies@gmail.com" passHref legacyBehavior>
             <a
               aria-label="Envoyer un email"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 ease-in-out"
             >
               <Mail className="h-6 w-6" />
             </a>
@@ -43,7 +47,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Profil LinkedIn d'Oussama Berraies"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 ease-in-out"
             >
               <Linkedin className="h-6 w-6" />
             </a>
@@ -53,7 +57,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Profil GitHub d'Oussama Berraies"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 ease-in-out"
             >
               <Github className="h-6 w-6" />
             </a>
