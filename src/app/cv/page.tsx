@@ -9,21 +9,21 @@ const education = [
   {
     degree: 'Licence fondamentale en informatique de gestion',
     institution: 'Faculté des Sciences économique et de Gestion de Tunis',
-    period: '', // Période à compléter si vous le souhaitez
+    period: '', 
     description: 'Conception et développement d’applications informatiques orientées vers la gestion des entreprises.',
   },
 ];
 
 const experience = [
   {
-    role: 'Développeur Web Senior',
-    company: 'Tech Solutions Inc.',
-    period: '2021 - Présent',
+    role: 'Chef de service - Développeur Excel VBA Sénior',
+    company: "Caisse Nationale d'assurance Maladie",
+    period: "2021 - Aujourd'hui",
     responsibilities: [
-      'Direction technique de projets web innovants.',
-      'Développement d\'APIs RESTful et GraphQL robustes.',
-      'Optimisation des performances et de la sécurité des applications.',
-      'Mentorât des développeurs juniors.',
+      'Développement d’applications sous Excel, analyse, extraction et transformation des données.',
+      'Création de codes favorisant les automatisations des tâches et process.',
+      'Reporting, statistiques et apurements.',
+      'Technologies : Excel VBA – Oracle forms – PL/SQL – SQL Developer – Mysql',
     ],
   },
   {
