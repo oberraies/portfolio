@@ -157,7 +157,7 @@ export default function CVPage() {
               <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardHeader>
                   <CardTitle className={cn("text-xl", "font-headline")}>{exp.role}</CardTitle>
-                  <CardDescription className={cn("text-md text-buttonCustom-foreground", "font-body")}>
+                  <CardDescription className={cn("text-md text-buttonCustom", "font-body")}>
                     {exp.company} | {exp.period}
                   </CardDescription>
                 </CardHeader>
@@ -187,7 +187,7 @@ export default function CVPage() {
                       <skill.icon className="h-6 w-6 mr-2 text-primary" />
                       <span className={cn("text-base font-medium", "font-body")}>{skill.name}</span>
                     </div>
-                    <span className={cn("text-sm text-buttonCustom-foreground font-semibold", "font-body")}>{skill.level}%</span>
+                    <span className={cn("text-sm text-buttonCustom font-semibold", "font-body")}>{skill.level}%</span>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2.5">
                     <div 
@@ -230,3 +230,4 @@ export default function CVPage() {
     </div>
   );
 }
+
