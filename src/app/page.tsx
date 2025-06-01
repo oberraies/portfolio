@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -18,11 +19,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="text-center py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10 rounded-lg shadow-xl">
         <div className="container mx-auto px-4">
-          <h1 className={cn("text-5xl md:text-7xl font-bold tracking-tight text-primary mb-6", "font-headline")}>
-            Bonjour, je suis <span className="text-accent">Votre Nom</span>
+          <h1 className={cn("text-5xl md:text-7xl font-bold tracking-tight mb-6", "font-headline")}>
+            <span className="text-foreground">Bonjour, je suis </span><span className="text-primary-foreground">Oussama Berraies</span>
           </h1>
           <p className={cn("text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8", "font-body")}>
-            Développeur Web Full-Stack & Designer UI/UX passionné par la création d'expériences numériques innovantes et performantes.
+            Data Analyst, Développeur Excel VBA et Formateur. J’automatise les processus, conçois des applications sur mesure et transforme les données en tableaux de bord interactifs pour une prise de décision rapide et efficace.
           </p>
           <div className="space-x-4">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
