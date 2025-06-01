@@ -10,12 +10,14 @@ export function Footer() {
       <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-sm">
         {/* Left Side */}
         <div className={cn("text-muted-foreground mb-4 md:mb-0 text-center md:text-left", "font-body")}>
-          <p>&copy; {currentYear} Oussama Berraies</p>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mt-1 justify-center md:justify-start">
-            <div className="flex items-center justify-center md:justify-start space-x-1">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-3 justify-center md:justify-start">
+            <span>&copy; {currentYear} Oussama Berraies</span>
+            <span className="hidden sm:inline">-</span>
+            <div className="flex items-center justify-center md:justify-start space-x-1 mt-1 sm:mt-0">
               <Phone className="h-4 w-4 text-muted-foreground" />
               <span>(+216) 99 44 28 79</span>
             </div>
+            <span className="hidden sm:inline">-</span>
             <a
               href="mailto:oberraies@gmail.com"
               className="flex items-center justify-center md:justify-start space-x-1 hover:text-primary transition-colors mt-1 sm:mt-0"
