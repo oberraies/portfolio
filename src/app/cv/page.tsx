@@ -180,7 +180,7 @@ export default function CVPage() {
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center">
                       <skill.icon className="h-6 w-6 mr-2 text-primary" />
-                      <span className={cn("text-lg font-medium", "font-body")}>{skill.name}</span>
+                      <span className={cn("text-base font-medium", "font-body")}>{skill.name}</span>
                     </div>
                     <span className={cn("text-sm text-buttonCustom font-semibold", "font-body")}>{skill.level}%</span>
                   </div>
