@@ -37,6 +37,17 @@ const experience = [
       'Élaboration de rapports et HealthChecks pour les différents utilisateurs.',
     ],
   },
+  {
+    role: 'Sous-chef de service',
+    company: 'Caisse Nationale d’Assurance Maladie (CNAM)',
+    period: '06/2008 – 12/2019',
+    responsibilities: [
+      'Gestion des demandes d’accord préalable.',
+      'Gestion des demandes d’admission pour les affection prises en charge intégralement.',
+      'Développement d’applications sous Excel / VBA (Suivi des présences, heures supplémentaires, congés…, gestion des demandes et édition des décisions de prises en charge pour dialyse péritonéale…)',
+      'Formulaires et interfaces Oracle forms',
+    ],
+  },
 ];
 
 const skills = [
