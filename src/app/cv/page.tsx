@@ -1,8 +1,8 @@
 
 import { PageHeader } from '@/components/shared/PageHeader';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Download, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Briefcase, Download, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter, BookOpen } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const education = [
@@ -81,6 +81,25 @@ const skills = [
   { name: 'Expérience utilisateur', level: 90, icon: UserCheck },
   { name: 'Automatisation de rapports / reporting', level: 90, icon: FilePieChart },
   { name: 'Nettoyage et transformation des données', level: 90, icon: Filter },
+];
+
+const trainingActivities = [
+  {
+    title: 'Formation Excel initiation',
+    buttonLabel: 'Voir le programme',
+  },
+  {
+    title: 'Formation Excel avancé',
+    buttonLabel: 'Voir le programme',
+  },
+  {
+    title: 'Formation Excel expert',
+    buttonLabel: 'Voir le programme',
+  },
+  {
+    title: 'Formation Excel VBA',
+    buttonLabel: 'Voir le programme',
+  },
 ];
 
 export default function CVPage() {
@@ -172,6 +191,30 @@ export default function CVPage() {
                     ></div>
                   </div>
                 </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Training Activities Section */}
+        <section>
+          <h2 className={cn("text-3xl font-bold mb-8 text-primary flex items-center", "font-headline")}>
+            <BookOpen className="mr-3 h-8 w-8" /> Activités de formation professionnelle
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {trainingActivities.map((activity, index) => (
+              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                <CardHeader>
+                  <CardTitle className={cn("text-xl", "font-headline")}>{activity.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  {/* Vous pouvez ajouter une brève description ici si nécessaire */}
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                    {activity.buttonLabel}
+                  </Button>
+                </CardFooter>
               </Card>
             ))}
           </div>
