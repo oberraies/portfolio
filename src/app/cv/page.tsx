@@ -73,13 +73,13 @@ const experience = [
 ];
 
 const skills = [
-  { name: 'Excel (formules avancées, TCD)', level: 95, icon: FileSpreadsheet },
-  { name: 'VBA (automatisations, ADO, UserForms)', level: 95, icon: Code },
+  { name: 'Excel (formules avancées, tableaux croisés)', level: 95, icon: FileSpreadsheet },
+  { name: 'VBA (automatisations, ADO, formulaires)', level: 95, icon: Code },
   { name: 'Access (requêtes SQL, formulaires)', level: 95, icon: Database },
-  { name: 'SQL (jointures, filtrage, SGBD)', level: 90, icon: Database },
+  { name: 'SQL (requêtes, jointures, filtrage, bases Access/SQL Server)', level: 90, icon: Database },
   { name: 'Tableaux de bord dynamiques', level: 90, icon: LayoutDashboard },
-  { name: 'Expérience utilisateur (UX)', level: 90, icon: UserCheck },
-  { name: 'Automatisation de rapports', level: 90, icon: FilePieChart },
+  { name: 'Expérience utilisateur', level: 90, icon: UserCheck },
+  { name: 'Automatisation de rapports / reporting', level: 90, icon: FilePieChart },
   { name: 'Nettoyage et transformation des données', level: 90, icon: Filter },
 ];
 
@@ -104,7 +104,7 @@ export default function CVPage() {
         {/* Education Section */}
         <section>
           <h2 className={cn("text-3xl font-bold mb-6 text-primary flex items-center", "font-headline")}>
-            <GraduationCap className="mr-3 h-8 w-8" /> Formation
+            <GraduationCap className="mr-3 h-8 w-8" /> Parcours et formation
           </h2>
           <div className="space-y-6">
             {education.map((edu, index) => (
