@@ -42,12 +42,12 @@ export default function HomePage() {
           <div className="md:flex">
             <div className="md:w-1/3">
               <Image
-                src="https://placehold.co/600x800.png" /* MODIFIÉ ICI */
-                alt="Photo de test"
+                src="/photo-profil.jpg"
+                alt="Photo de Oussama Berraies"
                 width={600}
                 height={800}
                 className="object-cover h-full w-full"
-                data-ai-hint="placeholder image"
+                data-ai-hint="profile photo"
               />
             </div>
             <div className="md:w-2/3 p-8 md:p-12">
