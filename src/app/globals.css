@@ -4,81 +4,83 @@
 
 @layer base {
   :root {
-    /* Fallback background color if image fails. Image is dark green. */
-    --background: 86 33% 18%; /* Dark olive green */
-    --foreground: 0 0% 100%; /* White text */
+    /* Couleur de fond de secours si l'image ne se charge pas. Basée sur l'image fournie. */
+    --background: 86 33% 18%; /* Vert olive foncé */
+    --foreground: 0 0% 100%; /* Texte blanc */
 
-    /* Cards: Darker, slightly transparent background, white text */
-    --card: 86 30% 15% / 0.85; /* Darker olive, semi-transparent */
-    --card-foreground: 0 0% 100%; /* White text */
+    /* Cartes: Fond plus sombre, légèrement transparent, texte blanc */
+    --card: 86 30% 15% / 0.85; /* Olive plus foncé, semi-transparent */
+    --card-foreground: 0 0% 100%; /* Texte blanc */
 
-    /* Popovers: Similar to cards */
+    /* Popovers: Similaire aux cartes */
     --popover: 86 30% 15% / 0.9;
     --popover-foreground: 0 0% 100%;
 
-    /* Primary and Accent colors are lightened for better visibility as text, their foregrounds remain white */
-    --primary: 174 70% 55%; /* Lighter Teal */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
+    /* Couleurs primaires et d'accentuation éclaircies pour une meilleure visibilité en tant que texte, leurs fonds restent blancs */
+    --primary: 174 70% 55%; /* Sarcelle/Turquoise clair */
+    --primary-foreground: 0 0% 100%; /* Texte blanc sur la couleur primaire */
 
-    --accent: 48 85% 60%; /* Gold-ish Yellow */
-    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --accent: 48 85% 60%; /* Jaune doré */
+    --accent-foreground: 0 0% 100%; /* Texte blanc sur la couleur d'accentuation */
 
-    /* Secondary: Darker background, white text */
-    --secondary: 86 25% 25% / 0.7; /* Dark olive, semi-transparent for secondary elements */
+    /* Secondaire: Fond plus sombre, texte blanc */
+    --secondary: 86 25% 25% / 0.7; /* Olive foncé, semi-transparent pour les éléments secondaires */
     --secondary-foreground: 0 0% 100%; 
 
-    /* Muted: Background similar to secondary, lighter foreground for muted text */
+    /* Muted: Fond similaire à secondaire, premier plan plus clair pour le texte estompé */
     --muted: 86 25% 25% / 0.6;
-    --muted-foreground: 0 0% 80%; /* Lighter gray for muted text */
+    --muted-foreground: 0 0% 80%; /* Gris plus clair pour le texte estompé */
 
-    --destructive: 0 70% 55%; /* Adjusted for better visibility */
+    --destructive: 0 70% 55%; /* Ajusté pour une meilleure visibilité */
     --destructive-foreground: 0 0% 100%;
 
-    /* Borders and Inputs */
-    --border: 0 0% 50%; /* Mid-gray for borders */
-    --input: 86 25% 20% / 0.7; /* Darker olive for input background */
-    --ring: 48 85% 60%; /* Gold-ish Yellow for rings */
+    /* Bordures et Champs de saisie */
+    --border: 0 0% 50%; /* Gris moyen pour les bordures */
+    --input: 86 25% 20% / 0.7; /* Olive plus foncé pour le fond des champs de saisie */
+    --ring: 48 85% 60%; /* Jaune doré pour les indicateurs de focus (ring) */
     
     --radius: 0.5rem;
 
-    /* Chart colors, adjusted for visibility on the new background */
+    /* Couleurs des graphiques, ajustées pour la visibilité sur le nouveau fond */
     --chart-1: 12 76% 71%; 
     --chart-2: 173 58% 69%;
     --chart-3: 197 37% 54%;
     --chart-4: 43 74% 76%; 
     --chart-5: 27 87% 77%;
 
-    /* Sidebar specific colors, assuming sidebar might be on a compatible dark color or also show the background */
-    --sidebar-background: 86 30% 12% / 0.95; /* Darker olive, more opaque */
+    /* Couleurs spécifiques à la barre latérale */
+    --sidebar-background: 86 30% 12% / 0.95; /* Olive plus foncé, plus opaque */
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 174 70% 55%; /* Lighter Teal */
+    --sidebar-primary: 174 70% 55%; 
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 48 85% 60%; /* Gold-ish Yellow */
+    --sidebar-accent: 48 85% 60%; 
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 0 0% 35%;
-    --sidebar-ring: 48 85% 60%; /* Gold-ish Yellow for rings */
+    --sidebar-ring: 48 85% 60%; 
   }
 
-  .dark { /* Dark mode will still use its own specific values, may need future review if used with this background */
+  .dark { 
+    /* Le mode sombre utilisera toujours ses propres valeurs spécifiques. */
+    /* Peut nécessiter une révision future si utilisé avec ce fond. */
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 174 70% 45%; /* Adjusted Teal for dark mode */
+    --primary: 174 70% 45%; 
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 48 85% 50%; /* Adjusted Gold-ish Yellow for dark mode */
+    --accent: 48 85% 50%; 
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
-    --ring: 48 85% 50%; /* Adjusted Gold-ish Yellow for dark mode rings */
+    --ring: 48 85% 50%; 
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -86,12 +88,12 @@
     --chart-5: 340 75% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 174 70% 48%; /* Adjusted Teal for dark mode sidebar */
+    --sidebar-primary: 174 70% 48%; 
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 48 85% 50%; /* Adjusted Gold-ish Yellow for dark mode sidebar accent */
+    --sidebar-accent: 48 85% 50%; 
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 174 70% 50%; /* Adjusted Teal for dark mode sidebar ring */
+    --sidebar-ring: 174 70% 50%; 
   }
 }
 
@@ -106,6 +108,6 @@
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    min-height: 100vh; /* Ensure body covers full viewport height */
+    min-height: 100vh; /* S'assure que le corps couvre toute la hauteur de la fenêtre */
   }
 }
