@@ -2,14 +2,14 @@
 import { PageHeader } from '@/components/shared/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Download, GraduationCap, Award, Code, Star } from 'lucide-react';
+import { Briefcase, Download, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const education = [
   {
     degree: 'Licence fondamentale en informatique de gestion',
     institution: 'Faculté des Sciences économique et de Gestion de Tunis',
-    period: '', 
+    period: '',
     description: 'Conception et développement d’applications informatiques orientées vers la gestion des entreprises.',
   },
 ];
@@ -73,13 +73,14 @@ const experience = [
 ];
 
 const skills = [
-  { name: 'JavaScript / TypeScript', level: 90, icon: Code },
-  { name: 'React / Next.js', level: 95, icon: Code },
-  { name: 'Node.js / Express', level: 85, icon: Code },
-  { name: 'Python / Django', level: 75, icon: Code },
-  { name: 'Bases de données (SQL, NoSQL)', level: 80, icon: Code },
-  { name: 'Docker / Kubernetes', level: 70, icon: Code },
-  { name: 'Figma / Adobe XD', level: 88, icon: Code },
+  { name: 'Excel (formules avancées, TCD)', level: 95, icon: FileSpreadsheet },
+  { name: 'VBA (automatisations, ADO, UserForms)', level: 95, icon: Code },
+  { name: 'Access (requêtes SQL, formulaires)', level: 95, icon: Database },
+  { name: 'SQL (jointures, filtrage, SGBD)', level: 90, icon: Database },
+  { name: 'Tableaux de bord dynamiques', level: 90, icon: LayoutDashboard },
+  { name: 'Expérience utilisateur (UX)', level: 90, icon: UserCheck },
+  { name: 'Automatisation de rapports', level: 90, icon: FilePieChart },
+  { name: 'Nettoyage et transformation des données', level: 90, icon: Filter },
 ];
 
 export default function CVPage() {
