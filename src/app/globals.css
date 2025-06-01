@@ -22,6 +22,7 @@
 
     --accent: 48 85% 60%; /* Jaune doré */
     --accent-foreground: 0 0% 100%; /* Texte blanc sur la couleur d'accentuation */
+    --accent-lighter: 48 85% 70%; /* Jaune doré plus clair */
 
     /* Secondaire: Fond plus sombre, texte blanc */
     --secondary: 86 25% 25% / 0.7; /* Olive foncé, semi-transparent pour les éléments secondaires */
@@ -76,6 +77,7 @@
     --muted-foreground: 0 0% 63.9%;
     --accent: 48 85% 50%; 
     --accent-foreground: 0 0% 100%;
+    --accent-lighter: 48 85% 60%; /* Jaune doré plus clair pour mode sombre */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;

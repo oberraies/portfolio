@@ -211,7 +211,7 @@ export default function CVPage() {
                   {/* Vous pouvez ajouter une brève description ici si nécessaire */}
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Button className="w-full bg-accent-lighter hover:bg-accent-lighter/90 text-accent-foreground">
                     {activity.buttonLabel}
                   </Button>
                 </CardFooter>
