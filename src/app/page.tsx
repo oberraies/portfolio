@@ -42,21 +42,18 @@ export default function HomePage() {
           <div className="md:flex">
             <div className="md:w-1/3">
               <Image
-                src="https://placehold.co/600x800.png"
-                alt="Votre Photo"
+                src="/photo-profil.jpg"
+                alt="Photo de Oussama Berraies"
                 width={600}
                 height={800}
                 className="object-cover h-full w-full"
-                data-ai-hint="professional portrait"
+                data-ai-hint="photo profil"
               />
             </div>
             <div className="md:w-2/3 p-8 md:p-12">
               <h2 className={cn("text-3xl md:text-4xl font-bold mb-6 text-primary", "font-headline")}>À propos de moi</h2>
               <p className={cn("text-lg text-foreground mb-4", "font-body")}>
-                Fort d'une expérience significative dans le développement d'applications web robustes et la conception d'interfaces utilisateur centrées sur l'utilisateur, je transforme des idées complexes en solutions numériques élégantes et fonctionnelles. Mon approche combine créativité technique et souci du détail pour offrir des produits qui non seulement répondent aux besoins, mais enchantent également les utilisateurs.
-              </p>
-              <p className={cn("text-lg text-foreground mb-6", "font-body")}>
-                Je suis constamment à l'affût des nouvelles technologies et des meilleures pratiques pour perfectionner mes compétences et apporter une valeur ajoutée à chaque projet.
+                Data Analyst et Développeur Excel VBA avec plus de 14 ans d'expérience en automatisation de processus et analyse de données. Expert en tableaux de bord interactifs, optimisation des flux et extraction de données complexes. Maîtrise de VBA, SQL et Excel pour transformer les données en insights exploitables, facilitant des décisions rapides et efficaces. Innovant, rigoureux et orienté résultats, je crée des solutions sur mesure pour optimiser la performance des équipes et entreprises.
               </p>
               <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
                 <Link href="/cv">Voir mon CV</Link>
