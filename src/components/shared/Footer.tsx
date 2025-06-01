@@ -21,10 +21,7 @@ export function Footer() {
             <span className="hidden sm:inline">-</span>
             <a
               href="mailto:oberraies@gmail.com"
-              className={cn(
-                "flex items-center justify-center md:justify-start space-x-1 mt-1 sm:mt-0",
-                "text-muted-foreground hover:text-primary transition-colors duration-300 ease-in-out"
-              )}
+              className="flex items-center justify-center md:justify-start space-x-1 mt-1 sm:mt-0 text-muted-foreground hover:text-primary transition-colors duration-300 ease-in-out"
             >
               <Mail className="h-4 w-4" />
               <span>oberraies@gmail.com</span>
