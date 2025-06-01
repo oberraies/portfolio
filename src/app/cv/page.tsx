@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { PageHeader } from '@/components/shared/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Download, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter, BookOpen, ChevronRight, ChevronDown } from 'lucide-react';
+import { Briefcase, Download, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter, BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -18,7 +18,7 @@ const education = [
   },
 ];
 
-const experienceData = [ // Renamed to avoid conflict with useState variable
+const experienceData = [ 
   {
     role: 'Chef de service - Développeur Excel VBA Sénior',
     company: "Caisse Nationale d'Assurance Maladie",
@@ -183,7 +183,7 @@ export default function CVPage() {
                         <span className="text-primary">{exp.company}</span> | <span className="text-primary">{exp.period}</span>
                       </CardDescription>
                     </div>
-                    {openExperiences[index] ? <ChevronDown className="h-6 w-6 text-primary" /> : <ChevronRight className="h-6 w-6 text-primary" />}
+                    {openExperiences[index] ? <ChevronUp className="h-6 w-6 text-primary" /> : <ChevronDown className="h-6 w-6 text-primary" />}
                   </div>
                 </CardHeader>
                 {openExperiences[index] && (
@@ -257,3 +257,5 @@ export default function CVPage() {
     </div>
   );
 }
+
+    
