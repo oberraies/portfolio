@@ -1,3 +1,4 @@
+
 import { PageHeader } from '@/components/shared/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -63,13 +64,13 @@ export default function CVPage() {
 
       <div className="text-center mb-12">
         <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-md transition-transform hover:scale-105">
-          <a href="/cv_portfolio_pro.pdf" download="CV_VotreNom.pdf">
+          <a href="/Oussama_Berraies.pdf" download="Oussama_Berraies.pdf">
             <Download className="mr-2 h-5 w-5" />
             Télécharger mon CV (PDF)
           </a>
         </Button>
         <p className={cn("text-sm text-muted-foreground mt-2", "font-body")}>
-          (Note: Vous devrez placer votre fichier CV nommé 'cv_portfolio_pro.pdf' dans le dossier 'public' de votre projet.)
+          (Note: Vous devrez placer votre fichier CV nommé 'Oussama_Berraies.pdf' dans le dossier 'public' de votre projet.)
         </p>
       </div>
 
