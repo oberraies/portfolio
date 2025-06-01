@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, Download, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter, BookOpen } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const education = [
   {
@@ -87,18 +88,22 @@ const trainingActivities = [
   {
     title: 'Formation Excel initiation',
     buttonLabel: 'Voir le programme',
+    pdfLink: '/formation-excel-initiation.pdf',
   },
   {
     title: 'Formation Excel avancé',
     buttonLabel: 'Voir le programme',
+    pdfLink: '/formation-excel-avance.pdf',
   },
   {
     title: 'Formation Excel expert',
     buttonLabel: 'Voir le programme',
+    pdfLink: '/formation-excel-expert.pdf',
   },
   {
     title: 'Formation Excel VBA',
     buttonLabel: 'Voir le programme',
+    pdfLink: '/formation-excel-vba.pdf',
   },
 ];
 
@@ -211,8 +216,10 @@ export default function CVPage() {
                   {/* Vous pouvez ajouter une brève description ici si nécessaire */}
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-buttonCustom hover:bg-buttonCustom/90 text-buttonCustom-foreground">
-                    {activity.buttonLabel}
+                  <Button asChild className="w-full bg-buttonCustom hover:bg-buttonCustom/90 text-buttonCustom-foreground">
+                    <Link href={activity.pdfLink} target="_blank" rel="noopener noreferrer">
+                      {activity.buttonLabel}
+                    </Link>
                   </Button>
                 </CardFooter>
               </Card>
@@ -223,3 +230,4 @@ export default function CVPage() {
     </div>
   );
 }
+
