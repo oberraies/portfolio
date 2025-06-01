@@ -18,9 +18,8 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="text-center py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-accent/10 rounded-lg shadow-lg">
         <div className="container mx-auto px-4">
-          <h1 className={cn("text-5xl md:text-7xl font-bold tracking-tight mb-6", "font-headline")}>
-            <span className="block">Bonjour, je suis</span>
-            <span className="block text-primary mt-2">Votre Nom</span>
+          <h1 className={cn("text-3xl md:text-4xl font-bold tracking-tight mb-6", "font-headline")}>
+            Bonjour, je suis <span className="text-primary">Oussama Berraies</span>, Data Analyst et Développeur Excel VBA. J'excelle dans l'automatisation des processus et la création de tableaux de bord interactifs, transformant des données complexes en insights exploitables pour des décisions rapides et efficaces.
           </h1>
           <p className={cn("text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8", "font-body")}>
             Développeur Web Full-Stack & Designer UI/UX passionné par la création d'expériences numériques innovantes et performantes.
