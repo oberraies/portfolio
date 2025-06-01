@@ -27,13 +27,14 @@ const experience = [
     ],
   },
   {
-    role: 'Développeur Full-Stack',
-    company: 'Startup Innovante',
-    period: '2020 - 2021',
+    role: 'Technicien support applicatif',
+    company: 'Quanta (indépendant)',
+    period: '2022 - 2023',
     responsibilities: [
-      'Conception et développement de fonctionnalités clés pour une plateforme SaaS.',
-      'Intégration de solutions tierces et maintenance évolutive.',
-      'Participation active aux méthodologies Agile (Scrum).',
+      'Suivi des tickets (Notion, ClickUp, Hubspot), support client, rédaction des rapports.',
+      'Réponses aux mails, meeting clients pour fournir des réponses et guider les utilisateurs sur la plateforme.',
+      'Connexion avec les développeurs afin de proposer des améliorations ou demander des détails.',
+      'Élaboration de rapports et HealthChecks pour les différents utilisateurs.',
     ],
   },
 ];
