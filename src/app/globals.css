@@ -60,8 +60,8 @@
     --sidebar-ring: 48 85% 60%;
 
     /* Custom button color */
-    --button-custom-background: 120 10% 45%; /* #667e66 */
-    --button-custom-foreground: 0 0% 100%; /* white */
+    --button-custom-background: 121 10% 45%; /* #677e67 */
+    --button-custom-foreground: 81 15% 18%; /* #29331c */
   }
 
   .dark { 
@@ -101,9 +101,9 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 45 14% 80%;
 
-    /* Custom button color for dark theme - using same as light for now */
-    --button-custom-background: 120 10% 45%; /* #667e66 */
-    --button-custom-foreground: 0 0% 100%; /* white */
+    /* Custom button color for dark theme */
+    --button-custom-background: 121 10% 45%; /* #677e67 */
+    --button-custom-foreground: 81 15% 18%; /* #29331c */
   }
 }
 
