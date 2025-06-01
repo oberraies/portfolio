@@ -17,10 +17,10 @@
     --popover-foreground: 0 0% 100%;
 
     /* Primary and Accent colors are lightened for better visibility as text, their foregrounds remain white */
-    --primary: 261 65% 70%; /* Lighter Deep purple */
+    --primary: 174 70% 55%; /* Lighter Teal */
     --primary-foreground: 0 0% 100%; /* White text on primary */
 
-    --accent: 174 70% 55%; /* Lighter Teal */
+    --accent: 48 85% 60%; /* Gold-ish Yellow */
     --accent-foreground: 0 0% 100%; /* White text on accent */
 
     /* Secondary: Darker background, white text */
@@ -37,7 +37,7 @@
     /* Borders and Inputs */
     --border: 0 0% 50%; /* Mid-gray for borders */
     --input: 86 25% 20% / 0.7; /* Darker olive for input background */
-    --ring: 174 70% 55%; /* Lighter Teal for rings */
+    --ring: 48 85% 60%; /* Gold-ish Yellow for rings */
     
     --radius: 0.5rem;
 
@@ -51,12 +51,12 @@
     /* Sidebar specific colors, assuming sidebar might be on a compatible dark color or also show the background */
     --sidebar-background: 86 30% 12% / 0.95; /* Darker olive, more opaque */
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 261 65% 70%;
+    --sidebar-primary: 174 70% 55%; /* Lighter Teal */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 174 70% 55%;
+    --sidebar-accent: 48 85% 60%; /* Gold-ish Yellow */
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 0 0% 35%;
-    --sidebar-ring: 174 70% 55%;
+    --sidebar-ring: 48 85% 60%; /* Gold-ish Yellow for rings */
   }
 
   .dark { /* Dark mode will still use its own specific values, may need future review if used with this background */
@@ -66,19 +66,19 @@
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 261 52% 55%; 
+    --primary: 174 70% 45%; /* Adjusted Teal for dark mode */
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 174 100% 39%; 
+    --accent: 48 85% 50%; /* Adjusted Gold-ish Yellow for dark mode */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
-    --ring: 174 100% 39%; 
+    --ring: 48 85% 50%; /* Adjusted Gold-ish Yellow for dark mode rings */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -86,12 +86,12 @@
     --chart-5: 340 75% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary: 174 70% 48%; /* Adjusted Teal for dark mode sidebar */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-accent: 48 85% 50%; /* Adjusted Gold-ish Yellow for dark mode sidebar accent */
+    --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 174 70% 50%; /* Adjusted Teal for dark mode sidebar ring */
   }
 }
 
