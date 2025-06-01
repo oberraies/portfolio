@@ -88,22 +88,22 @@ const trainingActivities = [
   {
     title: 'Formation Excel initiation',
     buttonLabel: 'Voir le programme',
-    pdfLink: '/plan_de_formation-excel-initiation.pdf',
+    pdfLink: '/plan_de_formation_excel_initiation.pdf',
   },
   {
     title: 'Formation Excel avancé',
     buttonLabel: 'Voir le programme',
-    pdfLink: '/plan_de_formation-excel-avance.pdf',
+    pdfLink: '/plan_de_formation_excel_avance.pdf',
   },
   {
     title: 'Formation Excel expert',
     buttonLabel: 'Voir le programme',
-    pdfLink: '/plan_de_formation-excel-expert.pdf',
+    pdfLink: '/plan_de_formation_excel_expert.pdf',
   },
   {
     title: 'Formation Excel VBA',
     buttonLabel: 'Voir le programme',
-    pdfLink: '/plan_de_formation-excel-vba.pdf',
+    pdfLink: '/plan_de_formation_excel_vba.pdf',
   },
 ];
 
@@ -230,4 +230,3 @@ export default function CVPage() {
     </div>
   );
 }
-
