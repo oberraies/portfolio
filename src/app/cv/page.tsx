@@ -157,7 +157,7 @@ export default function CVPage() {
               <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardHeader>
                   <CardTitle className={cn("text-xl", "font-headline")}>{exp.role}</CardTitle>
-                  <CardDescription className={cn("text-md text-buttonCustom", "font-body")}>
+                  <CardDescription className={cn("text-md text-primary", "font-body")}>
                     {exp.company} | {exp.period}
                   </CardDescription>
                 </CardHeader>
@@ -230,4 +230,3 @@ export default function CVPage() {
     </div>
   );
 }
-
