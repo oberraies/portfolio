@@ -17,7 +17,7 @@ const education = [
 const experience = [
   {
     role: 'Chef de service - Développeur Excel VBA Sénior',
-    company: "Caisse Nationale d'assurance Maladie",
+    company: "Caisse Nationale d'Assurance Maladie",
     period: "2021 - Aujourd'hui",
     responsibilities: [
       'Développement d’applications sous Excel, analyse, extraction et transformation des données.',
@@ -28,7 +28,7 @@ const experience = [
   },
   {
     role: 'Technicien support applicatif',
-    company: 'Quanta (indépendant)',
+    company: 'Quanta',
     period: '2022 - 2023',
     responsibilities: [
       'Suivi des tickets (Notion, ClickUp, Hubspot), support client, rédaction des rapports.',
