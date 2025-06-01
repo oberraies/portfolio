@@ -135,7 +135,7 @@ export default function CVPage() {
               <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardHeader>
                   <CardTitle className={cn("text-xl", "font-headline")}>{edu.degree}</CardTitle>
-                  <CardDescription className={cn("text-md text-accent", "font-body")}>
+                  <CardDescription className={cn("text-md text-primary", "font-body")}>
                     {edu.institution} {edu.period && `| ${edu.period}`}
                   </CardDescription>
                 </CardHeader>
@@ -230,3 +230,4 @@ export default function CVPage() {
     </div>
   );
 }
+
