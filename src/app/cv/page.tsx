@@ -7,16 +7,10 @@ import { cn } from '@/lib/utils';
 
 const education = [
   {
-    degree: 'Master en Ingénierie Logicielle',
-    institution: 'Université Prestigieuse',
-    period: '2018 - 2020',
-    description: 'Spécialisation en développement full-stack et intelligence artificielle.',
-  },
-  {
-    degree: 'Licence en Informatique',
-    institution: 'Institut Technologique Avancé',
-    period: '2015 - 2018',
-    description: 'Fondations solides en algorithmique, structures de données et systèmes d\'exploitation.',
+    degree: 'Licence fondamentale en informatique de gestion',
+    institution: 'Faculté des Sciences économique et de Gestion de Tunis',
+    period: '', // Période à compléter si vous le souhaitez
+    description: 'Conception et développement d’applications informatiques orientées vers la gestion des entreprises.',
   },
 ];
 
@@ -69,9 +63,6 @@ export default function CVPage() {
             Télécharger mon CV (PDF)
           </a>
         </Button>
-        <p className={cn("text-sm text-muted-foreground mt-2", "font-body")}>
-          (Note: Vous devrez placer votre fichier CV nommé 'Oussama_Berraies.pdf' dans le dossier 'public' de votre projet.)
-        </p>
       </div>
 
       <div className="space-y-12">
@@ -86,7 +77,7 @@ export default function CVPage() {
                 <CardHeader>
                   <CardTitle className={cn("text-xl", "font-headline")}>{edu.degree}</CardTitle>
                   <CardDescription className={cn("text-md text-accent", "font-body")}>
-                    {edu.institution} | {edu.period}
+                    {edu.institution} {edu.period && `| ${edu.period}`}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
