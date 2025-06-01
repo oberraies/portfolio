@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 export default function HomePage() {
   const skills = [
     { name: 'Développement VBA', icon: Code, description: 'Création de scripts et applications sur mesure avec une expérience utilisateur optimale' },
-    { name: 'UI/UX Design', icon: Lightbulb, description: 'Conception d\'interfaces utilisateur intuitives et esthétiques.' },
+    { name: 'Analyse de données', icon: Lightbulb, description: 'Transformer les données brutes en informations claires, utiles et exploitables.' },
     { name: 'Gestion de Projet', icon: Briefcase, description: 'Planification, exécution et suivi de projets digitaux.' },
     { name: 'Collaboration', icon: Users, description: 'Travail en équipe efficace et communication transparente.' },
   ];
