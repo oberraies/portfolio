@@ -48,6 +48,28 @@ const experience = [
       'Formulaires et interfaces Oracle forms',
     ],
   },
+  {
+    role: 'Data analyst et chargé de reporting',
+    company: 'LaSer Contact',
+    period: '08/2007 – 05/2008',
+    responsibilities: [
+      'Collecte, analyse et présentation des données.',
+      'Statistiques - rapports journaliers, hebdomadaires, mensuels…',
+      'Comité de pilotage et analyse décisionnelle.',
+      'Planifications des équipes d’assistance et gestion des ressources humaines.',
+      'Technologies : Access VBA – Excel VBA – SQL.',
+    ],
+  },
+  {
+    role: 'Technicien support applicatif N2',
+    company: 'LaSer Contact',
+    period: '06/2007 – 08/2007',
+    responsibilities: [
+      'Réception d’appels clients.',
+      'Dépannage des caisses enregistreuses et des appareils de paiement à distance.',
+      'Contact, tri et mise en relation avec les équipes N3 et maintenance.',
+    ],
+  },
 ];
 
 const skills = [
