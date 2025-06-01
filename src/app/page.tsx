@@ -19,7 +19,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="text-center py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10 rounded-lg shadow-xl">
         <div className="container mx-auto px-4">
-          <h1 className={cn("text-5xl md:text-7xl font-bold tracking-tight mb-6", "font-headline")}>
+          <h1 className={cn("text-3xl md:text-4xl font-bold tracking-tight mb-6", "font-headline")}>
             <span className="text-foreground">Bonjour, je suis </span><span className="text-primary">Oussama Berraies</span>
           </h1>
           <p className={cn("text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8", "font-body")}>
@@ -40,13 +40,13 @@ export default function HomePage() {
       <section className="container mx-auto px-4">
          <Card className="shadow-xl overflow-hidden">
           <div className="md:flex">
-            <div className="md:w-1/3">
+            <div className="md:w-1/3 relative"> {/* Ajout de position relative pour le conteneur de l'image si besoin pour object-fit */}
               <Image
-                src="/photo-profil.jpg"
+                src="/photo-profil.jpg" // Assurez-vous que public/photo-profil.jpg existe !
                 alt="Photo de Oussama Berraies"
                 width={600}
                 height={800}
-                className="object-cover h-full w-full"
+                className="object-cover w-full h-auto md:h-full" // w-full et h-auto pour la responsivité, md:h-full pour remplir la hauteur sur md+
                 data-ai-hint="profile photo"
               />
             </div>
