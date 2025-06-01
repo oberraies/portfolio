@@ -20,7 +20,7 @@ export default function HomePage() {
       <section className="text-center py-20 md:py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10 rounded-lg shadow-xl">
         <div className="container mx-auto px-4">
           <h1 className={cn("text-5xl md:text-7xl font-bold tracking-tight mb-6", "font-headline")}>
-            <span className="text-foreground">Bonjour, je suis </span><span className="text-primary-foreground">Oussama Berraies</span>
+            <span className="text-foreground">Bonjour, je suis </span><span className="text-primary">Oussama Berraies</span>
           </h1>
           <p className={cn("text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8", "font-body")}>
             Data Analyst, Développeur Excel VBA et Formateur. J’automatise les processus, conçois des applications sur mesure et transforme les données en tableaux de bord interactifs pour une prise de décision rapide et efficace.
