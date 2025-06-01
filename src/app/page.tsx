@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 export default function HomePage() {
   const skills = [
-    { name: 'Développement Web', icon: Code, description: 'Création de sites et applications web modernes et responsives.' },
+    { name: 'Développement VBA', icon: Code, description: 'Création de scripts et applications sur mesure avec une expérience utilisateur optimale' },
     { name: 'UI/UX Design', icon: Lightbulb, description: 'Conception d\'interfaces utilisateur intuitives et esthétiques.' },
     { name: 'Gestion de Projet', icon: Briefcase, description: 'Planification, exécution et suivi de projets digitaux.' },
     { name: 'Collaboration', icon: Users, description: 'Travail en équipe efficace et communication transparente.' },
