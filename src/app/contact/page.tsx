@@ -14,19 +14,19 @@ export default function ContactPage() {
       />
       
       <div className="grid md:grid-cols-2 gap-12 items-start">
-        <div className="space-y-6">
+        <div className="space-y-6 md:text-right">
           <h2 className={cn("text-2xl font-semibold text-primary", "font-headline")}>Informations de Contact</h2>
           <div className={cn("space-y-4", "font-body")}>
-            <div className="flex items-center gap-3">
-              <Mail className="h-6 w-6 text-accent" />
-              <a href="mailto:oberraies@gmail.com" className="hover:text-accent transition-colors">oberraies@gmail.com</a>
+            <div className="flex items-center gap-3 md:justify-end">
+              <Mail className="h-6 w-6 text-primary" />
+              <a href="mailto:oberraies@gmail.com" className="hover:text-primary transition-colors">oberraies@gmail.com</a>
             </div>
-            <div className="flex items-center gap-3">
-              <Phone className="h-6 w-6 text-accent" />
+            <div className="flex items-center gap-3 md:justify-end">
+              <Phone className="h-6 w-6 text-primary" />
               <span>+216 99 44 28 79</span>
             </div>
-            <div className="flex items-start gap-3">
-              <MapPin className="h-6 w-6 text-accent mt-1" />
+            <div className="flex items-start gap-3 md:justify-end">
+              <MapPin className="h-6 w-6 text-primary mt-1" />
               <span>France (mobilité possible rapide)</span>
             </div>
           </div>
