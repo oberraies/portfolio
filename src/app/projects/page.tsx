@@ -11,11 +11,11 @@ const projects = [
   {
     title: 'Application de gestion pour clubs de football',
     description: "L'objectif est de créer un suivi complet des présences/absences et rendement des élèves et encadrants, permettre la gestion des emplois de temps et de produire des reportings hebdomadaires. L'application offre des outils de visualisation, de calcul des indicateurs de performances.",
-    image: 'https://placehold.co/600x400.png',
+    image: '/projet-gestion-club-foot.png',
     tags: ["Excel", "VBA", "Data visualisaton", "Reporting avancé", "Gestion des images"],
     liveLink: '#',
     repoLink: '#',
-    imageHint: 'football management',
+    imageHint: 'football app dashboard',
     period: "09/2024 - 10/2024"
   },
   {
