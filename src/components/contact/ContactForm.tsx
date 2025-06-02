@@ -126,7 +126,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel className="font-headline">Nom</FormLabel>
               <FormControl>
-                <Input placeholder="Votre nom" {...field} className="font-body"/>
+                <Input placeholder="Votre nom" {...field} className="font-body border-primary"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -139,7 +139,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel className="font-headline">Email</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="Votre adresse e-mail" {...field} className="font-body"/>
+                <Input type="email" placeholder="Votre adresse e-mail" {...field} className="font-body border-primary"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -152,7 +152,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel className="font-headline">Message</FormLabel>
               <FormControl>
-                <Textarea placeholder="Votre message..." {...field} rows={5} className="font-body"/>
+                <Textarea placeholder="Votre message..." {...field} rows={5} className="font-body border-primary"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -166,7 +166,7 @@ export function ContactForm() {
               <FormLabel className="font-headline">Pièces Jointes (Optionnel, max 5 fichiers, 5MB chacun)</FormLabel>
               <FormControl>
                 <div className="relative flex items-center justify-center w-full">
-                  <label htmlFor="file-upload" className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-card hover:bg-secondary transition-colors">
+                  <label htmlFor="file-upload" className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer bg-card hover:bg-secondary transition-colors border-primary">
                       <div className="flex flex-col items-center justify-center pt-5 pb-6">
                           <UploadCloud className="w-8 h-8 mb-2 text-muted-foreground" />
                           <p className="mb-1 text-sm text-muted-foreground font-body"><span className="font-semibold">Cliquez pour choisir</span> ou glissez-déposez</p>
@@ -211,7 +211,7 @@ export function ContactForm() {
           </div>
         )}
 
-        <Button type="submit" disabled={isSubmitting} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-md">
+        <Button type="submit" disabled={isSubmitting} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-md border border-primary">
           {isSubmitting ? 'Envoi en cours...' : 'Envoyer le Message'}
         </Button>
       </form>
