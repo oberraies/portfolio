@@ -44,8 +44,8 @@ export default function HomePage() {
               <Image
                 src="/photo-profil.jpg" // Assurez-vous que public/photo-profil.jpg existe !
                 alt="Photo de Oussama Berraies"
-                width={400}
-                height={400}
+                width={200}
+                height={200}
                 className="object-cover w-full h-auto" // w-full et h-auto pour la responsivité, md:h-full pour remplir la hauteur sur md+
                 data-ai-hint="profile photo"
               />
