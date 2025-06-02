@@ -46,7 +46,7 @@ export default function HomePage() {
                 alt="Photo de Oussama Berraies"
                 width={200}
                 height={200}
-                className="object-cover w-full h-auto" // w-full et h-auto pour la responsivité, md:h-full pour remplir la hauteur sur md+
+                className="rounded-full object-cover shadow-md" // w-full et h-auto pour la responsivité, md:h-full pour remplir la hauteur sur md+
                 data-ai-hint="profile photo"
               />
             </div>
