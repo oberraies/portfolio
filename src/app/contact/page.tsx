@@ -10,6 +10,7 @@ export default function ContactPage() {
       <PageHeader 
         title="Contactez-moi"
         description="Besoin de conseils, d'optimisations ou simplement une envie de collaborer, N'hésitez pas à me contacter"
+        className="py-6 md:py-8 lg:py-10"
       />
       
       <div className="grid md:grid-cols-2 gap-12 items-start">
