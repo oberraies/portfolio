@@ -1,3 +1,4 @@
+
 import { PageHeader } from '@/components/shared/PageHeader';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { Mail, Phone, MapPin } from 'lucide-react';
@@ -17,15 +18,15 @@ export default function ContactPage() {
           <div className={cn("space-y-4", "font-body")}>
             <div className="flex items-center gap-3">
               <Mail className="h-6 w-6 text-accent" />
-              <a href="mailto:votre.email@example.com" className="hover:text-accent transition-colors">votre.email@example.com</a>
+              <a href="mailto:oberraies@gmail.com" className="hover:text-accent transition-colors">oberraies@gmail.com</a>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="h-6 w-6 text-accent" />
-              <span>+33 6 00 00 00 00</span>
+              <span>+216 99 44 28 79</span>
             </div>
             <div className="flex items-start gap-3">
               <MapPin className="h-6 w-6 text-accent mt-1" />
-              <span>Votre Ville, France</span>
+              <span>France (mobilité possible rapide)</span>
             </div>
           </div>
           <p className={cn("text-muted-foreground", "font-body")}>

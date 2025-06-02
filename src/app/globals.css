@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,7 +37,7 @@
     --destructive-foreground: 0 0% 100%;
 
     /* Bordures et Champs de saisie */
-    --border: 0 0% 50%; /* Gris moyen pour les bordures */
+    --border: 45 14% 80%; /* Beige clair (couleur primaire) pour les bordures */
     --input: 86 25% 20% / 0.7; /* Olive plus foncé pour le fond des champs de saisie */
     --ring: 48 85% 60%; /* Jaune doré pour les indicateurs de focus (ring) */
     
@@ -84,7 +85,7 @@
     --accent-lighter: 48 85% 60%; /* Jaune doré plus clair pour mode sombre */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
+    --border: 0 0% 14.9%; /* Bordure sombre pour le mode sombre */
     --input: 0 0% 14.9%;
     --ring: 48 85% 50%; 
     --chart-1: 220 70% 50%;
