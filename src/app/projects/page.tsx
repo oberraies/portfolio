@@ -1,20 +1,22 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { PageHeader } from '@/components/shared/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, CalendarDays } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const projects = [
   {
-    title: 'Plateforme E-commerce Avancée',
-    description: 'Une solution e-commerce complète avec gestion de produits, paniers, paiements sécurisés et interface administrateur.',
+    title: 'Application de gestion pour clubs de football',
+    description: "L'objectif est de créer un suivi complet des présences/absences et rendement des élèves et encadrants, permettre la gestion des emplois de temps et de produire des reportings hebdomadaires. L'application offre des outils de visualisation, de calcul des indicateurs de performances.",
     image: 'https://placehold.co/600x400.png',
-    tags: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind CSS'],
+    tags: ["Excel", "VBA", "Data visualisaton", "Reporting avancé", "Gestion des images"],
     liveLink: '#',
     repoLink: '#',
-    imageHint: 'online store'
+    imageHint: 'football management',
+    period: "09/2024 - 10/2024"
   },
   {
     title: 'Application de Gestion de Tâches Collaboratives',
@@ -74,6 +76,12 @@ export default function ProjectsPage() {
             </CardHeader>
             <CardContent className="flex-grow">
               <CardDescription className="font-body">{project.description}</CardDescription>
+              {project.period && (
+                <div className="flex items-center mt-3 text-sm text-muted-foreground">
+                  <CalendarDays className="mr-2 h-4 w-4" />
+                  <span className="font-body">Période: {project.period}</span>
+                </div>
+              )}
             </CardContent>
             <CardFooter className="flex justify-end space-x-2">
               {project.repoLink && project.repoLink !== '#' && (
