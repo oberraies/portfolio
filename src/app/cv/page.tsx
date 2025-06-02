@@ -128,7 +128,7 @@ export default function CVPage() {
       />
 
       <div className="text-center mb-12">
-        <Button asChild size="lg" className="bg-buttonCustom hover:bg-buttonCustom/90 text-buttonCustom-foreground shadow-md transition-transform hover:scale-105">
+        <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
           <a href="/Oussama_Berraies.pdf" download="Oussama_Berraies.pdf">
             <Download className="mr-2 h-5 w-5" />
             Télécharger mon CV (PDF)
@@ -243,7 +243,7 @@ export default function CVPage() {
                   {/* Vous pouvez ajouter une brève description ici si nécessaire */}
                 </CardContent>
                 <CardFooter>
-                  <Button asChild className="w-full bg-buttonCustom hover:bg-buttonCustom/90 text-buttonCustom-foreground">
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
                     <Link href={activity.pdfLink} target="_blank" rel="noopener noreferrer">
                       {activity.buttonLabel}
                     </Link>
