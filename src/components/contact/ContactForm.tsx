@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,7 +9,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { handleContactFormSubmission } from '@/app/contact/actions';
 import { useState, useRef } from 'react';
 import { UploadCloud, XCircle, Paperclip } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -19,6 +19,7 @@ const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'application/pdf', 'appli
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères." }),
   email: z.string().email({ message: "Veuillez entrer une adresse e-mail valide." }),
+  phone: z.string().optional(),
   message: z.string().min(10, { message: "Le message doit contenir au moins 10 caractères." }),
   files: z.custom<FileList>((val) => val instanceof FileList, "Veuillez sélectionner des fichiers.")
     .refine((files) => Array.from(files).every(file => file.size <= MAX_FILE_SIZE), `Chaque fichier ne doit pas dépasser 5MB.`)
@@ -39,6 +40,7 @@ export function ContactForm() {
     defaultValues: {
       name: '',
       email: '',
+      phone: '',
       message: '',
     },
   });
@@ -48,6 +50,9 @@ export function ContactForm() {
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('email', data.email);
+    if (data.phone) {
+      formData.append('phone', data.phone);
+    }
     formData.append('message', data.message);
     if (selectedFiles) {
       selectedFiles.forEach(file => {
@@ -56,7 +61,6 @@ export function ContactForm() {
     }
 
     try {
-      /*const result = await handleContactFormSubmission(formData);*/
       const response = await fetch('/api/contact', {
         method: 'POST',
         body: formData,
@@ -95,7 +99,6 @@ export function ContactForm() {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const filesArray = Array.from(event.target.files);
-      // Basic client-side validation for immediate feedback
       const validFiles = filesArray.filter(file => {
         if (file.size > MAX_FILE_SIZE) {
           toast({ title: "Fichier trop volumineux", description: `${file.name} dépasse 5MB.`, variant: "destructive" });
@@ -107,15 +110,13 @@ export function ContactForm() {
         }
         return true;
       });
-      setSelectedFiles(prevFiles => [...prevFiles, ...validFiles].slice(0, 5)); // Limit to 5 files
+      setSelectedFiles(prevFiles => [...prevFiles, ...validFiles].slice(0, 5)); 
     }
   };
 
   const removeFile = (fileName: string) => {
     setSelectedFiles(prevFiles => prevFiles.filter(file => file.name !== fileName));
      if (fileInputRef.current) {
-        // This is tricky for multiple files. Clearing all and re-selecting might be needed for perfect sync with input.
-        // For now, this just removes from the displayed list. Zod validation will catch mismatches.
         const dt = new DataTransfer();
         selectedFiles.filter(file => file.name !== fileName).forEach(file => dt.items.add(file));
         fileInputRef.current.files = dt.files;
@@ -146,6 +147,19 @@ export function ContactForm() {
               <FormLabel className="font-headline">Email</FormLabel>
               <FormControl>
                 <Input type="email" placeholder="Votre adresse e-mail" {...field} className="font-body border-primary"/>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="font-headline">Téléphone (Optionnel)</FormLabel>
+              <FormControl>
+                <Input type="tel" placeholder="Votre numéro de téléphone" {...field} className="font-body border-primary"/>
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -185,8 +199,8 @@ export function ContactForm() {
                         className="hidden" 
                         ref={fileInputRef}
                         onChange={(e) => {
-                            field.onChange(e.target.files); // RHF update
-                            handleFileChange(e); // Local state update
+                            field.onChange(e.target.files); 
+                            handleFileChange(e); 
                         }}
                         accept={ALLOWED_FILE_TYPES.join(',')}
                       />
@@ -224,3 +238,5 @@ export function ContactForm() {
     </Form>
   );
 }
+
+    

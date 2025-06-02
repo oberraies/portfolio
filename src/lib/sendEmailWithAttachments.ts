@@ -1,13 +1,15 @@
+
 import nodemailer from 'nodemailer';
 
 type SendEmailParams = {
   name: string;
   email: string;
+  phone?: string;
   message: string;
   files?: File[];
 };
 
-export async function sendEmailWithAttachments({ name, email, message, files }: SendEmailParams) {
+export async function sendEmailWithAttachments({ name, email, phone, message, files }: SendEmailParams) {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT || '465'),
@@ -36,9 +38,12 @@ export async function sendEmailWithAttachments({ name, email, message, files }: 
     html: `
       <p><strong>Nom :</strong> ${name}</p>
       <p><strong>Email :</strong> ${email}</p>
+      ${phone ? `<p><strong>Téléphone :</strong> ${phone}</p>` : ''}
       <p><strong>Message :</strong></p>
       <p>${message.replace(/\n/g, '<br/>')}</p>
     `,
     attachments,
   });
 }
+
+    
