@@ -50,7 +50,7 @@ export default function HomePage() {
                 data-ai-hint="profile photo"
               />
             </div>
-            <div className="md:w-2/3 p-8 md:p-12">
+            <div className="md:w-2/3 p-8 md:p-12 md:flex md:flex-col md:justify-center">
               <h2 className={cn("text-3xl md:text-4xl font-bold mb-6 text-primary", "font-headline")}>À propos de moi</h2>
               <p className={cn("text-lg text-foreground mb-4", "font-body")}>
                 Data Analyst et Développeur Excel VBA avec plus de 14 ans d'expérience en automatisation de processus et analyse de données. Expert en tableaux de bord interactifs, optimisation des flux et extraction de données complexes. Maîtrise de VBA, SQL et Excel pour transformer les données en insights exploitables, facilitant des décisions rapides et efficaces. Innovant, rigoureux et orienté résultats, je crée des solutions sur mesure pour optimiser la performance des équipes et entreprises.
