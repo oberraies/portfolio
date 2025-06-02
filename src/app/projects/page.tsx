@@ -77,9 +77,9 @@ export default function ProjectsPage() {
             <CardContent className="flex-grow">
               <CardDescription className="font-body">{project.description}</CardDescription>
               {project.period && (
-                <div className="flex items-center mt-3 text-sm text-muted-foreground">
-                  <CalendarDays className="mr-2 h-4 w-4" />
-                  <span className="font-body">Période: {project.period}</span>
+                <div className="flex items-center mt-3 text-sm">
+                  <CalendarDays className="mr-2 h-4 w-4 text-primary" />
+                  <span className={cn("font-body text-primary")}>{project.period}</span>
                 </div>
               )}
             </CardContent>
