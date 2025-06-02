@@ -56,7 +56,13 @@ export function ContactForm() {
     }
 
     try {
-      const result = await handleContactFormSubmission(formData);
+      /*const result = await handleContactFormSubmission(formData);*/
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      const result = await response.json();
       if (result.success) {
         toast({
           title: "Message Envoyé !",
