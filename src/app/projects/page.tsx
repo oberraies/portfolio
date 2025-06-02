@@ -74,7 +74,7 @@ export default function ProjectsPage() {
                 ))}
               </div>
             </CardHeader>
-            <CardContent className="flex-grow">
+            <CardContent className="flex-grow pb-4">
               <CardDescription className="font-body">{project.description}</CardDescription>
               {project.period && (
                 <div className="flex items-center mt-3 text-sm">
