@@ -52,7 +52,7 @@ export default function ProjectsPage() {
     <div>
       <PageHeader 
         title="Mes Projets"
-        description="Découvrez une sélection de mes réalisations, illustrant mon expertise et ma passion pour le développement."
+        description="Une vitrine de mes réalisations, alliant performance, gain de temps et clarté des données. Chaque projet reflète ma capacité à répondre à des besoins concrets grâce à des outils maîtrisés."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
