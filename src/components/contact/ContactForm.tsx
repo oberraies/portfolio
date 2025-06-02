@@ -211,7 +211,7 @@ export function ContactForm() {
           </div>
         )}
 
-        <Button type="submit" disabled={isSubmitting} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-md border border-primary">
+        <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md border border-primary">
           {isSubmitting ? 'Envoi en cours...' : 'Envoyer le Message'}
         </Button>
       </form>

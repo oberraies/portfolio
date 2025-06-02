@@ -39,7 +39,7 @@
     /* Bordures et Champs de saisie */
     --border: 45 14% 80%; /* Beige clair (couleur primaire) pour les bordures */
     --input: 86 25% 20% / 0.7; /* Olive plus foncé pour le fond des champs de saisie */
-    --ring: 48 85% 60%; /* Jaune doré pour les indicateurs de focus (ring) */
+    --ring: 45 14% 80%; /* #d2cec2 (Beige clair) pour les indicateurs de focus (ring) */
     
     --radius: 0.5rem;
 
@@ -87,7 +87,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%; /* Bordure sombre pour le mode sombre */
     --input: 0 0% 14.9%;
-    --ring: 48 85% 50%; 
+    --ring: 45 14% 78%; /* #d2cec2 (Beige clair) pour les indicateurs de focus (ring) en mode sombre */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
