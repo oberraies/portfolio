@@ -8,7 +8,7 @@ export default function ContactPage() {
     <div>
       <PageHeader 
         title="Contactez-moi"
-        description="N'hésitez pas à me laisser un message pour toute question, proposition de projet ou collaboration."
+        description="Besoin de conseils, d'optimisations ou simplement une envie de collaborer, N'hésitez pas à me contacter"
       />
       
       <div className="grid md:grid-cols-2 gap-12 items-start">
