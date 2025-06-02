@@ -1,10 +1,16 @@
+
 'use server';
 
 import * as z from 'zod';
+import nodemailer from 'nodemailer';
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB per file
 const MAX_TOTAL_SIZE = 20 * 1024 * 1024; // 20MB total
 const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+
+// Ensure environment variables are loaded. In Next.js, .env.local is loaded automatically.
+// You might need to install dotenv if running in a different Node.js environment: `npm install dotenv`
+// require('dotenv').config();
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Le nom doit contenir au moins 2 caractères."),
@@ -17,13 +23,12 @@ const contactFormSchema = z.object({
     .refine(files => !files || files.reduce((acc, file) => acc + file.size, 0) <= MAX_TOTAL_SIZE, `La taille totale des fichiers ne doit pas dépasser 20MB.`),
 });
 
-
 export async function handleContactFormSubmission(formData: FormData) {
   const rawFormData = {
     name: formData.get('name'),
     email: formData.get('email'),
     message: formData.get('message'),
-    files: formData.getAll('files').filter(file => (file as File).size > 0), // Filter out empty file inputs if any
+    files: formData.getAll('files').filter(file => (file instanceof File && file.size > 0)),
   };
 
   const parsed = contactFormSchema.safeParse(rawFormData);
@@ -35,44 +40,73 @@ export async function handleContactFormSubmission(formData: FormData) {
 
   const { name, email, message, files } = parsed.data;
 
-  try {
-    // Placeholder for actual email sending logic
-    console.log("Form data received:");
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Message:", message);
-    if (files && files.length > 0) {
-      console.log("Files:", files.map(file => ({ name: file.name, size: file.size, type: file.type })));
-      // Here you would typically:
-      // 1. Upload files to a storage service (e.g., Firebase Storage, AWS S3)
-      // 2. Get the download URLs of the uploaded files
-      // 3. Send an email using a service like Nodemailer (with Gmail API/OAuth2 or an App Password - less secure for Gmail)
-      //    or a transactional email service (SendGrid, Mailgun, Resend).
-      //    Include the form data and file URLs in the email body.
-      // Example:
-      // await sendEmail({
-      //   to: 'your.portfolio.email@gmail.com',
-      //   subject: `Nouveau message de ${name} via Portfolio Pro`,
-      //   html: `
-      //     <p><strong>Nom:</strong> ${name}</p>
-      //     <p><strong>Email:</strong> ${email}</p>
-      //     <p><strong>Message:</strong></p>
-      //     <p>${message}</p>
-      //     ${files.length > 0 ? `<p><strong>Fichiers joints:</strong></p><ul>${files.map(f => `<li>${f.name} (URL: ${/* file URL from storage */''})</li>`).join('')}</ul>` : ''}
-      //   `
-      // });
-    } else {
-      console.log("No files attached.");
-      // Send email without attachments
-    }
-    
-    // Simulate a delay for network request
-    await new Promise(resolve => setTimeout(resolve, 1000));
+  // Nodemailer transporter setup using Gmail with OAuth2
+  // IMPORTANT: Store these in environment variables (e.g., .env.local)
+  // GMAIL_EMAIL: Your Gmail address (e.g., oberraies@gmail.com)
+  // GMAIL_CLIENT_ID: Your Google Cloud OAuth2 Client ID
+  // GMAIL_CLIENT_SECRET: Your Google Cloud OAuth2 Client Secret
+  // GMAIL_REFRESH_TOKEN: Your OAuth2 Refresh Token for Gmail API
+  // OAUTH_ACCESS_TOKEN: (Optional) Nodemailer can fetch this using the refresh token
 
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      type: 'OAuth2',
+      user: process.env.GMAIL_EMAIL, // Your Gmail email address
+      clientId: process.env.GMAIL_CLIENT_ID,
+      clientSecret: process.env.GMAIL_CLIENT_SECRET,
+      refreshToken: process.env.GMAIL_REFRESH_TOKEN,
+      // accessToken: process.env.OAUTH_ACCESS_TOKEN, // Optional: Nodemailer can auto-generate this
+    },
+  });
+
+  const mailOptions: nodemailer.SendMailOptions = {
+    from: `"${name}" <${email}>`, // Sender address (appears as "Your Name" <user@example.com>)
+    to: 'oberraies@gmail.com', // Your personal email address where you want to receive messages
+    replyTo: email, // So you can reply directly to the sender
+    subject: `Nouveau message de ${name} via Portfolio Pro`,
+    html: `
+      <h1>Nouveau message via Portfolio Pro</h1>
+      <p><strong>Nom:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message.replace(/\n/g, '<br>')}</p>
+      ${files && files.length > 0 ? `<p><strong>Pièces jointes (${files.length}):</strong></p>` : ''}
+    `,
+    attachments: [],
+  };
+
+  if (files && files.length > 0) {
+    mailOptions.attachments = await Promise.all(
+        files.map(async (file) => {
+        const buffer = await file.arrayBuffer();
+        return {
+          filename: file.name,
+          content: Buffer.from(buffer),
+          contentType: file.type,
+        };
+      })
+    );
+  }
+
+  try {
+    // Verify transporter configuration (optional, good for debugging)
+    // await transporter.verify(); 
+    // console.log("Nodemailer transporter is ready");
+
+    await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully");
     return { success: true, message: "Message envoyé avec succès !" };
 
   } catch (error) {
-    console.error("Error submitting contact form:", error);
-    return { success: false, error: "Une erreur interne est survenue." };
+    console.error("Error sending email:", error);
+    // Log the specific error for better debugging
+    if (error instanceof Error) {
+        console.error("Error message:", error.message);
+        if ((error as any).response) {
+            console.error("Error response:", (error as any).response);
+        }
+    }
+    return { success: false, error: "Une erreur est survenue lors de l'envoi du message. Veuillez vérifier la configuration du serveur d'e-mail." };
   }
 }
