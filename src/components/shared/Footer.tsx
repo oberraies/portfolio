@@ -21,7 +21,7 @@ export function Footer() {
             <span className="hidden sm:inline">-</span>
             <a
               href="mailto:oberraies@gmail.com"
-              className="flex items-center justify-center md:justify-start space-x-1 mt-1 sm:mt-0 text-muted-foreground hover:text-beige transition-colors duration-300 ease-in-out"
+              className="flex items-center justify-center md:justify-start space-x-1 mt-1 sm:mt-0 text-muted-foreground hover:text-buttonCustom transition-colors duration-300 ease-in-out"
             >
               <Mail className="h-4 w-4" />
               <span>oberraies@gmail.com</span>
@@ -34,7 +34,7 @@ export function Footer() {
           <Link href="mailto:oberraies@gmail.com" passHref legacyBehavior>
             <a
               aria-label="Envoyer un email"
-              className="text-muted-foreground hover:text-beige transition-colors duration-300 ease-in-out"
+              className="text-muted-foreground hover:text-buttonCustom transition-colors duration-300 ease-in-out"
             >
               <Mail className="h-6 w-6" />
             </a>
@@ -44,7 +44,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Profil LinkedIn d'Oussama Berraies"
-              className="text-muted-foreground hover:text-beige transition-colors duration-300 ease-in-out"
+              className="text-muted-foreground hover:text-buttonCustom transition-colors duration-300 ease-in-out"
             >
               <Linkedin className="h-6 w-6" />
             </a>
@@ -54,7 +54,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Profil GitHub d'Oussama Berraies"
-              className="text-muted-foreground hover:text-beige transition-colors duration-300 ease-in-out"
+              className="text-muted-foreground hover:text-buttonCustom transition-colors duration-300 ease-in-out"
             >
               <Github className="h-6 w-6" />
             </a>
