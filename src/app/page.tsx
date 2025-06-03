@@ -29,7 +29,7 @@ export default function HomePage() {
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
               <Link href="/projects">Mes Projets</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="w-full md:w-auto border-primary text-primary hover:bg-primary/10 shadow-md transition-transform hover:scale-105">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
               <Link href="/contact">Contactez-moi</Link>
             </Button>
           </div>
