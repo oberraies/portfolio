@@ -26,11 +26,11 @@ export default function HomePage() {
             Data Analyst, Développeur Excel VBA et Formateur. J’automatise les processus, conçois des applications sur mesure et transforme les données en tableaux de bord interactifs pour une prise de décision rapide et efficace.
           </p>
           <div className="space-x-4">
-            <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-center w-full">
               <Button
                 asChild
                 size="lg"
-                className="w-full md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105"
+                className="w-4/5 sm:w-2/3 md:w-auto bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105"
               >
                 <Link href="/projects">Mes Projets</Link>
               </Button>
@@ -39,7 +39,7 @@ export default function HomePage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="w-full md:w-auto border-primary text-primary hover:bg-primary/10 shadow-md transition-transform hover:scale-105"
+                className="w-4/5 sm:w-2/3 md:w-auto border-primary text-primary hover:bg-primary/10 shadow-md transition-transform hover:scale-105"
               >
                 <Link href="/contact">Contactez-moi</Link>
               </Button>
