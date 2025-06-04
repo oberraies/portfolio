@@ -31,6 +31,7 @@ export function Footer() {
 
         {/* Right Side */}
         <div className="flex space-x-4">
+          {/* TODO: Adapter le CSS pour supprimer legacyBehavior */}
           <Link href="mailto:oberraies@gmail.com" passHref legacyBehavior>
             <a
               aria-label="Envoyer un email"
@@ -49,7 +50,7 @@ export function Footer() {
               <Linkedin className="h-6 w-6" />
             </a>
           </Link>
-          <Link href="https://github.com/oberraies" passHref legacyBehavior>
+          {/*<Link href="https://github.com/oberraies" passHref legacyBehavior>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -58,7 +59,7 @@ export function Footer() {
             >
               <Github className="h-6 w-6" />
             </a>
-          </Link>
+          </Link>*/}
         </div>
       </div>
     </footer>

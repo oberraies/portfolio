@@ -111,7 +111,7 @@ const trainingActivities = [
 ];
 
 export default function CVPage() {
-  const [openExperiences, setOpenExperiences] = useState<Record<number, boolean>>({});
+  const [openExperiences, setOpenExperiences] = useState<Record<number, boolean>>({ 0: true });
 
   const toggleExperience = (index: number) => {
     setOpenExperiences(prev => ({
@@ -214,12 +214,14 @@ export default function CVPage() {
                       <skill.icon className="h-6 w-6 mr-2 text-primary" />
                       <span className={cn("text-base font-medium", "font-body")}>{skill.name}</span>
                     </div>
-                    <span className={cn("text-sm text-buttonCustom font-semibold", "font-body")}>{skill.level}%</span>
+                    <span className={cn("text-sm font-semibold", "font-body")} style={{ color: '#d3d0c5' }}>
+                      {skill.level}%
+                    </span>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2.5">
                     <div 
                       className="bg-buttonCustom h-2.5 rounded-full" 
-                      style={{ width: `${skill.level}%` }}
+                      style={{ width: `${skill.level}%` , backgroundColor: '#d3d0c5' }}
                     ></div>
                   </div>
                 </CardContent>
@@ -240,7 +242,6 @@ export default function CVPage() {
                   <CardTitle className={cn("text-xl", "font-headline")}>{activity.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  {/* Vous pouvez ajouter une brève description ici si nécessaire */}
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">

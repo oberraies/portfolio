@@ -58,7 +58,7 @@ export default function HomePage() {
                 alt="Photo de Oussama Berraies"
                 width={200}
                 height={200}
-                className="rounded-full object-cover shadow-md" // w-full et h-auto pour la responsivité, md:h-full pour remplir la hauteur sur md+
+                className="object-cover shadow-md" // w-full et h-auto pour la responsivité, md:h-full pour remplir la hauteur sur md+
                 data-ai-hint="profile photo"
               />
             </div>
@@ -67,7 +67,10 @@ export default function HomePage() {
               <p className={cn("text-lg text-foreground mb-4", "font-body")}>
                 Data Analyst et Développeur Excel VBA avec plus de 14 ans d'expérience en automatisation de processus et analyse de données. Expert en tableaux de bord interactifs, optimisation des flux et extraction de données complexes. Maîtrise de VBA, SQL et Excel pour transformer les données en insights exploitables, facilitant des décisions rapides et efficaces. Innovant, rigoureux et orienté résultats, je crée des solutions sur mesure pour optimiser la performance des équipes et entreprises.
               </p>
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
+              <Button 
+                asChild
+                className="w-fit bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105"
+              >
                 <Link href="/cv">Voir mon CV</Link>
               </Button>
             </div>
