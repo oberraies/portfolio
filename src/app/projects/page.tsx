@@ -77,6 +77,30 @@ const projects = [
   logolabel : 'Wolf France',
   logo: '/Logo_Wolf.png'
   },
+  { title: 'Outil de calcul de la recyclabilité ',
+  description: `Système automatisé d'évaluation de la recyclabilité des produits et chaussures, basé sur l'analyse des matériaux, 
+            masses et compositions, avec gestion dynamique des composants et indicateur visuel de performance écologique.`,
+  image: '/Refashion_Main.png',
+  tags: ['Excel', 'VBA', 'Calculs avancés', 'Courbe dynamique', 'Aide à la décision'],
+  liveLink: '#',
+  repoLink: '#',
+  imageHint: 'Recyclabilité',
+  period : "04/2023",
+  logolabel : 'Refashion',
+  logo: '/Logo_Refashion.jpg'
+  },
+  { title: 'Planning et rétroplanning',
+  description: `Application Excel multi-utilisateurs avec interface de saisie et gestion dynamique d'un agenda type Google Calendar, 
+              permettant la création, modification et suppression visuelle d'évènements et tâches.`,
+  image: '/CM_Main.png',
+  tags: ['Excel', 'VBA', 'Access', 'Filtres avancés', 'Visualisation', 'Gestion des formes', 'Dessin assisté'],
+  liveLink: '#',
+  repoLink: '#',
+  imageHint: 'Planning et rétroplanning',
+  period : "02/2023",
+  logolabel : 'Crédit mutuel',
+  logo: '/Logo_CM.png'
+  },
 ];
 
 export default function ProjectsPage() {
@@ -84,7 +108,7 @@ export default function ProjectsPage() {
     <div>
       <PageHeader 
         title="Mes Projets"
-        description="Une vitrine de mes réalisations, alliant performance, gain de temps et clarté des données. Chaque projet reflète ma capacité à répondre à des besoins concrets grâce à des outils maîtrisés."
+        description="Une sélection d’outils développés pour automatiser les processus, fiabiliser les données et fournir des analyses claires et exploitables."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (

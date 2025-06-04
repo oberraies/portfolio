@@ -41,7 +41,7 @@ export default function TemplatesPage() {
     <div>
       <PageHeader 
         title="Mes Templates"
-        description="Explorez une sélection de templates et composants réutilisables pour accélérer vos projets."
+        description="Explorez une sélection de templates et composants réutilisables pour accélérer vos projets. → En cours de développement, revenez bientôt !"
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {templates.map((template, index) => (

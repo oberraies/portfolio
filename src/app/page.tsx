@@ -5,10 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Briefcase, Code, Coffee, Lightbulb, Users } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { PiEyes } from "react-icons/pi";
 
 export default function HomePage() {
   const skills = [
-    { name: 'Développement VBA', icon: Code, description: 'Création de scripts et applications sur mesure avec une expérience utilisateur optimale' },
+    { name: 'Développement VBA', icon: Code, description: 'Création de scripts et applications sur mesure pour une expérience utilisateur optimale' },
     { name: 'Analyse de données', icon: Lightbulb, description: 'Transformer les données brutes en informations claires, utiles et exploitables.' },
     { name: 'Gestion de Projet', icon: Briefcase, description: 'Planification, exécution et suivi de projets digitaux.' },
     { name: 'Collaboration', icon: Users, description: 'Travail en équipe efficace et communication transparente.' },
@@ -71,7 +72,10 @@ export default function HomePage() {
                 asChild
                 className="w-fit bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105"
               >
-                <Link href="/cv">Voir mon CV</Link>
+                <Link href="/cv" className="flex items-center gap-2">
+                  Voir mon CV
+                  <PiEyes className="h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </div>
