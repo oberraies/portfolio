@@ -63,8 +63,6 @@ export function LanguageSwitcher({
     router.push(`/${newLocale}${newPathname}`);
   };
 
-  const availableLocales = i18n.locales.filter(loc => loc !== currentLocale);
-
   const CurrentFlag = currentLocale === 'fr' ? FrenchFlagIcon : BritishFlagIcon;
 
   return (
@@ -72,8 +70,8 @@ export function LanguageSwitcher({
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          size="sm" // Keep it compact
-          className="p-1.5 h-8 hover:bg-accent/50 focus-visible:ring-1 focus-visible:ring-ring flex items-center gap-1"
+          size="sm" 
+          className="p-1.5 h-8 text-foreground hover:bg-buttonCustom hover:text-buttonCustom-foreground focus-visible:ring-1 focus-visible:ring-ring flex items-center gap-1"
           aria-label={selectLanguageLabel}
         >
           <CurrentFlag />
@@ -91,7 +89,11 @@ export function LanguageSwitcher({
               key={locale}
               onClick={() => changeLocale(locale)}
               disabled={locale === currentLocale}
-              className="flex items-center gap-2 cursor-pointer"
+              className={cn(
+                "flex items-center gap-2 cursor-pointer text-popover-foreground", // Base: flex layout, cursor, default text color (white from popover)
+                "hover:bg-buttonCustom hover:text-buttonCustom-foreground",      // On hover: green background, dark text
+                "focus:bg-buttonCustom focus:text-buttonCustom-foreground"       // On focus: green background, dark text
+              )}
               aria-label={label}
             >
               <Flag />

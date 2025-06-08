@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 
 interface PageHeaderProps {
   title: string;
-  description?: string;
+  description?: React.ReactNode; // Changed from string to React.ReactNode
   className?: string;
   children?: React.ReactNode; // To allow adding buttons like "Download CV"
 }

@@ -48,16 +48,30 @@ const templatesData = [
 export default async function TemplatesPage({ params: { locale } }: TemplatesPageProps) {
   const dict = await getDictionary(locale);
   const t = dict.pageHeaders;
-  // Ideally, button labels like "Aperçu" and "Télécharger" would come from dict.templatesPage.buttons or similar
+  
   const previewButtonLabel = locale === 'fr' ? "Aperçu" : "Preview";
   const downloadButtonLabel = locale === 'fr' ? "Télécharger" : "Download";
 
+  const fullDescription = t.templatesDescription;
+  const separator = '→';
+  const parts = fullDescription.split(separator);
+  const descriptionPart1 = parts[0] + (parts.length > 1 ? separator : '');
+  const highlightPart = parts.length > 1 ? parts[1].trim() : '';
+
+  const descriptionJsx = (
+    <>
+      {descriptionPart1}
+      {highlightPart && (
+        <span className="font-bold text-destructive">{highlightPart}</span>
+      )}
+    </>
+  );
 
   return (
     <div>
       <PageHeader 
         title={t.templatesTitle}
-        description={t.templatesDescription}
+        description={descriptionJsx} // Pass the JSX description here
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {templatesData.map((template, index) => (
