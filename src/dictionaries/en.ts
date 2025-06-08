@@ -123,35 +123,35 @@ const enProjectsPage: ProjectsPageDictionaryItems = {
       tags: ['Excel', 'Access', 'Word', 'VBA', 'SQL'],
       liveLink: '#', repoLink: '#', imageHint: 'perfect audit tool', period : "06/2024 - 07/2024", logolabel : ''
     },
-    { 
+    {
       id: 'gestion-paie',
       title: 'Payroll and Payslip Verification Management Application',
       description: `Payroll and personnel management application, integrating dynamic payslips according to employee status, leave management (sick, maternity, paternity, work accidents), and automation of legal parameters such as minimum wage or Fillon law.`,
       tags: ['Excel', 'VBA', 'HR', 'Payroll'],
       liveLink: '#', repoLink: '#', imageHint: 'payroll management', period : "12/2023", logolabel : ''
     },
-    { 
+    {
       id: 'dimensionnement-pac',
       title: 'Heat Pump Sizing Assistance Tool',
       description: `Comprehensive interface for entering and managing geographical and technical data related to construction. It allows precise calculation of heating needs via selection of suitable pumps, analysis of thermal losses through dynamic graphs, and generates quotes exportable to PDF. An administration system facilitates management of parameters and values used.`,
       tags: ['Excel', 'VBA', 'Advanced Calculations', 'Dynamic Curve', 'Decision Support'],
       liveLink: '#', repoLink: '#', imageHint: 'heat pump sizing', period : "05/2023", logolabel : ''
     },
-    { 
+    {
       id: 'calcul-recyclabilite',
       title: 'Recyclability Calculation Tool',
       description: `Automated system for assessing the recyclability of products and footwear, based on material analysis, mass, and composition, with dynamic component management and a visual indicator of ecological performance.`,
       tags: ['Excel', 'VBA', 'Advanced Calculations', 'Dynamic Curve', 'Decision Support'],
       liveLink: '#', repoLink: '#', imageHint: 'recyclability calculation', period : "04/2023", logolabel : ''
     },
-    { 
+    {
       id: 'planning-retroplanning',
       title: 'Planning and Reverse Planning',
       description: `Multi-user Excel application with an interface for dynamic entry and management of a Google Calendar-type schedule, allowing visual creation, modification, and deletion of events and tasks.`,
       tags: ['Excel', 'VBA', 'Access', 'Advanced Filters', 'Visualization', 'Shape Management', 'Assisted Drawing'],
       liveLink: '#', repoLink: '#', imageHint: 'planning tool', period : "02/2023", logolabel : ''
     },
-    { 
+    {
       id: 'gestion-planification',
       title: 'Scheduling Management',
       description: `Intelligent HR planning application: a collaborative tool that optimizes staff allocation through dynamic profile management, an integrated wish system, automated import of absences, and clear dashboards for monitoring and validation. Designed to streamline processes while valuing team preferences.`,
@@ -237,7 +237,7 @@ const dictionary: Dictionary = {
     unexpectedErrorTitle: "Unexpected Error",
     unexpectedErrorDescription: "An unexpected error occurred. Please try again.",
     contactInfoTitle: "Contact Information",
-    contactInfoAvailability: "Available for a position in France – Quick mobility",
+    contactInfoAvailability: "Highly mobile - Available quickly",
     contactInfoSocialPrompt: "I am also available on social media. Feel free to follow me or send me a message.",
     sendMessageTitle: "Send me a message",
   },

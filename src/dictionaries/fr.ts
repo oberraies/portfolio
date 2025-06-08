@@ -230,7 +230,7 @@ const dictionary: Dictionary = {
     unexpectedErrorTitle: "Erreur Inattendue",
     unexpectedErrorDescription: "Une erreur inattendue s'est produite. Veuillez réessayer.",
     contactInfoTitle: "Informations de Contact",
-    contactInfoAvailability: "Disponible pour un poste en France – Mobilité rapide",
+    contactInfoAvailability: "Vaste mobilité - Disponible rapidement",
     contactInfoSocialPrompt: "Je suis également disponible sur les réseaux sociaux. N'hésitez pas à me suivre ou à m'envoyer un message.",
     sendMessageTitle: "Envoyez-moi un message",
   },
@@ -390,5 +390,3 @@ const dictionary: Dictionary = {
 };
 
 export default dictionary;
-
-    
