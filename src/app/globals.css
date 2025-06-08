@@ -1,0 +1,147 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  :root {
+    /* Couleur de fond de secours si l'image ne se charge pas. Basée sur l'image fournie. */
+    --background: 86 33% 18%; /* Vert olive foncé */
+    --foreground: 0 0% 100%; /* Texte blanc */
+
+    /* Cartes: Fond plus sombre, légèrement transparent, texte blanc */
+    --card: 86 30% 15% / 0.85; /* Olive plus foncé, semi-transparent */
+    --card-foreground: 0 0% 100%; /* Texte blanc */
+
+    /* Popovers: Similaire aux cartes */
+    --popover: 86 30% 15% / 0.9;
+    --popover-foreground: 0 0% 100%;
+
+    /* Couleurs primaires : #d2cec2 (Beige très clair / blanc cassé). Foreground ajusté pour contraste. */
+    --primary: 45 14% 80%; /* #d2cec2 */
+    --primary-foreground: 40 10% 20%; /* Brun foncé pour texte sur primaire */
+
+    --accent: 48 85% 60%; /* Jaune doré */
+    --accent-foreground: 0 0% 100%; /* Texte blanc sur la couleur d'accentuation */
+    --accent-lighter: 48 85% 70%; /* Jaune doré plus clair */
+
+    /* Secondaire: Fond plus sombre, texte blanc */
+    --secondary: 86 25% 25% / 0.7; /* Olive foncé, semi-transparent pour les éléments secondaires */
+    --secondary-foreground: 0 0% 100%; 
+
+    /* Muted: Fond similaire à secondaire, premier plan plus clair pour le texte estompé */
+    --muted: 86 25% 25% / 0.6;
+    --muted-foreground: 0 0% 80%; /* Gris plus clair pour le texte estompé */
+
+    --destructive: 0 70% 55%; /* Ajusté pour une meilleure visibilité */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Bordures et Champs de saisie */
+    --border: 45 14% 80%; /* Beige clair (couleur primaire) pour les bordures */
+    --input: 86 25% 20% / 0.7; /* Olive plus foncé pour le fond des champs de saisie */
+    --ring: 45 14% 80%; /* #d2cec2 (Beige clair) pour les indicateurs de focus (ring) */
+    
+    --radius: 0.5rem;
+
+    /* Couleurs des graphiques, ajustées pour la visibilité sur le nouveau fond */
+    --chart-1: 12 76% 71%; 
+    --chart-2: 173 58% 69%;
+    --chart-3: 197 37% 54%;
+    --chart-4: 43 74% 76%; 
+    --chart-5: 27 87% 77%;
+
+    /* Couleurs spécifiques à la barre latérale */
+    --sidebar-background: 86 30% 12% / 0.95; /* Olive plus foncé, plus opaque */
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 45 14% 80%;  /* #d2cec2, idem que primary */
+    --sidebar-primary-foreground: 40 10% 20%; /* Brun foncé, idem que primary-foreground */
+    --sidebar-accent: 48 85% 60%; 
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 35%;
+    --sidebar-ring: 48 85% 60%;
+
+    /* Custom button color */
+    --button-custom-background: 121 10% 45%; /* #677e67 */
+    --button-custom-foreground: 81 15% 18%; /* #29331c */
+  }
+
+  .dark { 
+    /* Le mode sombre utilisera toujours ses propres valeurs spécifiques. */
+    /* Peut nécessiter une révision future si utilisé avec ce fond. */
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 45 14% 78%; /* Equivalent #d2cec2 pour mode sombre, ajusté pour contraste */
+    --primary-foreground: 0 0% 15%; 
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 48 85% 50%; 
+    --accent-foreground: 0 0% 100%;
+    --accent-lighter: 48 85% 60%; /* Jaune doré plus clair pour mode sombre */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%; /* Bordure sombre pour le mode sombre */
+    --input: 0 0% 14.9%;
+    --ring: 45 14% 78%; /* #d2cec2 (Beige clair) pour les indicateurs de focus (ring) en mode sombre */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 45 14% 78%; 
+    --sidebar-primary-foreground: 0 0% 15%;
+    --sidebar-accent: 48 85% 50%; 
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 45 14% 80%;
+
+    /* Custom button color for dark theme */
+    --button-custom-background: 121 10% 45%; /* #677e67 */
+    --button-custom-foreground: 81 15% 18%; /* #29331c */
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    background-image: url('/background-image.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* S'assure que le corps couvre toute la hauteur de la fenêtre */
+  }
+
+  /* Styles pour l'autocomplétion du navigateur */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  textarea:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px hsl(var(--background)) inset !important;
+    -webkit-text-fill-color: hsl(var(--foreground)) !important;
+    caret-color: hsl(var(--foreground)) !important;
+  }
+
+  input:-moz-autofill,
+  textarea:-moz-autofill {
+    /* Firefox est généralement moins problématique, mais le box-shadow peut aider */
+    box-shadow: 0 0 0px 1000px hsl(var(--background)) inset !important;
+    -moz-text-fill-color: hsl(var(--foreground)) !important; /* Non standard, mais parfois mentionné */
+    color: hsl(var(--foreground)) !important; /* Standard way to set text color */
+    caret-color: hsl(var(--foreground)) !important;
+  }
+}
