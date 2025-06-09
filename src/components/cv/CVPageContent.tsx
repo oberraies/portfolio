@@ -1,13 +1,13 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter, BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import type { CVPageDictionaryItems } from '@/dictionaries/fr'; // Use one lang for type
+import type { CVPageDictionaryItems, CVSkillItem as Skill } from '@/dictionaries/fr'; // Use one lang for type
 
 // Mapping skill names (or IDs if you prefer) to icons
 const skillIcons: Record<string, React.ElementType> = {
@@ -29,6 +29,70 @@ const skillIcons: Record<string, React.ElementType> = {
   'Data cleaning and transformation': Filter,
 };
 
+interface AnimatedSkillBarProps {
+  skill: Skill;
+  IconComponent: React.ElementType;
+  isVisible: boolean;
+}
+
+const AnimatedSkillBar: React.FC<AnimatedSkillBarProps> = ({ skill, IconComponent, isVisible }) => {
+  const [animatedLevel, setAnimatedLevel] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const animationDuration = 1500; // 1.5 seconds
+
+  useEffect(() => {
+    if (isVisible && !hasAnimated) {
+      setHasAnimated(true); // Set this early to prevent re-triggering
+
+      let startTime: number | null = null;
+      let animationFrameId: number;
+
+      const animate = (timestamp: number) => {
+        if (!startTime) {
+          startTime = timestamp;
+        }
+        const progress = timestamp - (startTime as number);
+        const percentageComplete = Math.min(progress / animationDuration, 1);
+        const currentLevel = Math.floor(percentageComplete * skill.level);
+
+        setAnimatedLevel(currentLevel);
+
+        if (percentageComplete < 1) {
+          animationFrameId = requestAnimationFrame(animate);
+        }
+      };
+
+      animationFrameId = requestAnimationFrame(animate);
+
+      return () => {
+        cancelAnimationFrame(animationFrameId);
+      };
+    }
+  }, [skill.level, skill.name, isVisible, animationDuration]); // Removed hasAnimated from dependencies
+
+  return (
+    <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <CardContent className="pt-6">
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center">
+            <IconComponent className="h-6 w-6 mr-2 text-primary" />
+            <span className={cn("text-base font-medium", "font-body")}>{skill.name}</span>
+          </div>
+          <span className={cn("text-sm font-semibold", "font-body")} style={{ color: 'hsl(var(--muted-foreground))' }}>
+            {animatedLevel}%
+          </span>
+        </div>
+        <div className="w-full bg-muted rounded-full h-2.5">
+          <div
+            className="bg-primary h-2.5 rounded-full" // Removed transition-all, duration-500, ease-out
+            style={{ width: `${animatedLevel}%` }}
+          ></div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
 
 interface CVPageContentProps {
   cvDict: CVPageDictionaryItems;
@@ -37,6 +101,34 @@ interface CVPageContentProps {
 
 export function CVPageContent({ cvDict, trainingPdfLinks }: CVPageContentProps) {
   const [openExperiences, setOpenExperiences] = useState<Record<number, boolean>>({ 0: true });
+  const skillsSectionRef = useRef<HTMLElement>(null);
+  const [isSkillsSectionVisible, setIsSkillsSectionVisible] = useState(false);
+
+  useEffect(() => {
+    const element = skillsSectionRef.current; 
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsSkillsSectionVisible(true);
+          observer.unobserve(element); 
+        }
+      },
+      {
+        threshold: 0.01, // Lowered threshold
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      if (element) {
+        observer.unobserve(element); 
+      }
+    };
+  }, []); 
+
 
   const toggleExperience = (index: number) => {
     setOpenExperiences(prev => ({
@@ -75,8 +167,8 @@ export function CVPageContent({ cvDict, trainingPdfLinks }: CVPageContentProps) 
         <div className="space-y-6">
           {cvDict.experience.map((exp, index) => (
             <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardHeader 
-                className="cursor-pointer" 
+              <CardHeader
+                className="cursor-pointer"
                 onClick={() => toggleExperience(index)}
                 role="button"
                 tabIndex={0}
@@ -108,33 +200,20 @@ export function CVPageContent({ cvDict, trainingPdfLinks }: CVPageContentProps) 
         </div>
       </section>
 
-      <section>
+      <section ref={skillsSectionRef}>
         <h2 className={cn("text-3xl font-bold mb-8 text-primary flex items-center", "font-headline")}>
           <Star className="mr-3 h-8 w-8" /> {cvDict.skillsTitle}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {cvDict.skills.map((skill, index) => {
-            const IconComponent = skillIcons[skill.name] || Star; // Fallback to Star icon
+            const IconComponent = skillIcons[skill.name] || Star; 
             return (
-              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="pt-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center">
-                      <IconComponent className="h-6 w-6 mr-2 text-primary" />
-                      <span className={cn("text-base font-medium", "font-body")}>{skill.name}</span>
-                    </div>
-                    <span className={cn("text-sm font-semibold", "font-body")} style={{ color: 'hsl(var(--muted-foreground))' }}>
-                      {skill.level}%
-                    </span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2.5">
-                    <div 
-                      className="bg-primary h-2.5 rounded-full" 
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
-                </CardContent>
-              </Card>
+              <AnimatedSkillBar 
+                key={index} 
+                skill={skill} 
+                IconComponent={IconComponent} 
+                isVisible={isSkillsSectionVisible}
+              />
             );
           })}
         </div>
@@ -166,3 +245,4 @@ export function CVPageContent({ cvDict, trainingPdfLinks }: CVPageContentProps) 
     </div>
   );
 }
+
