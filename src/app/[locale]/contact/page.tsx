@@ -41,7 +41,14 @@ export default async function ContactPage({ params: { locale } }: ContactPagePro
             </div>
           </div>
           <p className={cn("text-muted-foreground", "font-body")}>
-            {tContactForm.contactInfoSocialPrompt}
+            <a 
+              href="https://calendly.com/oberraies" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="underline:none hover:text-buttonCustom transition-colors"
+            >
+              {tContactForm.contactInfoSocialPrompt}
+            </a>
           </p>
         </div>
 
@@ -54,5 +61,3 @@ export default async function ContactPage({ params: { locale } }: ContactPagePro
     </div>
   );
 }
-
-    

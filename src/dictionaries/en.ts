@@ -238,7 +238,7 @@ const dictionary: Dictionary = {
     unexpectedErrorDescription: "An unexpected error occurred. Please try again.",
     contactInfoTitle: "Contact Information",
     contactInfoAvailability: "Highly mobile - Available quickly",
-    contactInfoSocialPrompt: "I am also available on social media. Feel free to follow me or send me a message.",
+    contactInfoSocialPrompt: "Book a slot to discuss your needs or projects (Calendly)",
     sendMessageTitle: "Send me a message",
   },
   cvPage: enCVPage,
@@ -250,5 +250,3 @@ const dictionary: Dictionary = {
 };
 
 export default dictionary;
-
-    

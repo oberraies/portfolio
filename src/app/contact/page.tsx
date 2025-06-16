@@ -31,7 +31,7 @@ export default function ContactPage() {
             </div>
           </div>
           <p className={cn("text-muted-foreground", "font-body")}>
-            Je suis également disponible sur les réseaux sociaux. N'hésitez pas à me suivre ou à m'envoyer un message.
+            Réservez un créneau pour discuter de vos besoins ou de vos projets : https://calendly.com/oberraies
           </p>
         </div>
 

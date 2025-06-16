@@ -231,7 +231,7 @@ const dictionary: Dictionary = {
     unexpectedErrorDescription: "Une erreur inattendue s'est produite. Veuillez réessayer.",
     contactInfoTitle: "Informations de Contact",
     contactInfoAvailability: "Vaste mobilité - Disponible rapidement",
-    contactInfoSocialPrompt: "Je suis également disponible sur les réseaux sociaux. N'hésitez pas à me suivre ou à m'envoyer un message.",
+    contactInfoSocialPrompt: "Réservez un créneau pour discuter de vos besoins ou de vos projets (Calendly)",
     sendMessageTitle: "Envoyez-moi un message",
   },
   cvPage: {
