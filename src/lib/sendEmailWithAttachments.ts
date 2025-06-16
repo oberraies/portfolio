@@ -12,8 +12,8 @@ type SendEmailParams = {
 export async function sendEmailWithAttachments({ name, email, phone, message, files }: SendEmailParams) {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: parseInt(process.env.SMTP_PORT || '465'),
-    secure: process.env.SMTP_SECURE === 'true',
+    port: parseInt(process.env.SMTP_PORT || '465', 10), // Ensure base 10 for parseInt
+    secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
