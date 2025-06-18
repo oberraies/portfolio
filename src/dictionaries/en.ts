@@ -95,6 +95,7 @@ const enCVPage: CVPageDictionaryItems = {
     { title: 'Excel Advanced Training', buttonLabel: 'View Program' },
     { title: 'Excel Expert Training', buttonLabel: 'View Program' },
     { title: 'Excel VBA Training', buttonLabel: 'View Program' },
+    { title: 'Custom Training', buttonLabel: 'Discuss it' },
   ],
 };
 
@@ -238,7 +239,7 @@ const dictionary: Dictionary = {
     unexpectedErrorDescription: "An unexpected error occurred. Please try again.",
     contactInfoTitle: "Contact Information",
     contactInfoAvailability: "Highly mobile - Available quickly",
-    contactInfoSocialPrompt: "Book a slot to discuss your needs or projects (Calendly)",
+    contactInfoSocialPrompt: "Book a slot to discuss your needs or projects: ",
     sendMessageTitle: "Send me a message",
   },
   cvPage: enCVPage,

@@ -79,26 +79,26 @@ export interface ContactFormDictionaryItems {
   sendMessageTitle: string;
 }
 
-interface CVEducationItem {
+export interface CVEducationItem {
   degree: string;
   institution: string;
   period: string;
   description: string;
 }
 
-interface CVExperienceItem {
+export interface CVExperienceItem {
   role: string;
   company: string;
   period: string;
   responsibilities: string[];
 }
 
-interface CVSkillItem {
+export interface CVSkillItem {
   name: string;
   level: number; // Level remains a number
 }
 
-interface CVTrainingItem {
+export interface CVTrainingItem {
   title: string;
   buttonLabel: string;
 }
@@ -114,7 +114,7 @@ export interface CVPageDictionaryItems {
   training: CVTrainingItem[];
 }
 
-interface ProjectItem {
+export interface ProjectItem {
   id: string; // To link to static assets if needed, or just for keys
   title: string;
   description: string;
@@ -231,7 +231,7 @@ const dictionary: Dictionary = {
     unexpectedErrorDescription: "Une erreur inattendue s'est produite. Veuillez réessayer.",
     contactInfoTitle: "Informations de Contact",
     contactInfoAvailability: "Vaste mobilité - Disponible rapidement",
-    contactInfoSocialPrompt: "Réservez un créneau pour discuter de vos besoins ou de vos projets (Calendly)",
+    contactInfoSocialPrompt: "Réservez un créneau pour discuter de vos besoins ou de vos projets : ",
     sendMessageTitle: "Envoyez-moi un message",
   },
   cvPage: {
@@ -319,6 +319,7 @@ const dictionary: Dictionary = {
       { title: 'Formation Excel avancé', buttonLabel: 'Voir le programme' },
       { title: 'Formation Excel expert', buttonLabel: 'Voir le programme' },
       { title: 'Formation Excel VBA', buttonLabel: 'Voir le programme' },
+      { title: 'Formation sur mesure', buttonLabel: 'En discuter' },
     ],
   },
   projectsPage: {

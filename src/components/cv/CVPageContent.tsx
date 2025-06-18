@@ -224,22 +224,34 @@ export function CVPageContent({ cvDict, trainingPdfLinks }: CVPageContentProps) 
           <BookOpen className="mr-3 h-8 w-8" /> {cvDict.trainingTitle}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {cvDict.training.map((activity, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
-              <CardHeader>
-                <CardTitle className={cn("text-xl", "font-headline")}>{activity.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-              </CardContent>
-              <CardFooter>
-                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
-                  <Link href={trainingPdfLinks[index]} target="_blank" rel="noopener noreferrer">
-                    {activity.buttonLabel}
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+          {cvDict.training.map((activity, index) => {
+            const linkHref = trainingPdfLinks[index];
+            // A link is considered internal navigation if it starts with '/' AND does not end with '.pdf'
+            const isInternalNav = linkHref.startsWith('/') && !linkHref.endsWith('.pdf');
+
+            return (
+              <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                <CardHeader>
+                  <CardTitle className={cn("text-xl", "font-headline")}>{activity.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                </CardContent>
+                <CardFooter>
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
+                    {isInternalNav ? (
+                      <Link href={linkHref}>
+                        {activity.buttonLabel}
+                      </Link>
+                    ) : (
+                      <Link href={linkHref} target="_blank" rel="noopener noreferrer">
+                        {activity.buttonLabel}
+                      </Link>
+                    )}
+                  </Button>
+                </CardFooter>
+              </Card>
+            );
+          })}
         </div>
       </section>
     </div>

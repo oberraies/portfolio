@@ -23,6 +23,7 @@ export default async function CVPage({ params: { locale } }: CVPageProps) {
       '/plan_de_formation_excel_avance.pdf',
       '/plan_de_formation_excel_expert.pdf',
       '/plan_de_formation_excel_vba.pdf',
+      `/${locale}/contact`, // Link for "Formation sur mesure" / "Custom Training"
     ]
   };
 
