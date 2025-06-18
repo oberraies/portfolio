@@ -210,7 +210,7 @@ const dictionary: Dictionary = {
     templatesTitle: "My Templates",
     templatesDescription: "Explore a selection of reusable templates and components to speed up your projects. → Under development, check back soon!",
     contactTitle: "Contact Me",
-    contactDescription: "Need advice, optimizations, or just want to collaborate? Feel free to contact me.",
+    contactDescription: "Need advice, optimizations, or just want to collaborate? Feel free to contact me (Via Calendly)",
   },
   contactForm: {
     nameLabel: "Name",
