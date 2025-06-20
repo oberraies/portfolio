@@ -34,9 +34,9 @@ export function Footer({ footerLabels }: FooterProps) {
               <span>oberraies@gmail.com</span>
             </a>
           </div>
-          <div className="mt-2 text-center md:text-left">
+          {/*<div className="mt-2 text-center md:text-left">
             {labels.allRightsReserved}
-          </div>
+          </div>*/}
         </div>
 
         <div className="flex space-x-4">
