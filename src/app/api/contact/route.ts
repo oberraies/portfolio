@@ -22,7 +22,8 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (err: any) {
-    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+    console.error('Failed to send contact email:', err); // Detailed server-side logging
+    return NextResponse.json({ success: false, error: err.message || 'An unknown error occurred during email sending.' }, { status: 500 });
   }
 }
 

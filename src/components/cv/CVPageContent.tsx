@@ -1,10 +1,9 @@
-
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter, BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
+import { Briefcase, GraduationCap, Star, FileSpreadsheet, Code, Database, LayoutDashboard, UserCheck, FilePieChart, Filter, BookOpen, ChevronDown, ChevronUp, FormInput } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import type { CVPageDictionaryItems, CVSkillItem as Skill } from '@/dictionaries/fr'; // Use one lang for type
@@ -15,8 +14,8 @@ const skillIcons: Record<string, React.ElementType> = {
   'Excel (advanced formulas, pivot tables)': FileSpreadsheet,
   'VBA (automatisations, ADO, formulaires)': Code,
   'VBA (automations, ADO, forms)': Code,
-  'Access (requêtes SQL, formulaires)': Database,
-  'Access (SQL queries, forms)': Database,
+  'Access (requêtes SQL, formulaires)': FormInput,
+  'Access (SQL queries, forms)': FormInput,
   'SQL (requêtes, jointures, filtrage, bases Access/SQL Server)': Database,
   'SQL (queries, joins, filtering, Access/SQL Server databases)': Database,
   'Tableaux de bord dynamiques': LayoutDashboard,
@@ -27,6 +26,7 @@ const skillIcons: Record<string, React.ElementType> = {
   'Report automation / reporting': FilePieChart,
   'Nettoyage et transformation des données': Filter,
   'Data cleaning and transformation': Filter,
+  'Gestion de bases de données relationnelles': Database,
 };
 
 interface AnimatedSkillBarProps {
@@ -36,56 +36,49 @@ interface AnimatedSkillBarProps {
 }
 
 const AnimatedSkillBar: React.FC<AnimatedSkillBarProps> = ({ skill, IconComponent, isVisible }) => {
-  const [animatedLevel, setAnimatedLevel] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const animationDuration = 1500; // 1.5 seconds
+  const isSqlSkill = skill.name.toLowerCase().startsWith('sql');
+  const [displayLevel, setDisplayLevel] = useState(0);
 
   useEffect(() => {
-    if (isVisible && !hasAnimated) {
-      setHasAnimated(true); // Set this early to prevent re-triggering
+    if (isVisible) {
+      let start = 0;
+      const end = skill.level;
+      if (start === end) return;
 
-      let startTime: number | null = null;
-      let animationFrameId: number;
-
-      const animate = (timestamp: number) => {
-        if (!startTime) {
-          startTime = timestamp;
+      const duration = 2000; // 2 seconds
+      const incrementTime = (duration / end);
+      
+      const timer = setInterval(() => {
+        start += 1;
+        setDisplayLevel(start);
+        if (start === end) {
+          clearInterval(timer);
         }
-        const progress = timestamp - (startTime as number);
-        const percentageComplete = Math.min(progress / animationDuration, 1);
-        const currentLevel = Math.floor(percentageComplete * skill.level);
+      }, incrementTime);
 
-        setAnimatedLevel(currentLevel);
-
-        if (percentageComplete < 1) {
-          animationFrameId = requestAnimationFrame(animate);
-        }
-      };
-
-      animationFrameId = requestAnimationFrame(animate);
-
-      return () => {
-        cancelAnimationFrame(animationFrameId);
-      };
+      return () => clearInterval(timer);
     }
-  }, [skill.level, skill.name, isVisible, animationDuration]); // Removed hasAnimated from dependencies
+  }, [isVisible, skill.level]);
 
   return (
     <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
       <CardContent className="pt-6">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center">
-            <IconComponent className="h-6 w-6 mr-2 text-primary" />
+            <IconComponent className={cn("mr-2 text-primary", isSqlSkill ? "h-8 w-8" : "h-6 w-6")} />
             <span className={cn("text-base font-medium", "font-body")}>{skill.name}</span>
           </div>
           <span className={cn("text-sm font-semibold", "font-body")} style={{ color: 'hsl(var(--muted-foreground))' }}>
-            {animatedLevel}%
+            {displayLevel}%
           </span>
         </div>
         <div className="w-full bg-muted rounded-full h-2.5">
           <div
-            className="bg-primary h-2.5 rounded-full" // Removed transition-all, duration-500, ease-out
-            style={{ width: `${animatedLevel}%` }}
+            className="bg-primary h-2.5 rounded-full"
+            style={{
+              width: isVisible ? `${skill.level}%` : '0%',
+              transition: 'width 2s ease-in-out',
+            }}
           ></div>
         </div>
       </CardContent>
@@ -116,7 +109,7 @@ export function CVPageContent({ cvDict, trainingPdfLinks }: CVPageContentProps) 
         }
       },
       {
-        threshold: 0.01, // Lowered threshold
+        threshold: 0.2, // Changed threshold to start animation when 20% is visible
       }
     );
 
@@ -257,4 +250,3 @@ export function CVPageContent({ cvDict, trainingPdfLinks }: CVPageContentProps) 
     </div>
   );
 }
-

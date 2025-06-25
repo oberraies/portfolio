@@ -1,0 +1,7 @@
+# Allow all user agents to crawl the site.
+User-agent: *
+Allow: /
+
+# Disallow crawling of Next.js internal and API paths.
+Disallow: /api/
+Disallow: /_next/

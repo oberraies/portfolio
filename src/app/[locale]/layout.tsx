@@ -3,11 +3,11 @@ import type { Metadata } from 'next';
 import '../globals.css'; // Adjusted path for globals.css
 import { Navbar } from '@/components/shared/Navbar';
 import { Footer } from '@/components/shared/Footer';
-import { Toaster } from '@/components/ui/toaster';
 import { Locale, i18n } from '@/config/i18n';
 import { getDictionary } from '@/lib/dictionaries';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import ToasterProvider from '@/components/shared/ToasterProvider';
 
 
 export async function generateStaticParams() {
@@ -48,7 +48,7 @@ export default async function LocaleLayout({ // Renamed from RootLayout for clar
   return (
     <>
       {/* 
-        Le HTML, HEAD, et BODY tags sont gérés par src/app/layout.tsx.
+        Le HTML, HEAD, et BODY tags sont maintenant gérés par src/app/layout.tsx.
         Ce layout fournit le contenu POUR le body.
         Les balises <link> pour les polices sont déplacées vers le layout racine (src/app/layout.tsx).
       */}
@@ -62,7 +62,7 @@ export default async function LocaleLayout({ // Renamed from RootLayout for clar
         {children}
       </main>
       <Footer footerLabels={dict.footer} />
-      <Toaster />
+      <ToasterProvider />
       <SpeedInsights/>
       <Analytics/>
     </>

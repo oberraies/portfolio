@@ -1,12 +1,28 @@
-
 // This file is the true root layout.
 // Next.js requires a root layout.
 import './globals.css';
 import type { Metadata } from 'next';
 import type { Locale } from '@/config/i18n'; // Import Locale if needed for lang
+import { Belleza, Alegreya } from 'next/font/google';
+import { cn } from '@/lib/utils';
+
+// Font configuration using next/font
+const belleza = Belleza({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-belleza',
+});
+
+const alegreya = Alegreya({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+  variable: '--font-alegreya',
+});
 
 // Metadata for the root layout can be generic or updated if locale is available.
-// For now, it's generic as locale isn't directly passed to the *absolute* root layout's params.
 // Next.js merges metadata from child layouts.
 export const metadata: Metadata = {
   title: 'Oussama Berraies - Portfolio', 
@@ -15,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params, // params might not contain locale here, as [locale] is a child segment
+  params, // params might not contain locale here, as [locale] is a child dynamic segment
 }: Readonly<{
   children: React.ReactNode;
   params?: { locale?: Locale }; // Making params optional and locale optional
@@ -27,14 +43,8 @@ export default function RootLayout({
   const lang = params?.locale || 'en';
 
   return (
-    <html lang={lang} suppressHydrationWarning>
-      <head>
-        {/* Font links moved from [locale]/layout.tsx */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
-      </head>
+    <html lang={lang} className={cn(belleza.variable, alegreya.variable)} suppressHydrationWarning>
+      <head />
       <body>{children}</body>
     </html>
   );
