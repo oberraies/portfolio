@@ -1613,7 +1613,7 @@ const frVbaVariablesQuiz: VbaVariablesQuizData = {
       explanation: "L'instruction `Type...End Type` permet de créer un Type Défini par l'Utilisateur (UDT), une structure de données personnalisée pouvant contenir plusieurs éléments liés, similaire à un `struct` dans d'autres langages."
     },
     {
-      question: "En VBA, quel est le but principal de définir explicitement une variable objet à `Nothing` (ex: `Set MaFeuille = Nothing`) ?",
+      question: "En VBA, quel est le but principal de définir explicitement une variable objet à `Nothing` (e.g., `Set MaFeuille = Nothing`) ?",
       options: ["Supprimer la feuille de calcul du classeur.", "Effacer le contenu de la feuille de calcul.", "Libérer immédiatement la mémoire utilisée par la variable objet, ce qui peut prévenir les fuites de mémoire.", "Renommer la variable objet."],
       correctAnswerIndex: 2,
       explanation: "Définir un objet à `Nothing` décrémente son compteur de références. Lorsque le compteur atteint zéro, VBA sait qu'il peut libérer la mémoire. C'est crucial pour la gestion de la mémoire, surtout dans les boucles ou les grosses applications."
@@ -1718,7 +1718,7 @@ const dictionary: Dictionary = {
     unexpectedErrorDescription: "Une erreur inattendue s'est produite. Veuillez réessayer.",
     contactInfoTitle: "Informations de Contact",
     contactInfoAvailability: "Vaste mobilité - Disponible rapidement",
-    contactInfoSocialPrompt: "Réservez un créneau pour discuter de vos besoins ou de vos projets (Via Calendly) ",
+    contactInfoSocialPrompt: "Réservez un créneau pour discuter de vos besoins ou de vos projets : ",
     sendMessageTitle: "Envoyez-moi un message",
   },
   cvPage: {

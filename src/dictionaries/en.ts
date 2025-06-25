@@ -1,5 +1,5 @@
 
-import type { Dictionary, CVPageDictionaryItems, ProjectsPageDictionaryItems, ProjectItem as FrProjectItem, CVEducationItem as FrCVEducationItem, CVExperienceItem as FrCVExperienceItem, CVSkillItem as FrCVSkillItem, CVTrainingItem as FrCVTrainingItem, QuizPageDictionaryItems, ExcelQuizTopicsPageDictionaryItems, VbaQuizTopicsPageDictionaryItems, VbaQuizTopic, QuizFormulasPageDictionaryItems, Question, ExcelFormulasQuizData, ExcelPivotTablesQuizData, ExcelChartsQuizData, ExcelDataManagementQuizData, ExcelPowerPivotQuizData, ExcelPowerQueryQuizData, VbaVariablesQuizData, QuizEmailDictionaryItems } from './fr'; // Reuse the interface structure
+import type { Dictionary, CVPageDictionaryItems, ProjectsPageDictionaryItems, ProjectItem as FrProjectItem, CVEducationItem as FrCVEducationItem, CVExperienceItem as FrCVExperienceItem, CVSkillItem as FrCVSkillItem, CVTrainingItem as FrCVTrainingItem, QuizPageDictionaryItems, ExcelQuizTopicsPageDictionaryItems, VbaQuizTopicsPageDictionaryItems, VbaQuizTopic, QuizFormulasPageDictionaryItems, Question, ExcelFormulasQuizData, ExcelPivotTablesQuizData, ExcelChartsQuizData, ExcelDataManagementQuizData, ExcelPowerPivotQuizData, ExcelPowerQueryQuizData, VbaVariablesQuizData, QuizEmailDictionaryItems, FooterDictionaryItems } from './fr'; // Reuse the interface structure
 
 // Re-declare specific item types if their structure needs to be identical for type safety
 // (though for simple string translations, the Fr types might suffice if only strings change)
@@ -1325,6 +1325,17 @@ const enExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
       explanation: "'Merge' is the equivalent of a JOIN in SQL, enriching one table with the columns of another."
     },
     {
+      question: "What is the fundamental difference between 'Append Queries' and 'Merge Queries'?",
+      options: [
+        "There is none",
+        "Append stacks rows, Merge joins columns from two tables based on a common column",
+        "Merge is faster than Append",
+        "Append only works with two tables"
+      ],
+      correctAnswerIndex: 1,
+      explanation: "'Merge' is the equivalent of a JOIN in SQL, enriching one table with the columns of another."
+    },
+    {
       question: "What programming language is used in the background by the Power Query editor?",
       options: [
         "VBA",
@@ -1546,7 +1557,7 @@ const enVbaVariablesQuiz: VbaVariablesQuizData = {
       question: "What is the scope difference between `Private Sub MyProcedure()` and `Sub MyProcedure()` in a standard module?",
       options: ["`Private` makes it faster.", "There is no difference in a standard module.", "`Private` makes it visible only within that module, whereas without `Private` (default `Public`), it is visible from other modules.", "`Private` prevents the procedure from being called."],
       correctAnswerIndex: 2,
-      explanation: "The `Private` keyword restricts the visibility of a procedure or variable to the module where it is declared. By default, a `Sub` procedure in a standard module is `Public`."
+      explanation: "The `Private` keyword restricts the visibility of a procedure or a variable to the module where it is declared. By default, a `Sub` procedure in a standard module is `Public`."
     },
     {
       question: "If you don't know what data type a function will return (number, text, error...), which variable type is the safest to receive this result?",
@@ -1570,7 +1581,7 @@ const enVbaVariablesQuiz: VbaVariablesQuizData = {
       question: "To create a set of named constants that can be used interchangeably with numbers for better code readability (e.g., for statuses like `statusOpen`, `statusClosed`), what should you declare?",
       options: ["Public Const", "Array", "Static Type", "Enum"],
       correctAnswerIndex: 3,
-      explanation: "An `Enum` (Enumeration) is used to define a set of named integer constants, which makes the code much easier to read and maintain than using 'magic numbers'."
+      explanation: "An `Enum` (Enumeration) is used to define a set of named integer constants, which makes the code much easier to read and to maintain than using 'magic numbers'."
     },
     {
       question: "What is the declaration difference between a fixed-length string of 10 characters and a variable-length string?",
@@ -1587,13 +1598,17 @@ const enVbaVariablesQuiz: VbaVariablesQuizData = {
   ]
 };
 
+const enFooter: FooterDictionaryItems = {
+  allRightsReserved: 'All rights reserved.',
+};
+
 const dictionary: Dictionary = {
   navLinks: {
     home: { label: 'Home' },
     cv: { label: 'CV' },
     projects: { label: 'Projects' },
     templates: { label: 'Templates' },
-    quiz: { label: 'Test your level' },
+    quiz: { label: 'Test Your Level' },
     contact: { label: 'Contact' },
   },
   navbar: {
@@ -1604,9 +1619,7 @@ const dictionary: Dictionary = {
     closeMenu: 'Close menu',
     selectLanguage: 'Select language',
   },
-  footer: {
-    allRightsReserved: 'All rights reserved.',
-  },
+  footer: enFooter,
   homePage: {
     greeting: 'Hello, I\'m',
     name: 'Oussama Berraies',
@@ -1666,7 +1679,7 @@ const dictionary: Dictionary = {
     unexpectedErrorDescription: "An unexpected error occurred. Please try again.",
     contactInfoTitle: "Contact Information",
     contactInfoAvailability: "Widely mobile - Available quickly",
-    contactInfoSocialPrompt: "Book a slot to discuss your needs or projects (Via Calendly) ",
+    contactInfoSocialPrompt: "Book a slot to discuss your needs or projects: ",
     sendMessageTitle: "Send me a message",
   },
   cvPage: enCVPage,
