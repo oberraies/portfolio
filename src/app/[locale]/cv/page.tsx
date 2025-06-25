@@ -1,10 +1,13 @@
 
 import type { Locale } from '@/config/i18n';
 import { getDictionary } from '@/lib/dictionaries';
-import { CVPageContent } from '@/components/cv/CVPageContent';
 import { PageHeader } from '@/components/shared/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
+import { EducationSection } from '@/components/cv/EducationSection';
+import { ExperienceSection } from '@/components/cv/ExperienceSection';
+import { SkillsSection } from '@/components/cv/SkillsSection';
+import { TrainingSection } from '@/components/cv/TrainingSection';
 
 interface CVPageProps {
   params: { locale: Locale };
@@ -15,7 +18,6 @@ export default async function CVPage({ params: { locale } }: CVPageProps) {
   const cvDict = dict.cvPage;
   const pageHeaderDict = dict.pageHeaders;
 
-  // Static data for icons, PDF links etc. which are not part of translatable text
   const staticData = {
     cvPdfLink: "/Oussama_Berraies.pdf", // This path is handled by middleware
     trainingPdfLinks: [
@@ -40,12 +42,26 @@ export default async function CVPage({ params: { locale } }: CVPageProps) {
           </a>
         </Button>
       </PageHeader>
-      <CVPageContent 
-        cvDict={cvDict}
-        trainingPdfLinks={staticData.trainingPdfLinks}
-      />
+      
+      <div className="space-y-12">
+        <ExperienceSection 
+          title={cvDict.experienceTitle}
+          experienceItems={cvDict.experience}
+        />
+        <SkillsSection 
+          title={cvDict.skillsTitle}
+          skills={cvDict.skills}
+        />
+        <EducationSection
+          title={cvDict.educationTitle}
+          educationItems={cvDict.education}
+        />
+        <TrainingSection
+          title={cvDict.trainingTitle}
+          trainingItems={cvDict.training}
+          trainingPdfLinks={staticData.trainingPdfLinks}
+        />
+      </div>
     </div>
   );
 }
-
-    
