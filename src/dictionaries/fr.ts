@@ -344,130 +344,97 @@ const frQuizEmail: QuizEmailDictionaryItems = {
 
 const frExcelFormulasQuiz: ExcelFormulasQuizData = {
   title: "Quiz : Formules et Fonctions Excel",
-  description: "20 questions pour évaluer votre niveau, de débutant à expert.",
+  description: "15 questions pour évaluer votre niveau, de débutant à expert, avec une difficulté progressive.",
   questions: [
-    // Beginner Level (Q1-Q8)
     {
-      question: "Pour calculer la somme des cellules de A1 à A10, quelle formule utilisez-vous ?",
-      options: ["=AJOUTER(A1:A10)", "=TOTAL(A1:A10)", "=SOMME(A1:A10)", "=COMBINER(A1:A10)"],
-      correctAnswerIndex: 2,
-      explanation: "SOMME est la fonction fondamentale pour additionner une plage de nombres."
+        question: "Pour concaténer le contenu de A1, un tiret, et B1, quelle formule est la plus propre ?",
+        options: ["=A1 & \"-\" & B1", "=CONCAT(A1;\"-\";B1)", "=JOINDRE.TEXTE(\"-\";VRAI;A1:B1)", "Toutes les réponses sont correctes"],
+        correctAnswerIndex: 3,
+        explanation: "Les trois syntaxes sont valides pour joindre du texte. JOINDRE.TEXTE est la plus moderne et flexible, mais & et CONCAT sont aussi corrects pour ce cas simple."
     },
     {
-      question: "Que fait le symbole `$` dans une référence de cellule comme `$A$1` ?",
-      options: ["Il formate la cellule en devise.", "Il crée une référence absolue qui ne change pas lorsque la formule est copiée.", "Il indique une valeur texte.", "Il supprime la cellule."],
-      correctAnswerIndex: 1,
-      explanation: "Le `$` crée une référence absolue. `$A$1` bloque la colonne et la ligne, `A$1` bloque uniquement la ligne, et `$A1` bloque uniquement la colonne."
+        question: "Quelle formule trouve la valeur la plus élevée dans la plage C1:C50 ?",
+        options: ["=MAX(C1:C50)", "=GRANDE.VALEUR(C1:C50; 1)", "Les deux sont correctes", "Aucune n'est correcte"],
+        correctAnswerIndex: 2,
+        explanation: "MAX est la fonction standard. GRANDE.VALEUR(plage; 1) renvoie également la plus grande valeur, ce qui est équivalent à MAX."
     },
     {
-      question: "Quelle fonction utiliseriez-vous pour afficher \"Pass\" si un score en C2 est 60 ou plus, et \"Fail\" sinon ?",
-      options: ["=SI(C2>=60; \"Pass\"; \"Fail\")", "=CHOISIR(C2; \"Pass\"; \"Fail\")", "=SWITCH(C2>=60; \"Pass\"; \"Fail\")", "=RESULTAT(C2>=60; \"Pass\"; \"Fail\")"],
-      correctAnswerIndex: 0,
-      explanation: "La fonction SI évalue une condition logique et renvoie une valeur pour un résultat VRAI et une autre pour un résultat FAUX."
+        question: "Comment empêcher une erreur #DIV/0! en affichant 0 si la cellule B2 est vide ou égale à zéro, lors du calcul A2/B2 ?",
+        options: ["=SI(B2=0; 0; A2/B2)", "=SIERREUR(A2/B2; 0)", "Les deux sont corrects", "Aucune n'est correcte"],
+        correctAnswerIndex: 2,
+        explanation: "SIERREUR est une manière plus concise et moderne de gérer toutes les erreurs, y compris #DIV/0!. La formule SI est plus spécifique mais tout aussi valide ici."
     },
     {
-      question: "Quelle fonction compte le nombre de cellules dans une plage qui contiennent des nombres ?",
-      options: ["NB", "NBVAL", "NB.VIDE", "NB.SI"],
-      correctAnswerIndex: 0,
-      explanation: "NB compte uniquement les valeurs numériques. NBVAL compte toutes les cellules non vides (texte et nombres), et NB.VIDE compte les cellules vides."
+        question: "Pour obtenir la date du jour qui se met à jour automatiquement, quelle fonction utiliser ?",
+        options: ["=DATE()", "=AUJOURDHUI()", "=MAINTENANT()", "B et C"],
+        correctAnswerIndex: 1,
+        explanation: "AUJOURDHUI() retourne la date actuelle. MAINTENANT() retourne la date ET l'heure actuelle. DATE() crée une date à partir de l'année, du mois et du jour spécifiés."
     },
     {
-      question: "Pour trouver une valeur dans la première colonne d'un tableau et retourner une valeur correspondante d'une autre colonne, quelle fonction est la plus courante ?",
-      options: ["CHERCHER", "TROUVER", "RECHERCHE", "RECHERCHEV"],
-      correctAnswerIndex: 3,
-      explanation: "RECHERCHEV (Recherche Verticale) est une fonction classique pour rechercher une valeur dans la colonne la plus à gauche d'un tableau et retourner une valeur d'une colonne spécifiée dans la même ligne."
+        question: "Quelle fonction compte le nombre de cellules contenant le mot \"Urgent\" dans la plage D1:D100 ?",
+        options: ["=NB.SI(D1:D100; \"Urgent\")", "=COMPTER.SI(D1:D100; \"Urgent\")", "=NBVAL(D1:D100; \"Urgent\")", "=CHERCHER(\"Urgent\"; D1:D100)"],
+        correctAnswerIndex: 0,
+        explanation: "NB.SI (COUNTIF) est la fonction standard pour compter les cellules qui répondent à un seul critère."
     },
     {
-      question: "Comment joindre le texte de la cellule A1 (\"Bonjour\") et B1 (\"Monde\") pour créer \"BonjourMonde\" ?",
-      options: ["=A1 & B1", "=JOINDRE(A1; B1)", "=COMBINER(A1; B1)", "=A1 + B1"],
-      correctAnswerIndex: 0,
-      explanation: "L'opérateur esperluette (`&`) est le moyen le plus simple de concaténer (joindre) des chaînes de texte. La fonction CONCATENER fonctionne également."
+        question: "Vous voulez trouver le prix d'un produit (colonne C) en utilisant son ID (colonne A). La colonne ID n'est pas triée. Quelle est la combinaison la plus robuste ?",
+        options: ["=RECHERCHEV(ID; A:C; 3; FAUX)", "=INDEX(C:C; EQUIV(ID; A:A; 0))", "=RECHERCHEX(ID; A:A; C:C)", "Toutes les réponses sont correctes"],
+        correctAnswerIndex: 3,
+        explanation: "RECHERCHEV fonctionne si l'ID est dans la première colonne. INDEX/EQUIV est plus flexible. RECHERCHEX est la solution la plus moderne et recommandée, combinant la simplicité de RECHERCHEV avec la flexibilité de INDEX/EQUIV."
     },
     {
-      question: "Quelle fonction retourne la date actuelle sans l'heure ?",
-      options: ["MAINTENANT()", "DATEACTUELLE()", "DATE()", "AUJOURDHUI()"],
-      correctAnswerIndex: 3,
-      explanation: "AUJOURDHUI() retourne la date actuelle, qui se met à jour à chaque ouverture ou recalcul du classeur. MAINTENANT() retourne la date et l'heure actuelles."
+        question: "Quel est l'effet de la formule =DECALER(A1; 2; 1; 3; 2) ?",
+        options: ["Elle sélectionne la cellule B3.", "Elle renvoie la somme de la plage B3:C5.", "Elle crée une référence à la plage B3:C5.", "Elle déplace le contenu de A1 vers B3."],
+        correctAnswerIndex: 2,
+        explanation: "DECALER (OFFSET) crée une référence dynamique. À partir de A1, elle se décale de 2 lignes vers le bas, 1 colonne vers la droite (arrivant à B3), puis définit une plage de 3 lignes de haut et 2 colonnes de large."
     },
     {
-      question: "Pour empêcher une formule d'afficher une erreur comme `#N/A`, et afficher un message personnalisé à la place, vous devez l'envelopper dans quelle fonction ?",
-      options: ["PASDERREUR()", "ESTERREUR()", "SIERREUR()", "EPURAGE()"],
-      correctAnswerIndex: 2,
-      explanation: "SIERREUR évalue une formule et retourne son résultat si ce n'est pas une erreur. Si c'est une erreur, elle retourne une valeur alternative spécifiée (comme \"\" ou \"Non Trouvé\")."
-    },
-    // Advanced Level (Q9-Q15)
-    {
-      question: "Pour compter les lignes où la colonne A est \"Nord\" ET la colonne B est \"Matériel\", quelle fonction est la meilleure ?",
-      options: ["NB.SI(A:A; \"Nord\") + NB.SI(B:B; \"Matériel\")", "ET(NB.SI(A:A; \"Nord\"); NB.SI(B:B; \"Matériel\"))", "NB.SI.ENS(A:A; \"Nord\"; B:B; \"Matériel\")", "BDNB(A:B; \"Matériel\")"],
-      correctAnswerIndex: 2,
-      explanation: "NB.SI.ENS est conçu spécifiquement pour compter des cellules en fonction de plusieurs critères sur différentes plages."
+        question: "Comment transformer une colonne de dates au format texte \"JJ/MM/AAAA\" en vraies dates Excel ?",
+        options: ["Changer le format de la cellule en \"Date\".", "Utiliser la fonction DATEVAL().", "Utiliser l'outil \"Convertir\" (Texte en colonnes) et spécifier le format JMA.", "B et C"],
+        correctAnswerIndex: 3,
+        explanation: "DATEVAL (DATEVALUE) est conçue pour cela. L'outil \"Convertir\" est aussi une technique très efficace pour forcer Excel à réinterpréter le texte comme des dates. Changer le format seul ne fonctionne pas car la donnée sous-jacente reste du texte."
     },
     {
-      question: "Quel est un avantage clé de l'utilisation de `INDEX` et `EQUIV` par rapport à `RECHERCHEV` ?",
-      options: ["C'est plus rapide pour les petits ensembles de données.", "Il peut rechercher des valeurs dans n'importe quelle colonne, pas seulement celle la plus à gauche.", "Il ne fonctionne qu'avec des nombres.", "Il ignore automatiquement les erreurs."],
-      correctAnswerIndex: 1,
-      explanation: "La combinaison INDEX/EQUIV est plus flexible. EQUIV trouve la position d'une valeur, et INDEX retourne la valeur à cette position, donc la colonne de recherche peut être à droite de la colonne de retour, ce qui est impossible avec RECHERCHEV."
+        question: "Pour sommer les ventes en C:C uniquement pour la région \"Nord\" en A:A ET pour le produit \"Clavier\" en B:B, quelle est la formule correcte ?",
+        options: ["=SOMME.SI(A:A; \"Nord\"; C:C) + SOMME.SI(B:B; \"Clavier\"; C:C)", "=SOMME.SI.ENS(C:C; A:A; \"Nord\"; B:B; \"Clavier\")", "=SOMMEPROD((A:A=\"Nord\")*(B:B=\"Clavier\")*(C:C))", "B et C sont corrects"],
+        correctAnswerIndex: 3,
+        explanation: "SOMME.SI.ENS est la fonction dédiée. SOMMEPROD est une alternative plus ancienne mais très puissante qui fonctionne en multipliant les matrices de VRAI/FAUX (converties en 1/0)."
     },
     {
-      question: "Quel est le résultat de la formule `=SOMMEPROD({1;2;3}; {10;20;30})` ?",
-      options: ["66", "140", "60", "Une erreur #VALEUR!"],
-      correctAnswerIndex: 1,
-      explanation: "SOMMEPROD multiplie les composants correspondants dans les matrices données et retourne la somme de ces produits. (1*10 + 2*20 + 3*30) = 10 + 40 + 90 = 140."
+        question: "Pour extraire le nom de domaine (ex: \"google.com\") de l'email \"test@google.com\" en A1, quelle formule est correcte ?",
+        options: ["=DROITE(A1; NBCAR(A1)-CHERCHER(\"@\";A1))", "=STXT(A1; CHERCHER(\"@\";A1)+1; 100)", "Les deux sont correctes", "Aucune n'est correcte"],
+        correctAnswerIndex: 2,
+        explanation: "Les deux approches sont valides. DROITE prend la partie droite de la chaîne après avoir trouvé la position du '@'. STXT (MID) extrait une sous-chaîne à partir de la position après le '@' pour un grand nombre de caractères."
     },
     {
-      question: "Quelle fonction permet de joindre une plage de cellules avec un délimiteur spécifique (par exemple, une virgule) et d'ignorer les cellules vides ?",
-      options: ["CONCAT", "CONCATENER", "JOINDRE.TEXTE", "FUSIONNER"],
-      correctAnswerIndex: 2,
-      explanation: "JOINDRE.TEXTE est une fonction moderne et puissante spécialement conçue pour cet usage. Son deuxième argument permet de choisir d'ignorer les cellules vides."
+        question: "Quelle fonction dynamique permet d'obtenir une liste de valeurs uniques d'une plage A1:A100 et de les trier alphabétiquement ?",
+        options: ["=UNIQUE(A1:A100)", "=TRIER(UNIQUE(A1:A100))", "=FILTRE(A1:A100; NB.SI(A1:A100; A1:A100)=1)", "Il faut utiliser une macro VBA."],
+        correctAnswerIndex: 1,
+        explanation: "UNIQUE extrait les valeurs uniques, et TRIER les trie. C'est l'imbrication standard pour ce besoin."
     },
     {
-      question: "Pour obtenir la dernière valeur numérique d'une colonne qui contient des types de données mixtes, quelle formule est une technique avancée courante ?",
-      options: ["=MAX(A:A)", "=RECHERCHEV(9,99E+307;A:A;1;VRAI)", "=RECHERCHE(2; 1/(ESTNUM(A:A)); A:A)", "=PRENDRE(A:A; -1)"],
-      correctAnswerIndex: 2,
-      explanation: "La formule `RECHERCHE(2; 1/(...))` est une technique classique et robuste. Elle crée une matrice de 1 et d'erreurs, et `RECHERCHE` trouve la position du dernier 1, correspondant au dernier nombre."
+        question: "Dans une formule matricielle, que fait l'opérateur # après une référence de plage dynamique (ex: A1#) ?",
+        options: ["Il commente la formule.", "Il référence toute la plage de débordement (spill range) générée par la formule en A1.", "Il force le recalcul de la formule.", "Il indique une erreur dans la référence."],
+        correctAnswerIndex: 1,
+        explanation: "L'opérateur de plage de débordement # est une syntaxe moderne pour faire référence à l'ensemble du tableau de résultats renvoyé par une fonction de tableau dynamique."
     },
     {
-      question: "Que fait l'opérateur double unaire (`--`) dans une formule comme `=SOMMEPROD(--(A1:A10=\"Nord\"))` ?",
-      options: ["Il soustrait la valeur de zéro.", "Il convertit les valeurs VRAI/FAUX en 1 et 0.", "C'est une faute de frappe et provoquera une erreur.", "Il fait exécuter la formule deux fois pour une meilleure précision."],
-      correctAnswerIndex: 1,
-      explanation: "Le test logique `(A1:A10=\"Nord\")` retourne une matrice de valeurs VRAI/FAUX. L'opérateur double unaire est un moyen efficace de forcer cette matrice booléenne à devenir une matrice numérique de 1 et 0, que SOMMEPROD peut ensuite additionner."
+        question: "Vous avez une table de transactions. Pour obtenir la date de la dernière vente pour chaque client unique, quelle est la meilleure approche moderne ?",
+        options: ["Un TCD avec le Client en Lignes et MAX(Date) en Valeurs.", "=MAX.SI.ENS(PlageDates; PlageClients; ClientUnique)", "Une combinaison des fonctions UNIQUE, FILTRE et MAX.", "Toutes les réponses sont correctes et efficaces."],
+        correctAnswerIndex: 3,
+        explanation: "Les trois méthodes sont valides. Le TCD est la méthode la plus interactive. MAX.SI.ENS est excellent pour une liste de résultats statique. UNIQUE et FILTRE offrent une solution de formule dynamique puissante."
     },
     {
-      question: "Comment pouvez-vous arrondir un nombre en A1 au multiple de 50 le plus proche ?",
-      options: ["=ARRONDI(A1; 50)", "=ARRONDI.AU.MULTIPLE(A1; 50)", "=PLAFOND(A1; 50)", "=ARRONDI.SUP(A1; -2)"],
-      correctAnswerIndex: 1,
-      explanation: "ARRONDI.AU.MULTIPLE est spécifiquement conçue pour arrondir un nombre au multiple spécifié le plus proche."
-    },
-    // Expert Level (Q16-Q20)
-    {
-      question: "Quelle fonction moderne est généralement considérée comme un remplacement supérieur pour `RECHERCHEV`, `RECHERCHEH`, et `INDEX/EQUIV` en raison de sa flexibilité et de sa syntaxe plus simple ?",
-      options: ["SUPERRECHERCHE", "RECHERCHEX", "LIREDONNEESTABCROISDYNAMIQUE", "REQUETE"],
-      correctAnswerIndex: 1,
-      explanation: "RECHERCHEX est le successeur moderne des anciennes fonctions de recherche. Il recherche une correspondance exacte par défaut, peut rechercher de bas en haut, et gère de manière robuste les insertions/suppressions de colonnes sans se casser."
+        question: "Quelle fonction d'aide LAMBDA permet de transformer chaque valeur d'un tableau (ex: mettre en majuscules chaque cellule de A1:A10) ?",
+        options: ["=REDUCE(\"\"; A1:A10; LAMBDA(a;v; MAJUSCULE(v)))", "=SCAN(A1:A10; LAMBDA(a;v; MAJUSCULE(v)))", "=MAP(A1:A10; LAMBDA(cellule; MAJUSCULE(cellule)))", "=BYROW(A1:A10; LAMBDA(r; MAJUSCULE(r)))"],
+        correctAnswerIndex: 2,
+        explanation: "MAP est la fonction d'aide LAMBDA spécifiquement conçue pour appliquer une logique à chaque élément d'un tableau et renvoyer un tableau de la même taille avec les résultats."
     },
     {
-      question: "Pour améliorer la lisibilité et les performances en calculant une valeur une seule fois, quelle fonction devriez-vous utiliser pour attribuer des noms à ces résultats intermédiaires ?",
-      options: ["DEFINIR", "VAR", "LET", "CALCULER"],
-      correctAnswerIndex: 2,
-      explanation: "La fonction LET vous permet de déclarer des variables nommées dans la portée d'une formule. Cela rend les formules plus faciles à lire et peut optimiser les performances en empêchant le même calcul d'être répété."
-    },
-    {
-      question: "Quelle fonction vous permet de créer vos propres fonctions personnalisées et réutilisables (par exemple, `MAFONCTION`) directement dans la barre de formule sans utiliser VBA ?",
-      options: ["CREER.FONCTION", "FONCTION.PERSO", "SCRIPT", "LAMBDA"],
-      correctAnswerIndex: 3,
-      explanation: "La fonction LAMBDA vous permet de définir des fonctions anonymes. Lorsque vous attribuez un LAMBDA à un nom dans le Gestionnaire de noms, il devient une nouvelle fonction réutilisable dans votre classeur."
-    },
-    {
-      question: "Quelle fonction de tableau dynamique est conçue pour extraire un sous-ensemble d'une table qui répond à une condition logique spécifique (par exemple, toutes les ventes de la région \"Nord\") ?",
-      options: ["EXTRAIRE", "SELECTIONNER", "FILTRE", "REQUETE"],
-      correctAnswerIndex: 2,
-      explanation: "La fonction FILTRE est conçue précisément pour cela. Elle prend un tableau et un argument \"inclure\" (un tableau booléen), ne retournant que les lignes ou colonnes où l'argument inclure est VRAI."
-    },
-    {
-      question: "Pour calculer un total cumulé pour une colonne de nombres en A2:A10, quelle fonction d'aide LAMBDA est la plus appropriée ?",
-      options: ["MAP", "REDUCE", "BYROW", "SCAN"],
-      correctAnswerIndex: 3,
-      explanation: "La fonction SCAN traite un tableau et retourne les valeurs intermédiaires accumulées. C'est parfait pour générer un total cumulé, car elle montre la valeur accumulée à chaque étape. REDUCE ne retourne que le total final."
+        question: "Quel est le principal avantage de la fonction LET ?",
+        options: ["Elle permet d'écrire des formules sur plusieurs lignes.", "Elle permet de déclarer des variables, ce qui améliore la lisibilité et les performances en évitant les calculs répétitifs.", "Elle se connecte à des sources de données externes.", "C'est un raccourci pour la fonction LETTRE."],
+        correctAnswerIndex: 1,
+        explanation: "LET est une révolution pour les formules complexes. En nommant les résultats intermédiaires, non seulement la formule devient plus facile à lire et à déboguer, mais Excel peut aussi optimiser le calcul en n'évaluant chaque variable qu'une seule fois."
     }
   ]
 };
@@ -476,7 +443,6 @@ const frExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
   title: "Quiz : Tableaux Croisés Dynamiques Excel",
   description: "15 questions pour évaluer votre capacité à synthétiser et analyser les données.",
   questions: [
-    // Débutant
     {
       question: "Quel est l'objectif principal d'un Tableau Croisé Dynamique (TCD) ?",
       options: [
@@ -511,17 +477,6 @@ const frExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
       explanation: "La zone 'Valeurs' est spécifiquement conçue pour agréger des données numériques à l'aide de fonctions comme Somme, Moyenne, Nombre, etc."
     },
     {
-      question: "Comment pouvez-vous rapidement filtrer les données affichées dans un TCD pour n'afficher que les ventes d'une certaine région ?",
-      options: [
-        "En modifiant la source de données.",
-        "En utilisant un graphique croisé dynamique.",
-        "En faisant glisser le champ 'Région' dans la zone 'Filtres'.",
-        "En triant la colonne des valeurs."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "La zone 'Filtres' permet de créer un filtre global pour l'ensemble du tableau croisé dynamique, ce qui est idéal pour isoler des sous-ensembles de données."
-    },
-    {
       question: "Que se passe-t-il si vous double-cliquez sur une cellule de valeur dans un TCD (par exemple, la somme des ventes) ?",
       options: [
         "Le TCD est supprimé.",
@@ -532,7 +487,17 @@ const frExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
       correctAnswerIndex: 1,
       explanation: "C'est une fonctionnalité puissante appelée 'Drill Down' qui permet de voir instantanément les données détaillées derrière un chiffre agrégé."
     },
-    // Avancé
+    {
+      question: "Pour vous assurer que votre TCD se met à jour automatiquement lorsque vous ajoutez de nouvelles données à votre tableau source, quelle est la meilleure pratique ?",
+      options: [
+        "Recréer le TCD à chaque fois.",
+        "Formater vos données sources en tant que Tableau Excel (Ctrl+L) avant de créer le TCD.",
+        "Utiliser la fonction `INDIRECT`.",
+        "Verrouiller les cellules de la source de données."
+      ],
+      correctAnswerIndex: 1,
+      explanation: "Utiliser un Tableau Excel permet au TCD de reconnaître automatiquement les nouvelles lignes et colonnes, il suffit alors d'actualiser le TCD pour les inclure."
+    },
     {
       question: "Dans un TCD contenant des dates quotidiennes, comment pouvez-vous les regrouper pour afficher les totaux par mois et par année ?",
       options: [
@@ -577,18 +542,6 @@ const frExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
       correctAnswerIndex: 1,
       explanation: "C'est un moyen rapide et puissant de changer la perspective d'analyse, passant de valeurs absolues à des contributions relatives sans écrire de formules."
     },
-    {
-      question: "Pour vous assurer que votre TCD se met à jour automatiquement lorsque vous ajoutez de nouvelles données à votre tableau source, quelle est la meilleure pratique ?",
-      options: [
-        "Recréer le TCD à chaque fois.",
-        "Formater vos données sources en tant que Tableau Excel (Ctrl+L) avant de créer le TCD.",
-        "Utiliser la fonction `INDIRECT`.",
-        "Verrouiller les cellules de la source de données."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Utiliser un Tableau Excel permet au TCD de reconnaître automatiquement les nouvelles lignes et colonnes, il suffit alors d'actualiser le TCD pour les inclure."
-    },
-    // Expert
     {
       question: "Quelle fonction est spécifiquement conçue pour extraire une valeur d'un TCD en utilisant ses libellés de ligne et de colonne, mais est souvent considérée comme rigide et peu performante ?",
       options: [
@@ -643,15 +596,25 @@ const frExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
       ],
       correctAnswerIndex: 1,
       explanation: "C'est un piège classique : si vous créez un élément 'Europe' = 'France' + 'Allemagne', le total général inclura la France, l'Allemagne ET l'Europe, comptant ainsi ces pays en double. Il faut souvent les masquer ou utiliser d'autres techniques pour des regroupements propres."
+    },
+    {
+      question: "Comment pouvez-vous rapidement filtrer les données affichées dans un TCD pour n'afficher que les ventes d'une certaine région ?",
+      options: [
+        "En modifiant la source de données.",
+        "En utilisant un graphique croisé dynamique.",
+        "En faisant glisser le champ 'Région' dans la zone 'Filtres'.",
+        "En triant la colonne des valeurs."
+      ],
+      correctAnswerIndex: 2,
+      explanation: "La zone 'Filtres' permet de créer un filtre global pour l'ensemble du tableau croisé dynamique, ce qui est idéal pour isoler des sous-ensembles de données."
     }
   ]
 };
 
 const frExcelChartsQuiz: ExcelChartsQuizData = {
   title: "Quiz : Graphiques et Mise en Forme Excel",
-  description: "20 questions pour tester vos compétences en visualisation de données et mise en forme conditionnelle.",
+  description: "15 questions pour tester vos compétences en visualisation de données et mise en forme conditionnelle.",
   questions: [
-    // Débutant
     {
       question: "Comment créer un graphique en barres simple à partir d'une sélection de données ?",
       options: [
@@ -686,17 +649,6 @@ const frExcelChartsQuiz: ExcelChartsQuizData = {
       explanation: "L'élément 'Titre du graphique' peut être ajouté via le bouton '+' vert (Éléments de graphique) à côté du graphique, ou depuis l'onglet 'Création de graphique'."
     },
     {
-      question: "À quoi sert une légende de graphique ?",
-      options: [
-        "À afficher le titre principal du graphique.",
-        "À identifier quelle couleur ou quel motif correspond à quelle série de données.",
-        "À montrer la valeur exacte de chaque point de données.",
-        "À ajouter une image de fond au graphique."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "La légende est cruciale pour comprendre les graphiques avec plusieurs séries de données, car elle fournit une clé pour interpréter les données."
-    },
-    {
       question: "Qu'est-ce que la 'Mise en forme conditionnelle' ?",
       options: [
         "Un outil pour formater les graphiques automatiquement.",
@@ -718,29 +670,6 @@ const frExcelChartsQuiz: ExcelChartsQuizData = {
       correctAnswerIndex: 2,
       explanation: "La catégorie 'Règles de mise en surbrillance des cellules' offre des options simples pour formater les cellules basées sur des comparaisons comme 'Supérieur à', 'Inférieur à' ou 'Égal à'."
     },
-    {
-      question: "Qu'est-ce qu'un 'Graphique Sparkline' ?",
-      options: [
-        "Un type de mise en forme conditionnelle.",
-        "Un petit graphique miniature qui tient dans une seule cellule.",
-        "Un axe secondaire sur un graphique.",
-        "Un titre pour un graphique."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Les graphiques Sparkline sont des graphiques minuscules placés dans une cellule pour fournir une représentation visuelle rapide des tendances des données à côté des chiffres bruts."
-    },
-    {
-      question: "Comment changer le type d'un graphique existant (par exemple, d'un graphique à barres à un graphique en courbes) ?",
-      options: [
-        "Il faut supprimer le graphique et en créer un nouveau.",
-        "En faisant glisser les coins du graphique.",
-        "Faire un clic droit sur le graphique et sélectionner 'Modifier le type de graphique'.",
-        "Dans l'onglet 'Mise en page'."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "Excel facilite le changement de type de graphique sans perdre vos données ou votre mise en forme. Cette option est disponible dans le menu contextuel du clic droit ou dans l'onglet 'Création de graphique'."
-    },
-    // Avancé
     {
       question: "Qu'est-ce qu'un 'Graphique combiné' ?",
       options: [
@@ -771,19 +700,8 @@ const frExcelChartsQuiz: ExcelChartsQuizData = {
         "Aller dans Barres de données -> Autres règles.",
         "Utiliser la fonction =FORMAT()."
       ],
-      correctAnswerIndex: 2,
+      correctAnswerIndex: 1,
       explanation: "L'utilisation d'une formule offre une flexibilité ultime, vous permettant de créer des règles de mise en forme basées sur n'importe quelle condition logique que vous pouvez écrire, comme formater une ligne entière en fonction de la valeur d'une seule cellule."
-    },
-    {
-      question: "À quoi sert l'outil 'Reproduire la mise en forme' de l'onglet Accueil ?",
-      options: [
-        "À peindre des couleurs sur un graphique.",
-        "À créer un nouveau graphique.",
-        "À copier rapidement toute la mise en forme (y compris conditionnelle) d'une cellule ou plage à une autre.",
-        "À changer la police du texte."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "Le 'Pinceau de mise en forme' est un énorme gain de temps. Il copie tous les aspects de la mise en forme, de la taille et couleur de police aux formats de nombre et règles de mise en forme conditionnelle."
     },
     {
       question: "Comment créer un titre de graphique dynamique qui est lié à la valeur d'une cellule ?",
@@ -797,17 +715,6 @@ const frExcelChartsQuiz: ExcelChartsQuizData = {
       explanation: "Cette technique permet à votre titre de graphique de se mettre à jour automatiquement chaque fois que le contenu de la cellule liée change, ce qui est excellent pour les rapports interactifs."
     },
     {
-      question: "Que représentent les 'Barres de données' en mise en forme conditionnelle ?",
-      options: [
-        "Elles mettent en surbrillance les 10 valeurs les plus élevées.",
-        "Elles ajoutent de petits graphiques à barres à l'intérieur de chaque cellule, la longueur de la barre représentant la valeur de la cellule par rapport aux autres.",
-        "Elles ajoutent des barres d'erreur à un graphique.",
-        "Elles créent un nouveau graphique à barres sur la feuille."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Les barres de données fournissent une comparaison visuelle rapide des valeurs dans la cellule, ce qui facilite le repérage des chiffres élevés et bas dans une plage sans avoir besoin d'un graphique séparé."
-    },
-    {
       question: "Que fait l'ajout d'une 'Courbe de tendance' à un graphique ?",
       options: [
         "Elle relie tous les points de données par une ligne droite.",
@@ -818,7 +725,6 @@ const frExcelChartsQuiz: ExcelChartsQuizData = {
       correctAnswerIndex: 2,
       explanation: "Une courbe de tendance est un puissant outil d'analyse qui représente visuellement la tendance de vos données, aidant à identifier des modèles et à faire des prévisions."
     },
-    // Expert
     {
       question: "Comment pouvez-vous créer une plage de graphique dynamique qui s'étend automatiquement lorsque de nouvelles données sont ajoutées à votre source ?",
       options: [
@@ -860,7 +766,7 @@ const frExcelChartsQuiz: ExcelChartsQuizData = {
         "En tapant le nom directement dans la légende du graphique.",
         "En créant une règle de mise en forme conditionnelle."
       ],
-      correctAnswerIndex: 2,
+      correctAnswerIndex: 1,
       explanation: "L'utilisation de plages nommées rend les sources de données de vos graphiques beaucoup plus lisibles et gérables, surtout pour des plages complexes ou dynamiques définies avec des formules comme DECALER."
     },
     {
@@ -879,9 +785,8 @@ const frExcelChartsQuiz: ExcelChartsQuizData = {
 
 const frExcelDataManagementQuiz: ExcelDataManagementQuizData = {
   title: "Quiz : Gestion des Données Excel",
-  description: "20 questions pour évaluer votre capacité à gérer et fiabiliser des bases de données.",
+  description: "15 questions pour évaluer votre capacité à gérer et fiabiliser des bases de données.",
   questions: [
-    // Débutant
     {
       question: "Quel outil permet de supprimer définitivement les lignes identiques d'un ensemble de données ?",
       options: [
@@ -927,39 +832,6 @@ const frExcelDataManagementQuiz: ExcelDataManagementQuizData = {
       explanation: "La boîte de dialogue 'Tri personnalisé' vous permet de définir une hiérarchie de règles de tri, en spécifiant quelle colonne trier en premier, en deuxième, et ainsi de suite."
     },
     {
-      question: "Comment mettre en évidence les valeurs en double dans une colonne sans les supprimer ?",
-      options: [
-        "En utilisant l'outil 'Supprimer les doublons'.",
-        "En utilisant un Tableau Croisé Dynamique.",
-        "Mise en forme conditionnelle -> Règles de mise en surbrillance des cellules -> Valeurs en double.",
-        "En utilisant la fonction NB."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "La mise en forme conditionnelle est l'outil parfait pour identifier visuellement les doublons (ou les valeurs uniques) sans altérer les données elles-mêmes."
-    },
-    {
-      question: "Quel outil vous permet de diviser le contenu d'une seule colonne en plusieurs colonnes (ex: 'Prénom Nom' en deux colonnes distinctes) ?",
-      options: [
-        "Grouper",
-        "Consolider",
-        "Convertir (Texte en colonnes)",
-        "Filtrer"
-      ],
-      correctAnswerIndex: 2,
-      explanation: "L'assistant 'Convertir (Texte en colonnes)' de l'onglet Données est conçu spécifiquement pour analyser les données d'une colonne et les répartir dans plusieurs, en se basant sur des délimiteurs ou des largeurs fixes."
-    },
-    {
-      question: "La fonctionnalité 'Filtrer' vous permet de...",
-      options: [
-        "Supprimer définitivement les lignes qui ne correspondent pas à vos critères.",
-        "Réorganiser les lignes dans un ordre spécifique.",
-        "Masquer temporairement les lignes qui ne répondent pas à vos critères.",
-        "Calculer la somme des lignes visibles."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "Le filtrage est une action non destructive qui masque les lignes, vous permettant de vous concentrer sur un sous-ensemble de vos données sans rien supprimer."
-    },
-    {
       question: "Pour créer une liste déroulante dans une cellule, quelle option de 'Validation des données' devez-vous utiliser ?",
       options: [
         "Autoriser : Tout",
@@ -970,7 +842,6 @@ const frExcelDataManagementQuiz: ExcelDataManagementQuizData = {
       correctAnswerIndex: 2,
       explanation: "L'option 'Liste' permet de définir un ensemble de valeurs autorisées (soit en les tapant, soit en faisant référence à une plage) qui apparaîtront sous forme de menu déroulant."
     },
-    // Avancé
     {
       question: "Quel est l'avantage principal de l'outil 'Filtre avancé' par rapport au filtre automatique ?",
       options: [
@@ -1016,17 +887,6 @@ const frExcelDataManagementQuiz: ExcelDataManagementQuizData = {
       explanation: "Le groupement est utilisé pour créer des sections réductibles dans votre feuille de calcul, ce qui est très utile pour synthétiser des données sans créer de Tableau Croisé Dynamique."
     },
     {
-      question: "Dans la Validation des données, que permet l'option 'Personnalisé' ?",
-      options: [
-        "Créer un message d'erreur personnalisé.",
-        "Utiliser une formule pour définir la règle de validation.",
-        "Autoriser n'importe quel type de donnée.",
-        "Sélectionner parmi une liste de règles prédéfinies."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "L'option 'Personnalisé' offre une flexibilité ultime en vous permettant d'écrire n'importe quelle formule logique qui renvoie VRAI (pour les données valides) ou FAUX (pour les données non valides)."
-    },
-    {
       question: "L'outil 'Consolider' sert à...",
       options: [
         "Combiner des valeurs de plusieurs plages en une seule plage.",
@@ -1037,18 +897,6 @@ const frExcelDataManagementQuiz: ExcelDataManagementQuizData = {
       correctAnswerIndex: 0,
       explanation: "Consolider est utile pour résumer des données provenant de rapports structurés de manière similaire (par exemple, sommer les ventes de feuilles mensuelles séparées) en un résumé principal."
     },
-    {
-      question: "Comment pouvez-vous vous assurer qu'une date entrée dans la cellule A1 est toujours un jour de semaine (lundi-vendredi) via la validation des données ?",
-      options: [
-        "Formule personnalisée : =ESTJOURSEMAINE(A1)",
-        "Formule personnalisée : =JOURSEM(A1;2)<=5",
-        "Ce n'est pas possible avec la validation des données.",
-        "Autoriser : Jours de semaine uniquement"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "La formule `JOURSEM(A1;2)` renvoie un nombre de 1 (lundi) à 7 (dimanche). Par conséquent, vérifier si ce nombre est inférieur ou égal à 5 restreint efficacement la saisie à un jour de semaine."
-    },
-    // Expert
     {
       question: "Quelle fonctionnalité, introduite dans Excel 2013, est la plus puissante pour nettoyer et transformer des données provenant de sources multiples avant de les charger dans Excel ?",
       options: [
@@ -1111,7 +959,6 @@ const frExcelPowerPivotQuiz: ExcelPowerPivotQuizData = {
   title: "Quiz : Power Pivot et DAX",
   description: "15 questions pour évaluer vos compétences sur le modèle de données, DAX et la création de KPIs.",
   questions: [
-    // Débutant
     {
       question: "Qu'est-ce que le 'Modèle de Données' dans Excel ?",
       options: [
@@ -1167,7 +1014,6 @@ const frExcelPowerPivotQuiz: ExcelPowerPivotQuizData = {
       correctAnswerIndex: 1,
       explanation: "`RELATED` est utilisée dans les colonnes calculées pour 'remonter' une information d'une table de dimension (le côté 'un') vers une table de faits (le côté 'plusieurs')."
     },
-    // Avancé
     {
       question: "Quelle fonction DAX est considérée comme la plus importante et la plus puissante car elle permet de modifier le contexte de filtre d'une expression ?",
       options: [
@@ -1223,7 +1069,6 @@ const frExcelPowerPivotQuiz: ExcelPowerPivotQuizData = {
       correctAnswerIndex: 2,
       explanation: "`FILTER` est un itérateur qui retourne une table. Dans `CALCULATE`, cette table retournée est utilisée comme un nouveau filtre qui s'ajoute au contexte de filtre initial."
     },
-    // Expert
     {
       question: "Qu'est-ce que la 'transition de contexte' (context transition) en DAX ?",
       options: [
@@ -1284,9 +1129,8 @@ const frExcelPowerPivotQuiz: ExcelPowerPivotQuizData = {
 
 const frExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
   title: "Quiz : Power Query",
-  description: "20 questions pour tester vos connaissances sur l'importation et la transformation de données.",
+  description: "15 questions pour tester vos connaissances sur l'importation et la transformation de données.",
   questions: [
-    // Débutant
     {
       question: "Quel est l'objectif principal de Power Query ?",
       options: [
@@ -1343,29 +1187,6 @@ const frExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
       explanation: "Définir le bon type de données est crucial pour les calculs et les relations corrects dans Excel ou Power Pivot."
     },
     {
-      question: "Que se passe-t-il lorsque vous 'Actualisez' une requête Power Query dans Excel ?",
-      options: [
-        "La requête est supprimée",
-        "Les étapes de transformation sont ré-exécutées sur les données sources actuelles",
-        "Seule la mise en forme de la table est mise à jour",
-        "Une copie de la feuille est créée"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "L'actualisation relance tout le processus d'extraction et de transformation, garantissant que vos données dans Excel sont à jour."
-    },
-    {
-      question: "Quel outil de Power Query permet de combiner des tables en ajoutant les lignes d'une table à la suite des autres ?",
-      options: [
-        "Fusionner les requêtes",
-        "Ajouter les requêtes",
-        "Pivoter la colonne",
-        "Grouper par"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "'Ajouter les requêtes' (Append) est l'équivalent d'un `UNION ALL` en SQL; il empile les tables les unes sur les autres."
-    },
-    // Avancé
-    {
       question: "Quelle est la différence fondamentale entre 'Ajouter les requêtes' (Append) et 'Fusionner les requêtes' (Merge) ?",
       options: [
         "Il n'y en a aucune",
@@ -1421,40 +1242,6 @@ const frExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
       explanation: "'Gauche externe' est le type de jointure le plus courant. Il conserve toutes les lignes de la table de gauche et ajoute les correspondances de la table de droite."
     },
     {
-      question: "Dans Power Query, qu'est-ce qu'un 'Paramètre' ?",
-      options: [
-        "Un nom pour une requête",
-        "Une variable que l'utilisateur peut modifier facilement pour changer le comportement d'une requête (ex: un chemin de fichier)",
-        "Un type de données spécial",
-        "Une erreur de requête"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Les paramètres rendent les requêtes dynamiques et réutilisables, en permettant de changer des valeurs clés sans modifier le code M."
-    },
-    {
-      question: "Que fait la transformation 'Grouper par' (Group By) ?",
-      options: [
-        "Elle fusionne des cellules",
-        "Elle agrège des lignes basées sur les valeurs d'une ou plusieurs colonnes (ex: calculer les ventes totales par région)",
-        "Elle trie les données",
-        "Elle crée un plan dans Excel"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "'Grouper par' est l'équivalent de la clause GROUP BY en SQL, permettant de synthétiser des données en effectuant des calculs (Somme, Moyenne, etc.) sur des groupes de lignes."
-    },
-    {
-      question: "À quoi sert l'option 'Extraire le texte entre les délimiteurs' ?",
-      options: [
-        "À supprimer du texte",
-        "À diviser une colonne",
-        "À isoler et extraire une partie d'une chaîne de caractères située entre un délimiteur de début et de fin",
-        "À joindre du texte"
-      ],
-      correctAnswerIndex: 2,
-      explanation: "C'est un outil très pratique pour analyser des chaînes de texte complexes sans avoir à écrire de formules M compliquées."
-    },
-    // Expert
-    {
       question: "Comment peut-on référencer le résultat de l'étape précédente dans une formule de colonne personnalisée en M ?",
       options: [
         "PreviousStep",
@@ -1464,17 +1251,6 @@ const frExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
       ],
       correctAnswerIndex: 1,
       explanation: "Le code M est une série d'étapes qui se référencent les unes les autres. Chaque étape a un nom (souvent avec des espaces, d'où les guillemets et le #)."
-    },
-    {
-      question: "Quelle est la principale différence entre `Table.SelectRows` et `Table.SelectColumns` en langage M ?",
-      options: [
-        "L'un filtre les lignes, l'autre les colonnes",
-        "Les deux font la même chose",
-        "`Table.SelectRows` est plus rapide",
-        "`Table.SelectColumns` modifie la table source"
-      ],
-      correctAnswerIndex: 0,
-      explanation: "C'est une distinction fondamentale : `Table.SelectRows` est la fonction derrière le filtrage (WHERE en SQL), tandis que `Table.SelectColumns` est la fonction derrière le choix de colonnes (SELECT en SQL)."
     },
     {
       question: "Quel est le meilleur moyen de documenter les étapes d'une requête Power Query complexe pour un autre utilisateur ?",
@@ -1508,13 +1284,24 @@ const frExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
       ],
       correctAnswerIndex: 1,
       explanation: "Le Query Folding est le concept le plus important pour la performance. Quand il est actif, le travail lourd est effectué par le serveur (ex: SQL Server) au lieu d'être fait par votre machine locale, ce qui est beaucoup plus efficace."
+    },
+    {
+      question: "Que fait la transformation 'Grouper par' (Group By) ?",
+      options: [
+        "Elle fusionne des cellules",
+        "Elle agrège des lignes basées sur les valeurs d'une ou plusieurs colonnes (ex: calculer les ventes totales par région)",
+        "Elle trie les données",
+        "Elle crée un plan dans Excel"
+      ],
+      correctAnswerIndex: 1,
+      explanation: "'Grouper par' est l'équivalent de la clause GROUP BY en SQL, permettant de synthétiser des données en effectuant des calculs (Somme, Moyenne, etc.) sur des groupes de lignes."
     }
   ]
 };
 
 const frVbaVariablesQuiz: VbaVariablesQuizData = {
   title: "Quiz : Variables et Types de Données VBA",
-  description: "20 questions pour évaluer votre maîtrise des déclarations, de la portée et des types de données en VBA.",
+  description: "15 questions pour évaluer votre maîtrise des déclarations, de la portée et des types de données en VBA.",
   questions: [
     {
       question: "Comment déclare-t-on une variable en VBA ?",
@@ -1541,22 +1328,10 @@ const frVbaVariablesQuiz: VbaVariablesQuizData = {
       explanation: "`Variant` est le type par défaut. Il peut contenir n'importe quel type de données, mais il est moins performant que les types de données spécifiques."
     },
     {
-      question: "Pour stocker le texte \"Bonjour\", quel type de données est le plus efficace ?",
-      options: ["String", "Text", "Char", "Variant"],
-      correctAnswerIndex: 0,
-      explanation: "Le type `String` est spécifiquement conçu pour stocker des chaînes de caractères."
-    },
-    {
       question: "Quelle déclaration est utilisée pour une variable dont la valeur ne changera jamais ?",
       options: ["Static maConstante = 10", "Final maConstante = 10", "Const maConstante = 10", "Let maConstante = 10"],
       correctAnswerIndex: 2,
       explanation: "`Const` est utilisé pour déclarer une constante, une valeur qui reste la même tout au long de l'exécution du programme."
-    },
-    {
-      question: "Quel est le résultat de `MsgBox TypeName(maVariable)` si `Dim maVariable As Boolean` a été déclaré ?",
-      options: ["\"Boolean\"", "\"Vrai/Faux\"", "\"Integer\"", "\"Bool\""],
-      correctAnswerIndex: 0,
-      explanation: "`TypeName` est une fonction VBA qui renvoie le type de données d'une variable sous forme de chaîne de caractères."
     },
     {
       question: "Une variable déclarée avec `Public` dans un module standard est accessible...",
@@ -1587,24 +1362,6 @@ const frVbaVariablesQuiz: VbaVariablesQuizData = {
       options: ["On ne peut pas déclarer deux variables sur la même ligne.", "`x` est déclaré mais pas `y`.", "La valeur `33000` dépasse la capacité maximale d'un `Integer`.", "Il n'y a aucun problème."],
       correctAnswerIndex: 2,
       explanation: "Un `Integer` en VBA est un entier 16-bits signé, sa plage va de -32 768 à 32 767. `33000` provoquerait une erreur de dépassement de capacité. Il faudrait utiliser le type `Long`."
-    },
-    {
-      question: "Pour stocker une valeur qui peut être soit `Vrai`, soit `Faux`, quel type de données est le plus approprié ?",
-      options: ["Integer", "Boolean", "Logical", "Bit"],
-      correctAnswerIndex: 1,
-      explanation: "Le type `Boolean` est spécifiquement conçu pour stocker les valeurs logiques `True` et `False`."
-    },
-    {
-      question: "Quelle est la différence de portée entre `Private Sub MaProcedure()` et `Sub MaProcedure()` dans un module standard ?",
-      options: ["`Private` la rend plus rapide.", "Il n'y a aucune différence dans un module standard.", "`Private` la rend visible uniquement à l'intérieur de ce module, alors que sans `Private` (par défaut `Public`), elle est visible depuis d'autres modules.", "`Private` empêche l'appel de la procédure."],
-      correctAnswerIndex: 2,
-      explanation: "Le mot-clé `Private` restreint la visibilité d'une procédure ou d'une variable au module où elle est déclarée. Par défaut, une procédure `Sub` dans un module standard est `Public`."
-    },
-    {
-      question: "Si vous ne savez pas quel type de données une fonction va retourner (nombre, texte, erreur...), quel type de variable est le plus sûr pour recevoir ce résultat ?",
-      options: ["String", "Double", "Variant", "Any"],
-      correctAnswerIndex: 2,
-      explanation: "`Variant` est conçu pour contenir n'importe quel type de données, y compris des objets, des erreurs ou des tableaux. C'est le type le plus flexible, bien que moins performant que les types spécifiques."
     },
     {
       question: "Pour regrouper des variables de types différents mais liées (ex: ID, Nom, et DateEmbauche d'un employé) en une seule variable, quelle structure VBA est la plus appropriée ?",

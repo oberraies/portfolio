@@ -292,130 +292,97 @@ const enQuizEmail: QuizEmailDictionaryItems = {
 
 const enExcelFormulasQuiz: ExcelFormulasQuizData = {
   title: "Quiz: Excel Formulas and Functions",
-  description: "20 questions to assess your level, from beginner to expert.",
+  description: "15 questions to assess your level, from beginner to expert, with progressive difficulty.",
   questions: [
-    // Beginner Level (Q1-Q8)
     {
-      question: "To calculate the sum of cells from A1 to A10, which formula do you use?",
-      options: ["=ADD(A1:A10)", "=TOTAL(A1:A10)", "=SUM(A1:A10)", "=COMBINE(A1:A10)"],
-      correctAnswerIndex: 2,
-      explanation: "SUM is the fundamental function for adding a range of numbers."
+        question: "To concatenate the content of A1, a dash, and B1, which formula is the cleanest?",
+        options: ["=A1 & \"-\" & B1", "=CONCAT(A1,\"-\",B1)", "=TEXTJOIN(\"-\",TRUE,A1:B1)", "All answers are correct"],
+        correctAnswerIndex: 3,
+        explanation: "All three syntaxes are valid for joining text. TEXTJOIN is the most modern and flexible, but & and CONCAT are also correct for this simple case."
     },
     {
-      question: "What does the `$` symbol do in a cell reference like `$A$1`?",
-      options: ["It formats the cell as currency.", "It creates an absolute reference that doesn't change when the formula is copied.", "It indicates a text value.", "It deletes the cell."],
-      correctAnswerIndex: 1,
-      explanation: "The `$` creates an absolute reference. `$A$1` locks both the column and the row, `A$1` locks only the row, and `$A1` locks only the column."
+        question: "Which formula finds the highest value in the range C1:C50?",
+        options: ["=MAX(C1:C50)", "=LARGE(C1:C50, 1)", "Both are correct", "Neither is correct"],
+        correctAnswerIndex: 2,
+        explanation: "MAX is the standard function. LARGE(range, 1) also returns the largest value, which is equivalent to MAX."
     },
     {
-      question: "Which function would you use to display \"Pass\" if a score in C2 is 60 or higher, and \"Fail\" otherwise?",
-      options: ["=IF(C2>=60, \"Pass\", \"Fail\")", "=CHOOSE(C2, \"Pass\", \"Fail\")", "=SWITCH(C2>=60, \"Pass\", \"Fail\")", "=RESULT(C2>=60, \"Pass\", \"Fail\")"],
-      correctAnswerIndex: 0,
-      explanation: "The IF function evaluates a logical condition and returns one value for a TRUE result and another for a FALSE result."
+        question: "How do you prevent a #DIV/0! error by displaying 0 if cell B2 is empty or zero, when calculating A2/B2?",
+        options: ["=IF(B2=0, 0, A2/B2)", "=IFERROR(A2/B2, 0)", "Both are correct", "Neither is correct"],
+        correctAnswerIndex: 2,
+        explanation: "IFERROR is a more concise and modern way to handle all errors, including #DIV/0!. The IF formula is more specific but equally valid here."
     },
     {
-      question: "Which function counts the number of cells in a range that contain numbers?",
-      options: ["COUNT", "COUNTA", "COUNTBLANK", "COUNTIF"],
-      correctAnswerIndex: 0,
-      explanation: "COUNT counts only numeric values. COUNTA counts all non-empty cells (text and numbers), and COUNTBLANK counts empty cells."
+        question: "To get the current date that updates automatically, which function should you use?",
+        options: ["=DATE()", "=TODAY()", "=NOW()", "B and C"],
+        correctAnswerIndex: 1,
+        explanation: "TODAY() returns the current date. NOW() returns the current date AND time. DATE() creates a date from a specified year, month, and day."
     },
     {
-      question: "To find a value in the first column of a table and return a corresponding value from another column, which function is most common?",
-      options: ["FIND", "SEARCH", "LOOK", "VLOOKUP"],
-      correctAnswerIndex: 3,
-      explanation: "VLOOKUP (Vertical Lookup) is a classic function for searching for a value in the leftmost column of a table and returning a value from a specified column in the same row."
+        question: "Which function counts the number of cells containing the word \"Urgent\" in the range D1:D100?",
+        options: ["=COUNTIF(D1:D100, \"Urgent\")", "=COUNT.IF(D1:D100, \"Urgent\")", "=COUNTA(D1:D100, \"Urgent\")", "=SEARCH(\"Urgent\", D1:D100)"],
+        correctAnswerIndex: 0,
+        explanation: "COUNTIF is the standard function for counting cells that meet a single criterion."
     },
     {
-      question: "How do you join the text from cell A1 (\"Hello\") and B1 (\"World\") to create \"HelloWorld\"?",
-      options: ["=A1 & B1", "=JOIN(A1, B1)", "=COMBINE(A1, B1)", "=A1 + B1"],
-      correctAnswerIndex: 0,
-      explanation: "The ampersand (`&`) operator is the simplest way to concatenate (join) text strings. The CONCATENATE function also works."
+        question: "You want to find a product's price (column C) using its ID (column A). The ID column is not sorted. Which is the most robust combination?",
+        options: ["=VLOOKUP(ID, A:C, 3, FALSE)", "=INDEX(C:C, MATCH(ID, A:A, 0))", "=XLOOKUP(ID, A:A, C:C)", "All answers are correct"],
+        correctAnswerIndex: 3,
+        explanation: "VLOOKUP works if the ID is in the first column. INDEX/MATCH is more flexible. XLOOKUP is the most modern and recommended solution, combining VLOOKUP's simplicity with INDEX/MATCH's flexibility."
     },
     {
-      question: "Which function returns the current date without the time?",
-      options: ["NOW()", "CURRENTDATE()", "DATE()", "TODAY()"],
-      correctAnswerIndex: 3,
-      explanation: "TODAY() returns the current date, which updates every time the workbook is opened or recalculated. NOW() returns the current date and time."
+        question: "What is the effect of the formula =OFFSET(A1, 2, 1, 3, 2)?",
+        options: ["It selects cell B3.", "It returns the sum of the range B3:C5.", "It creates a reference to the range B3:C5.", "It moves the content of A1 to B3."],
+        correctAnswerIndex: 2,
+        explanation: "OFFSET creates a dynamic reference. Starting from A1, it moves down 2 rows, right 1 column (landing on B3), then defines a range that is 3 rows high and 2 columns wide."
     },
     {
-      question: "To prevent a formula from displaying an error like `#N/A`, and show a custom message instead, you should wrap it in which function?",
-      options: ["NOERROR()", "ISERROR()", "IFERROR()", "CLEAN()"],
-      correctAnswerIndex: 2,
-      explanation: "IFERROR evaluates a formula and returns its result if it's not an error. If it is an error, it returns a specified alternative value (like \"\" or \"Not Found\")."
-    },
-    // Advanced Level (Q9-Q15)
-    {
-      question: "To count rows where column A is \"North\" AND column B is \"Hardware\", which function is best?",
-      options: ["COUNTIF(A:A, \"North\") + COUNTIF(B:B, \"Hardware\")", "AND(COUNTIF(A:A, \"North\"), COUNTIF(B:B, \"Hardware\"))", "COUNTIFS(A:A, \"North\", B:B, \"Hardware\")", "DCOUNT(A:B, \"Hardware\")"],
-      correctAnswerIndex: 2,
-      explanation: "COUNTIFS is designed specifically for counting cells based on multiple criteria across different ranges."
+        question: "How do you convert a column of dates in \"DD/MM/YYYY\" text format into real Excel dates?",
+        options: ["Change the cell format to \"Date\".", "Use the DATEVALUE() function.", "Use the \"Text to Columns\" tool and specify DMY format.", "B and C"],
+        correctAnswerIndex: 3,
+        explanation: "DATEVALUE is designed for this. The \"Text to Columns\" tool is also a very effective technique to force Excel to reinterpret the text as dates. Changing the format alone does not work because the underlying data is still text."
     },
     {
-      question: "What is a key advantage of using `INDEX` and `MATCH` over `VLOOKUP`?",
-      options: ["It's faster for small datasets.", "It can look up values in any column, not just the leftmost one.", "It only works with numbers.", "It automatically ignores errors."],
-      correctAnswerIndex: 1,
-      explanation: "The INDEX/MATCH combination is more flexible. MATCH finds the position of a value, and INDEX returns the value at that position, so the lookup column can be to the right of the return column, which is impossible with VLOOKUP."
+        question: "To sum sales in C:C only for the \"North\" region in A:A AND for the \"Keyboard\" product in B:B, what is the correct formula?",
+        options: ["=SUMIF(A:A, \"North\", C:C) + SUMIF(B:B, \"Keyboard\", C:C)", "=SUMIFS(C:C, A:A, \"North\", B:B, \"Keyboard\")", "=SUMPRODUCT((A:A=\"North\")*(B:B=\"Keyboard\")*(C:C))", "B and C are correct"],
+        correctAnswerIndex: 3,
+        explanation: "SUMIFS is the dedicated function. SUMPRODUCT is an older but very powerful alternative that works by multiplying arrays of TRUE/FALSE (converted to 1/0)."
     },
     {
-      question: "What is the result of the formula `=SUMPRODUCT({1,2,3}, {10,20,30})`?",
-      options: ["66", "140", "60", "A #VALUE! error"],
-      correctAnswerIndex: 1,
-      explanation: "SUMPRODUCT multiplies corresponding components in the given arrays and returns the sum of those products. (1*10 + 2*20 + 3*30) = 10 + 40 + 90 = 140."
+        question: "To extract the domain name (e.g., \"google.com\") from the email \"test@google.com\" in A1, which formula is correct?",
+        options: ["=RIGHT(A1, LEN(A1)-FIND(\"@\",A1))", "=MID(A1, FIND(\"@\",A1)+1, 100)", "Both are correct", "Neither is correct"],
+        correctAnswerIndex: 2,
+        explanation: "Both approaches are valid. RIGHT takes the right part of the string after finding the '@' position. MID extracts a substring starting from the position after the '@' for a large number of characters."
     },
     {
-      question: "Which function allows you to join a range of cells with a specific delimiter (e.g., a comma) and ignore empty cells?",
-      options: ["CONCAT", "CONCATENATE", "TEXTJOIN", "MERGE"],
-      correctAnswerIndex: 2,
-      explanation: "TEXTJOIN is a modern and powerful function specifically designed for this purpose. Its second argument allows you to choose whether to ignore empty cells."
+        question: "Which dynamic array function returns a list of unique values from a range A1:A100 and sorts them alphabetically?",
+        options: ["=UNIQUE(A1:A100)", "=SORT(UNIQUE(A1:A100))", "=FILTER(A1:A100, COUNTIF(A1:A100, A1:A100)=1)", "Requires a VBA macro."],
+        correctAnswerIndex: 1,
+        explanation: "UNIQUE extracts the unique values, and SORT sorts them. This is the standard nesting for this requirement."
     },
     {
-      question: "To get the last numeric value from a column that contains mixed data types, which formula is a common advanced technique?",
-      options: ["=MAX(A:A)", "=VLOOKUP(9.99E+307,A:A,1,TRUE)", "=LOOKUP(2, 1/(ISNUMBER(A:A)), A:A)", "=TAKE(A:A, -1)"],
-      correctAnswerIndex: 2,
-      explanation: "The `LOOKUP(2, 1/(...))` formula is a classic, robust technique. It creates an array of 1s and errors, and `LOOKUP` finds the position of the last 1, corresponding to the last number."
+        question: "In an array formula, what does the # operator do after a dynamic range reference (e.g., A1#)?",
+        options: ["It comments out the formula.", "It refers to the entire spill range generated by the formula in A1.", "It forces a recalculation of the formula.", "It indicates an error in the reference."],
+        correctAnswerIndex: 1,
+        explanation: "The spill range operator # is the modern syntax to refer to the entire results array returned by a dynamic array function."
     },
     {
-      question: "What does the double unary operator (`--`) do in a formula like `=SUMPRODUCT(--(A1:A10=\"North\"))`?",
-      options: ["It subtracts the value from zero.", "It converts TRUE/FALSE values into 1s and 0s.", "It's a typo and will cause an error.", "It makes the formula run twice for better accuracy."],
-      correctAnswerIndex: 1,
-      explanation: "The logical test `(A1:A10=\"North\")` returns an array of TRUE/FALSE values. The double unary operator is an efficient way to coerce this boolean array into a numeric array of 1s and 0s, which SUMPRODUCT can then sum."
+        question: "You have a transaction table. To get the last sale date for each unique customer, what is the best modern approach?",
+        options: ["A PivotTable with Customer in Rows and MAX(Date) in Values.", "=MAXIFS(DateRange, CustomerRange, UniqueCustomer)", "A combination of UNIQUE, FILTER, and MAX functions.", "All answers are correct and effective."],
+        correctAnswerIndex: 3,
+        explanation: "All three methods are valid. The PivotTable is the most interactive method. MAXIFS is excellent for a static results list. UNIQUE and FILTER provide a powerful dynamic formula solution."
     },
     {
-      question: "How can you round a number in A1 to the nearest multiple of 50?",
-      options: ["=ROUND(A1, 50)", "=MROUND(A1, 50)", "=CEILING(A1, 50)", "=ROUNDUP(A1, -2)"],
-      correctAnswerIndex: 1,
-      explanation: "MROUND is specifically designed to round a number to the nearest specified multiple."
-    },
-    // Expert Level (Q16-Q20)
-    {
-      question: "Which modern function is generally considered a superior replacement for `VLOOKUP`, `HLOOKUP`, and `INDEX/MATCH` due to its flexibility and simpler syntax?",
-      options: ["SUPERLOOKUP", "XLOOKUP", "GETPIVOTDATA", "QUERY"],
-      correctAnswerIndex: 1,
-      explanation: "XLOOKUP is the modern successor to older lookup functions. It defaults to an exact match, can search from bottom-to-top, and handles column insertions/deletions robustly without breaking."
+        question: "Which LAMBDA helper function allows you to transform each value in an array (e.g., uppercase each cell in A1:A10)?",
+        options: ["=REDUCE(\"\", A1:A10, LAMBDA(a,v, UPPER(v)))", "=SCAN(A1:A10, LAMBDA(a,v, UPPER(v)))", "=MAP(A1:A10, LAMBDA(cell, UPPER(cell)))", "=BYROW(A1:A10, LAMBDA(r, UPPER(r)))"],
+        correctAnswerIndex: 2,
+        explanation: "MAP is the LAMBDA helper function specifically designed to apply a logic to each element of an array and return an array of the same size with the results."
     },
     {
-      question: "To improve readability and performance by calculating a value only once, which function should you use to assign names to these intermediate results?",
-      options: ["DEFINE", "VAR", "LET", "CALCULATE"],
-      correctAnswerIndex: 2,
-      explanation: "The LET function allows you to declare named variables within a formula's scope. This makes formulas easier to read and can optimize performance by preventing the same calculation from being repeated."
-    },
-    {
-      question: "Which function allows you to create your own custom, reusable functions (e.g., `MYFUNCTION`) directly in the formula bar without using VBA?",
-      options: ["CREATE.FUNCTION", "CUSTOM.FUNC", "SCRIPT", "LAMBDA"],
-      correctAnswerIndex: 3,
-      explanation: "The LAMBDA function allows you to define anonymous functions. When you assign a LAMBDA to a name in the Name Manager, it becomes a new, reusable function in your workbook."
-    },
-    {
-      question: "Which dynamic array function is designed to extract a subset of a table that meets a specific logical condition (e.g., all sales from the \"North\" region)?",
-      options: ["EXTRACT", "SELECT", "FILTER", "QUERY"],
-      correctAnswerIndex: 2,
-      explanation: "The FILTER function is designed precisely for this. It takes an array and an \"include\" argument (a boolean array), returning only the rows or columns where the include argument is TRUE."
-    },
-    {
-      question: "To calculate a running total for a column of numbers in A2:A10, which LAMBDA helper function is most appropriate?",
-      options: ["MAP", "REDUCE", "BYROW", "SCAN"],
-      correctAnswerIndex: 3,
-      explanation: "The SCAN function processes an array and returns the intermediate accumulated values. This is perfect for generating a running total, as it shows the accumulated value at each step. REDUCE only returns the final total."
+        question: "What is the main advantage of the LET function?",
+        options: ["It allows formulas to be written on multiple lines.", "It allows declaring variables, which improves readability and performance by avoiding repetitive calculations.", "It connects to external data sources.", "It's a shortcut for the LETTER function."],
+        correctAnswerIndex: 1,
+        explanation: "LET is a revolution for complex formulas. By naming intermediate results, not only does the formula become easier to read and debug, but Excel can also optimize the calculation by evaluating each variable only once."
     }
   ]
 };
@@ -424,7 +391,6 @@ const enExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
   title: "Quiz: Excel Pivot Tables",
   description: "15 questions to assess your ability to summarize and analyze data.",
   questions: [
-    // Beginner
     {
       question: "What is the main purpose of a PivotTable?",
       options: [
@@ -459,17 +425,6 @@ const enExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
       explanation: "The 'Values' area is specifically designed to aggregate numerical data using functions like Sum, Average, Count, etc."
     },
     {
-      question: "How can you quickly filter the data displayed in a PivotTable to show only sales from a specific region?",
-      options: [
-        "By changing the data source.",
-        "By using a PivotChart.",
-        "By dragging the 'Region' field into the 'Filters' area.",
-        "By sorting the values column."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "The 'Filters' area allows you to create a global filter for the entire PivotTable, which is ideal for isolating data subsets."
-    },
-    {
       question: "What happens if you double-click a value cell in a PivotTable (e.g., the sum of sales)?",
       options: [
         "The PivotTable is deleted.",
@@ -480,7 +435,17 @@ const enExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
       correctAnswerIndex: 1,
       explanation: "This is a powerful feature called 'Drill Down' that allows you to instantly see the detailed data behind an aggregated number."
     },
-    // Intermediate
+    {
+      question: "To ensure your PivotTable updates automatically when you add new data to your source table, what is the best practice?",
+      options: [
+        "Recreate the PivotTable every time.",
+        "Format your source data as an Excel Table (Ctrl+L) before creating the PivotTable.",
+        "Use the INDIRECT function.",
+        "Lock the data source cells."
+      ],
+      correctAnswerIndex: 1,
+      explanation: "Using an Excel Table allows the PivotTable to automatically recognize new rows and columns; you just need to refresh the PivotTable to include them."
+    },
     {
       question: "In a PivotTable with daily dates, how can you group them to show totals by month and year?",
       options: [
@@ -525,18 +490,6 @@ const enExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
       correctAnswerIndex: 1,
       explanation: "This is a quick and powerful way to change the analysis perspective, moving from absolute values to relative contributions without writing formulas."
     },
-    {
-      question: "To ensure your PivotTable updates automatically when you add new data to your source table, what is the best practice?",
-      options: [
-        "Recreate the PivotTable every time.",
-        "Format your source data as an Excel Table (Ctrl+L) before creating the PivotTable.",
-        "Use the INDIRECT function.",
-        "Lock the data source cells."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Using an Excel Table allows the PivotTable to automatically recognize new rows and columns; you just need to refresh the PivotTable to include them."
-    },
-    // Expert
     {
       question: "Which function is specifically designed to extract a value from a PivotTable using its row and column labels, but is often considered rigid and inefficient?",
       options: [
@@ -591,15 +544,25 @@ const enExcelPivotTablesQuiz: ExcelPivotTablesQuizData = {
       ],
       correctAnswerIndex: 1,
       explanation: "This is a classic pitfall: if you create a 'Europe' item = 'France' + 'Germany', the grand total will include France, Germany, AND Europe, thus double-counting these countries. You often need to hide them or use other techniques for clean groupings."
+    },
+    {
+      question: "How can you quickly filter the data displayed in a PivotTable to show only sales from a specific region?",
+      options: [
+        "By changing the data source.",
+        "By using a PivotChart.",
+        "By dragging the 'Region' field into the 'Filters' area.",
+        "By sorting the values column."
+      ],
+      correctAnswerIndex: 2,
+      explanation: "The 'Filters' area allows you to create a global filter for the entire PivotTable, which is ideal for isolating data subsets."
     }
   ]
 };
 
 const enExcelChartsQuiz: ExcelChartsQuizData = {
   title: "Quiz: Excel Charts and Formatting",
-  description: "20 questions to test your skills in data visualization and conditional formatting.",
+  description: "15 questions to test your skills in data visualization and conditional formatting.",
   questions: [
-    // Beginner
     {
       question: "How do you create a basic bar chart from a data selection?",
       options: [
@@ -634,17 +597,6 @@ const enExcelChartsQuiz: ExcelChartsQuizData = {
       explanation: "The 'Chart Title' element can be added via the green '+' button (Chart Elements) next to the chart, or from the 'Chart Design' tab."
     },
     {
-      question: "What is a chart legend used for?",
-      options: [
-        "To display the chart's main title.",
-        "To identify which color or pattern corresponds to which data series.",
-        "To show the exact value of each data point.",
-        "To add a background image to the chart."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "The legend is crucial for understanding charts with multiple data series, as it provides a key to interpret the data."
-    },
-    {
       question: "What is Conditional Formatting?",
       options: [
         "A tool to format charts automatically.",
@@ -666,29 +618,6 @@ const enExcelChartsQuiz: ExcelChartsQuizData = {
       correctAnswerIndex: 2,
       explanation: "The 'Highlight Cells Rules' category provides straightforward options for formatting cells based on simple comparisons like 'Greater Than', 'Less Than', or 'Equal To'."
     },
-    {
-      question: "What is a Sparkline?",
-      options: [
-        "A type of conditional formatting.",
-        "A small, miniature chart that fits inside a single cell.",
-        "A secondary axis on a chart.",
-        "A title for a chart."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Sparklines are tiny charts placed in a cell to provide a quick visual representation of data trends next to the raw numbers."
-    },
-    {
-      question: "How do you change the type of an existing chart (e.g., from a bar chart to a line chart)?",
-      options: [
-        "You must delete the chart and create a new one.",
-        "By dragging the chart's corners.",
-        "Right-click the chart and select 'Change Chart Type'.",
-        "In the 'Page Layout' tab."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "Excel makes it easy to switch chart types without losing your data or formatting. This option is available in the right-click context menu or the 'Chart Design' tab."
-    },
-    // Advanced
     {
       question: "What is a Combination Chart?",
       options: [
@@ -719,19 +648,8 @@ const enExcelChartsQuiz: ExcelChartsQuizData = {
         "Go to Data Bars -> More Rules.",
         "Use the =FORMAT() function."
       ],
-      correctAnswerIndex: 2,
+      correctAnswerIndex: 1,
       explanation: "Using a formula provides the ultimate flexibility, allowing you to create formatting rules based on any logical condition you can write, such as formatting an entire row based on the value in one cell."
-    },
-    {
-      question: "What is the purpose of the 'Format Painter' tool on the Home tab?",
-      options: [
-        "To paint colors on a chart.",
-        "To create a new chart.",
-        "To quickly copy all formatting (including conditional formatting) from one cell or range to another.",
-        "To change the font of the text."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "The Format Painter is a huge time-saver. It copies all formatting aspects, from font size and color to number formats and conditional formatting rules."
     },
     {
       question: "How do you create a dynamic chart title that is linked to the value of a cell?",
@@ -745,17 +663,6 @@ const enExcelChartsQuiz: ExcelChartsQuizData = {
       explanation: "This technique allows your chart title to update automatically whenever the content of the linked cell changes, which is great for interactive reports."
     },
     {
-      question: "What do 'Data Bars' in conditional formatting represent?",
-      options: [
-        "They highlight the top 10 values.",
-        "They add small bar graphs inside each cell, with the length of the bar representing the cell's value relative to others.",
-        "They add error bars to a chart.",
-        "They create a new bar chart on the worksheet."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Data Bars provide a quick, in-cell visual comparison of values, making it easy to spot high and low numbers in a range without needing a separate chart."
-    },
-    {
       question: "What does adding a 'Trendline' to a chart do?",
       options: [
         "It connects all the data points with a straight line.",
@@ -766,7 +673,6 @@ const enExcelChartsQuiz: ExcelChartsQuizData = {
       correctAnswerIndex: 2,
       explanation: "A trendline is a powerful analytical tool that visually represents the trend in your data, helping to identify patterns and make forecasts."
     },
-    // Expert
     {
       question: "How can you create a dynamic chart range that automatically expands when new data is added to your source?",
       options: [
@@ -808,7 +714,7 @@ const enExcelChartsQuiz: ExcelChartsQuizData = {
         "By typing the name directly into the chart legend.",
         "By creating a conditional formatting rule."
       ],
-      correctAnswerIndex: 2,
+      correctAnswerIndex: 1,
       explanation: "Using named ranges makes your chart data sources much more readable and manageable, especially for complex or dynamic ranges defined with formulas like OFFSET."
     },
     {
@@ -827,9 +733,8 @@ const enExcelChartsQuiz: ExcelChartsQuizData = {
 
 const enExcelDataManagementQuiz: ExcelDataManagementQuizData = {
   title: "Quiz: Excel Data Management",
-  description: "20 questions to assess your ability to manage and ensure the reliability of databases.",
+  description: "15 questions to assess your ability to manage and ensure the reliability of databases.",
   questions: [
-    // Beginner
     {
       question: "Which tool allows you to permanently remove identical rows from a dataset?",
       options: [
@@ -875,39 +780,6 @@ const enExcelDataManagementQuiz: ExcelDataManagementQuizData = {
       explanation: "The 'Custom Sort' dialog allows you to define a hierarchy of sorting rules, specifying which column to sort by first, then second, and so on."
     },
     {
-      question: "How can you highlight duplicate values in a column without deleting them?",
-      options: [
-        "Using the 'Remove Duplicates' tool.",
-        "Using a PivotTable.",
-        "Conditional Formatting -> Highlight Cells Rules -> Duplicate Values.",
-        "Using the COUNT function."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "Conditional Formatting is the perfect tool for visually identifying duplicates (or unique values) without altering the data itself."
-    },
-    {
-      question: "Which tool allows you to split the content of a single column into multiple columns (e.g., 'First_Name Last_Name' into two separate columns)?",
-      options: [
-        "Group",
-        "Consolidate",
-        "Text to Columns",
-        "Filter"
-      ],
-      correctAnswerIndex: 2,
-      explanation: "The 'Text to Columns' wizard in the Data tab is designed specifically to parse data from one column into several, based on delimiters or fixed widths."
-    },
-    {
-      question: "The 'Filter' feature allows you to...",
-      options: [
-        "Permanently delete rows that don't match your criteria.",
-        "Rearrange rows in a specific order.",
-        "Temporarily hide rows that do not meet your criteria.",
-        "Calculate the sum of the visible rows."
-      ],
-      correctAnswerIndex: 2,
-      explanation: "Filtering is a non-destructive action that hides rows, allowing you to focus on a subset of your data without deleting anything."
-    },
-    {
       question: "To create a dropdown list in a cell, which 'Data Validation' option should you use?",
       options: [
         "Allow: Any value",
@@ -918,7 +790,6 @@ const enExcelDataManagementQuiz: ExcelDataManagementQuizData = {
       correctAnswerIndex: 2,
       explanation: "The 'List' option allows you to define a set of allowed values (either by typing them or by referencing a range) that will appear as a dropdown menu."
     },
-    // Advanced
     {
       question: "What is the main advantage of the 'Advanced Filter' tool over AutoFilter?",
       options: [
@@ -964,17 +835,6 @@ const enExcelDataManagementQuiz: ExcelDataManagementQuizData = {
       explanation: "Grouping is used to create collapsible sections in your worksheet, which is very useful for summarizing data without creating a PivotTable."
     },
     {
-      question: "In Data Validation, what does the 'Custom' option allow?",
-      options: [
-        "To create a custom error message.",
-        "To use a formula to define the validation rule.",
-        "To allow any type of data.",
-        "To select from a predefined list of rules."
-      ],
-      correctAnswerIndex: 1,
-      explanation: "The 'Custom' option provides ultimate flexibility by letting you write any logical formula that returns TRUE (for valid data) or FALSE (for invalid data)."
-    },
-    {
       question: "The 'Consolidate' tool is used to...",
       options: [
         "Combine values from multiple ranges into a single range.",
@@ -985,18 +845,6 @@ const enExcelDataManagementQuiz: ExcelDataManagementQuizData = {
       correctAnswerIndex: 0,
       explanation: "Consolidate is useful for summarizing data from similarly structured reports (e.g., summing sales from separate monthly sheets) into a master summary."
     },
-    {
-      question: "How can you ensure that a date entered in cell A1 is always a weekday (Monday-Friday) using Data Validation?",
-      options: [
-        "Custom formula: =ISWEEKDAY(A1)",
-        "Custom formula: =WEEKDAY(A1,2)<=5",
-        "It's not possible with Data Validation.",
-        "Allow: Weekdays only"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "The formula `WEEKDAY(A1,2)` returns a number from 1 (Monday) to 7 (Sunday). Therefore, checking if this number is less than or equal to 5 effectively restricts the entry to a weekday."
-    },
-    // Expert
     {
       question: "Which feature, introduced in Excel 2013, is the most powerful for cleaning and transforming data from multiple sources before loading it into Excel?",
       options: [
@@ -1059,7 +907,6 @@ const enExcelPowerPivotQuiz: ExcelPowerPivotQuizData = {
   title: "Quiz: Power Pivot and DAX",
   description: "15 questions to assess your skills on the data model, DAX, and creating KPIs.",
   questions: [
-    // Beginner
     {
       question: "What is the 'Data Model' in Excel?",
       options: [
@@ -1115,7 +962,6 @@ const enExcelPowerPivotQuiz: ExcelPowerPivotQuizData = {
       correctAnswerIndex: 1,
       explanation: "`RELATED` is used in calculated columns to 'look up' information from a dimension table (the 'one' side) to a fact table (the 'many' side)."
     },
-    // Advanced
     {
       question: "Which DAX function is considered the most important and powerful because it allows you to modify the filter context of an expression?",
       options: [
@@ -1171,7 +1017,6 @@ const enExcelPowerPivotQuiz: ExcelPowerPivotQuizData = {
       correctAnswerIndex: 2,
       explanation: "`FILTER` is an iterator that returns a table. In `CALCULATE`, this returned table is used as a new filter that is added to the initial filter context."
     },
-    // Expert
     {
       question: "What is 'context transition' in DAX?",
       options: [
@@ -1232,9 +1077,8 @@ const enExcelPowerPivotQuiz: ExcelPowerPivotQuizData = {
 
 const enExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
   title: "Quiz: Power Query",
-  description: "20 questions to test your knowledge on importing and transforming data.",
+  description: "15 questions to test your knowledge on importing and transforming data.",
   questions: [
-    // Débutant
     {
       question: "What is the main purpose of Power Query?",
       options: [
@@ -1289,40 +1133,6 @@ const enExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
       ],
       correctAnswerIndex: 1,
       explanation: "Setting the correct data type is crucial for correct calculations and relationships in Excel or Power Pivot."
-    },
-    {
-      question: "What happens when you 'Refresh' a Power Query query in Excel?",
-      options: [
-        "The query is deleted",
-        "The transformation steps are re-executed on the current source data",
-        "Only the table's formatting is updated",
-        "A copy of the sheet is created"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Refreshing reruns the entire extraction and transformation process, ensuring your data in Excel is up to date."
-    },
-    {
-      question: "Which Power Query tool allows you to combine tables by adding the rows of one table after the others?",
-      options: [
-        "Merge Queries",
-        "Append Queries",
-        "Pivot Column",
-        "Group By"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "'Append Queries' is the equivalent of a `UNION ALL` in SQL; it stacks tables on top of each other."
-    },
-    // Advanced
-    {
-      question: "What is the fundamental difference between 'Append Queries' and 'Merge Queries'?",
-      options: [
-        "There is none",
-        "Append stacks rows, Merge joins columns from two tables based on a common column",
-        "Merge is faster than Append",
-        "Append only works with two tables"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "'Merge' is the equivalent of a JOIN in SQL, enriching one table with the columns of another."
     },
     {
       question: "What is the fundamental difference between 'Append Queries' and 'Merge Queries'?",
@@ -1380,40 +1190,6 @@ const enExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
       explanation: "'Left Outer' is the most common type of join. It keeps all rows from the left table and adds matches from the right table."
     },
     {
-      question: "In Power Query, what is a 'Parameter'?",
-      options: [
-        "A name for a query",
-        "A variable that the user can easily change to alter the behavior of a query (e.g., a file path)",
-        "A special data type",
-        "A query error"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "Parameters make queries dynamic and reusable by allowing key values to be changed without modifying the M code."
-    },
-    {
-      question: "What does the 'Group By' transformation do?",
-      options: [
-        "It merges cells",
-        "It aggregates rows based on the values in one or more columns (e.g., calculating total sales by region)",
-        "It sorts the data",
-        "It creates an outline in Excel"
-      ],
-      correctAnswerIndex: 1,
-      explanation: "'Group By' is the equivalent of the GROUP BY clause in SQL, allowing data to be summarized by performing calculations (Sum, Average, etc.) on groups of rows."
-    },
-    {
-      question: "What is the purpose of the 'Extract Text Between Delimiters' option?",
-      options: [
-        "To delete text",
-        "To split a column",
-        "To isolate and extract a part of a character string located between a start and end delimiter",
-        "To join text"
-      ],
-      correctAnswerIndex: 2,
-      explanation: "This is a very practical tool for parsing complex text strings without having to write complicated M formulas."
-    },
-    // Expert
-    {
       question: "How can you reference the result of the previous step in a custom column formula in M?",
       options: [
         "PreviousStep",
@@ -1423,17 +1199,6 @@ const enExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
       ],
       correctAnswerIndex: 1,
       explanation: "M code is a series of steps that reference each other. Each step has a name (often with spaces, hence the quotes and the #)."
-    },
-    {
-      question: "What is the main difference between `Table.SelectRows` and `Table.SelectColumns` in the M language?",
-      options: [
-        "One filters rows, the other filters columns",
-        "Both do the same thing",
-        "`Table.SelectRows` is faster",
-        "`Table.SelectColumns` modifies the source table"
-      ],
-      correctAnswerIndex: 0,
-      explanation: "This is a fundamental distinction: `Table.SelectRows` is the function behind filtering (WHERE in SQL), while `Table.SelectColumns` is the function behind choosing columns (SELECT in SQL)."
     },
     {
       question: "What is the best way to document the steps of a complex Power Query query for another user?",
@@ -1467,13 +1232,24 @@ const enExcelPowerQueryQuiz: ExcelPowerQueryQuizData = {
       ],
       correctAnswerIndex: 1,
       explanation: "Query Folding is the most important concept for performance. When active, the heavy lifting is done by the server (e.g., SQL Server) instead of by your local machine, which is much more efficient."
+    },
+    {
+      question: "What does the 'Group By' transformation do?",
+      options: [
+        "It merges cells",
+        "It aggregates rows based on the values in one or more columns (e.g., calculating total sales by region)",
+        "It sorts the data",
+        "It creates an outline in Excel"
+      ],
+      correctAnswerIndex: 1,
+      explanation: "'Group By' is the equivalent of the GROUP BY clause in SQL, allowing data to be summarized by performing calculations (Sum, Average, etc.) on groups of rows."
     }
   ]
 };
 
 const enVbaVariablesQuiz: VbaVariablesQuizData = {
   title: "Quiz: VBA Variables and Data Types",
-  description: "20 questions to assess your mastery of declarations, scope, and data types in VBA.",
+  description: "15 questions to assess your mastery of declarations, scope, and data types in VBA.",
   questions: [
     {
       question: "How do you declare a variable in VBA?",
@@ -1500,22 +1276,10 @@ const enVbaVariablesQuiz: VbaVariablesQuizData = {
       explanation: "`Variant` is the default type. It can hold any type of data, but it is less performant than specific data types."
     },
     {
-      question: "To store the text \"Hello\", which data type is most efficient?",
-      options: ["String", "Text", "Char", "Variant"],
-      correctAnswerIndex: 0,
-      explanation: "The `String` data type is specifically designed to store character strings."
-    },
-    {
       question: "Which declaration is used for a variable whose value will never change?",
       options: ["Static myConstant = 10", "Final myConstant = 10", "Const myConstant = 10", "Let myConstant = 10"],
       correctAnswerIndex: 2,
       explanation: "`Const` is used to declare a constant, a value that remains the same throughout the program's execution."
-    },
-    {
-      question: "What is the result of `MsgBox TypeName(myVariable)` if `Dim myVariable As Boolean` has been declared?",
-      options: ["\"Boolean\"", "\"True/False\"", "\"Integer\"", "\"Bool\""],
-      correctAnswerIndex: 0,
-      explanation: "`TypeName` is a VBA function that returns the data type of a variable as a string."
     },
     {
       question: "A variable declared with `Public` in a standard module is accessible...",
@@ -1546,24 +1310,6 @@ const enVbaVariablesQuiz: VbaVariablesQuizData = {
       options: ["You cannot declare two variables on the same line.", "`x` is declared but not `y`.", "The value `33000` exceeds the maximum capacity of an `Integer`.", "There is no problem."],
       correctAnswerIndex: 2,
       explanation: "An `Integer` in VBA is a signed 16-bit integer, its range is from -32,768 to 32,767. `33000` would cause an overflow error. The `Long` type should be used."
-    },
-    {
-      question: "To store a value that can be either `True` or `False`, which data type is most appropriate?",
-      options: ["Integer", "Boolean", "Logical", "Bit"],
-      correctAnswerIndex: 1,
-      explanation: "The `Boolean` data type is specifically designed to store the logical values `True` and `False`."
-    },
-    {
-      question: "What is the scope difference between `Private Sub MyProcedure()` and `Sub MyProcedure()` in a standard module?",
-      options: ["`Private` makes it faster.", "There is no difference in a standard module.", "`Private` makes it visible only within that module, whereas without `Private` (default `Public`), it is visible from other modules.", "`Private` prevents the procedure from being called."],
-      correctAnswerIndex: 2,
-      explanation: "The `Private` keyword restricts the visibility of a procedure or a variable to the module where it is declared. By default, a `Sub` procedure in a standard module is `Public`."
-    },
-    {
-      question: "If you don't know what data type a function will return (number, text, error...), which variable type is the safest to receive this result?",
-      options: ["String", "Double", "Variant", "Any"],
-      correctAnswerIndex: 2,
-      explanation: "`Variant` is designed to hold any type of data, including objects, errors, or arrays. It is the most flexible type, although less performant than specific types."
     },
     {
       question: "To group different but related types of variables (e.g., an employee's ID, Name, and HireDate) into a single variable, which VBA structure is most appropriate?",

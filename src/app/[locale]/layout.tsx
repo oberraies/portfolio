@@ -1,13 +1,12 @@
-
 import type { Metadata } from 'next';
 import '../globals.css'; // Adjusted path for globals.css
 import { Navbar } from '@/components/shared/Navbar';
 import { Footer } from '@/components/shared/Footer';
 import { Locale, i18n } from '@/config/i18n';
 import { getDictionary } from '@/lib/dictionaries';
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
 import ToasterProvider from '@/components/shared/ToasterProvider';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 export async function generateStaticParams() {
@@ -43,6 +42,7 @@ export default async function LocaleLayout({ // Renamed from RootLayout for clar
     projects: dict.navLinks.projects,
     templates: dict.navLinks.templates,
     contact: dict.navLinks.contact,
+    quiz: dict.navLinks.quiz,
   };
 
   return (
@@ -63,8 +63,8 @@ export default async function LocaleLayout({ // Renamed from RootLayout for clar
       </main>
       <Footer footerLabels={dict.footer} />
       <ToasterProvider />
-      <SpeedInsights/>
-      <Analytics/>
+      <Analytics />
+      <SpeedInsights />
     </>
   );
 }

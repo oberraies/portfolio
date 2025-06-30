@@ -46,6 +46,16 @@ export default async function VbaQuizTopicsPage({ params: { locale } }: VbaQuizT
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {t.topics.map((topic: VbaQuizTopic) => {
           const Icon = topicIcons[topic.id] || ShieldAlert;
+          let quizLink = '#';
+          let isEnabled = false;
+
+          if (topic.id === 'variables_types') {
+            quizLink = `/${locale}/quiz/vba/variables-types`;
+            isEnabled = true;
+          }
+          // Add other VBA quiz topics here in the future
+          // else if (topic.id === 'loops_conditions') { ... }
+
           return (
             <Card key={topic.id} className="flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
               <CardHeader>
@@ -58,9 +68,18 @@ export default async function VbaQuizTopicsPage({ params: { locale } }: VbaQuizT
                 <CardDescription className="font-body text-center">{topic.description}</CardDescription>
               </CardContent>
               <div className="p-6 pt-0">
-                <Button disabled className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
-                  <Rocket className="mr-2 h-5 w-5" />
-                  {topic.buttonLabel}
+                <Button asChild={isEnabled} disabled={!isEnabled} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-md transition-transform hover:scale-105">
+                  {isEnabled ? (
+                    <Link href={quizLink}>
+                      <Rocket className="mr-2 h-5 w-5" />
+                      {topic.buttonLabel}
+                    </Link>
+                  ) : (
+                    <span>
+                      <Rocket className="mr-2 h-5 w-5" />
+                      {topic.buttonLabel}
+                    </span>
+                  )}
                 </Button>
               </div>
             </Card>

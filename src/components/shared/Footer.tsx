@@ -34,29 +34,27 @@ export function Footer({ footerLabels }: FooterProps) {
               <span>oberraies@gmail.com</span>
             </a>
           </div>
-          {/*<div className="mt-2 text-center md:text-left">
+          <div className="mt-2 text-center md:text-left">
             {labels.allRightsReserved}
-          </div>*/}
+          </div>
         </div>
 
-        <div className="flex space-x-4">
-          <Link href="mailto:oberraies@gmail.com" passHref legacyBehavior>
-            <a
-              aria-label="Envoyer un email"
-              className="text-muted-foreground hover:text-buttonCustom transition-colors duration-300 ease-in-out"
-            >
-              <Mail className="h-6 w-6" />
-            </a>
+        <div className="flex items-center space-x-2">
+          <Link
+            href="mailto:oberraies@gmail.com"
+            aria-label="Envoyer un email"
+            className="text-muted-foreground hover:text-buttonCustom transition-colors duration-300 ease-in-out p-2 rounded-md"
+          >
+            <Mail className="h-6 w-6" />
           </Link>
-          <Link href="https://www.linkedin.com/in/oussama-berraies" passHref legacyBehavior>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Profil LinkedIn d'Oussama Berraies"
-              className="text-muted-foreground hover:text-buttonCustom transition-colors duration-300 ease-in-out"
-            >
-              <Linkedin className="h-6 w-6" />
-            </a>
+          <Link
+            href="https://www.linkedin.com/in/oussama-berraies"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Profil LinkedIn d'Oussama Berraies"
+            className="text-muted-foreground hover:text-buttonCustom transition-colors duration-300 ease-in-out p-2 rounded-md"
+          >
+            <Linkedin className="h-6 w-6" />
           </Link>
         </div>
       </div>

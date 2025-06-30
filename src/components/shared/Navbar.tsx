@@ -31,6 +31,7 @@ export function Navbar({
 
   // Provide default values if props are undefined
   const navLinksLabels = navLinksLabelsFromProps || {};
+  console.log("Labels received by Navbar:", navLinksLabels); // Debug log
   const labels = navbarLabelsFromProps || {
     logoAlt: 'Oussama Berraies Logo',
     switchToEnglish: 'Switch to English',

@@ -4,14 +4,14 @@ import { getDictionary } from '@/lib/dictionaries';
 import { PageHeader } from '@/components/shared/PageHeader';
 import { QuizClient } from '@/components/quiz/QuizClient';
 
-interface PowerPivotQuizPageProps {
+interface PivotTablesQuizPageProps {
   params: { locale: Locale };
 }
 
-export default async function PowerPivotQuizPage({ params: { locale } }: PowerPivotQuizPageProps) {
+export default async function PivotTablesQuizPage({ params: { locale } }: PivotTablesQuizPageProps) {
   const dict = await getDictionary(locale);
   const t = dict.quizFormulasPage; // Can reuse the same translations for buttons, results, etc.
-  const quizData = dict.excelPowerPivotQuiz;
+  const quizData = dict.excelPivotTablesQuiz;
 
   return (
     <div>
